@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 36737133}
   - component: {fileID: 36737132}
   - component: {fileID: 36737131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SquareTest
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -378,7 +378,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.03, y: 3.48, z: -1.6582031}
   m_LocalScale: {x: 0.49610823, y: 0.738, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 540033453}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -394,6 +395,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b8c8ded4f5a2741bb1069ac36e9ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundPoint: {fileID: 540033453}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  forceMultiplier: 20
+  airForceMultiplier: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,5 +482,35 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &540033452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540033453}
+  m_Layer: 0
+  m_Name: GroundDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540033453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540033452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.11, y: -2.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 517380531}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
