@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Checks if player is grounded or not.
+    // Checks if player is grounded or not
     bool IsGrounded()
     {
         if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null) return true;
