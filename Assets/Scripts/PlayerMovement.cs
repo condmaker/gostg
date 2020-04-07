@@ -48,11 +48,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Adds a velocity with the horizontal axis player input.
-        // Needs to: 
-        //*IMP*    Increase gravity pull so it falls faster
-        //
-        // *IMP*    If player presses down on the keyboard/controller, the character will stop 
-        //          moving horizontally in the air.
         if (IsGrounded())
         {
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
@@ -105,8 +100,6 @@ public class PlayerMovement : MonoBehaviour
 
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.
-        // OBS: Need to do something so that jump does nothing when player has
-        // not yet landed.
         if (jumpBufferFlag >= 30)
         {
             if (!IsGrounded())
@@ -134,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Checks if player is grounded or not.
     bool IsGrounded()
     {
         if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null) return true;
