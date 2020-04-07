@@ -13,13 +13,14 @@ public class PlayerMovement : MonoBehaviour
     // Defines the normal Force Multiplier
     public float       forceMultiplier = 20.0f;
     public float       airForceMultiplier = 10.0f;
-    float              maxSpeed = 50.0f;
+    public float       maxSpeed = 50.0f;
 
     // A flag that defines the jump buffer
     ushort             jumpBufferFlag = 0;
 
-    // Bools
+    // Flags 
     bool               doubleJumpState = false;
+    bool               jumpState = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,37 +40,55 @@ public class PlayerMovement : MonoBehaviour
         Vector2 currentVelocity = playerBody.velocity;
         currentVelocity.x = movementVect;
 
-        // Adds a force with the horizontal axis player input.
+        // Verifies at the start of the frame if after jumping the "jump" button is still pressed
+        if (jumpState & !Input.GetButton("Jump"))
+        {
+            jumpState = false;
+            Debug.Log("Jump Released");
+        }
+
+        // Adds a velocity with the horizontal axis player input.
         // Needs to: 
         //*IMP*    Increase gravity pull so it falls faster
+        //
+        // *IMP*    If player presses down on the keyboard/controller, the character will stop 
+        //          moving horizontally in the air.
         if (IsGrounded())
         {
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
 
             if (doubleJumpState)
-            {
                 doubleJumpState = false;
-            }
         }
         else
         {
             if (hAxis != 0)
             {
+                // Adds the velocity according to horizontal Axis, a multiplier, and the Delta Time.
                 currentVelocity.x += hAxis * airForceMultiplier * Time.deltaTime;
+                // Limits the velocity so that the player does not fly away at high velocities.
                 currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
+
+                if (vAxis < 0)
+                    currentVelocity.x = 0;
+
+                playerBody.velocity = currentVelocity;
+            }
+
+            // If the player presses down, it stops him immediately on the air.
+            if (vAxis < 0)
+            {
+                currentVelocity.x = 0;
                 playerBody.velocity = currentVelocity;
             }
         }
 
-        // Observes if the Up Arrow is pressed and adds +1 to the flag in
+        // Observes if the Jump Button is pressed and adds +1 to the flag in
         // each frame.
-        //
-        // *IMP*    É preciso colocar um tempo para que o jumpBufferFlag itere novamente
-        //          após o pulo-- ver como colocar o timer.
-        if (!doubleJumpState)
+        if (!doubleJumpState && !jumpState)
         {
-            if (vAxis > 0)
+            if (Input.GetButton("Jump"))
             {
                 jumpBufferFlag += 1;
             }
@@ -82,34 +101,36 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpHeight(float vAxis)
     {
-        Debug.Log("Entered JState" + doubleJumpState);
+        Debug.Log("Entered D.J. State: " + doubleJumpState);
 
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.
         // OBS: Need to do something so that jump does nothing when player has
         // not yet landed.
-        if (jumpBufferFlag >= 25)
+        if (jumpBufferFlag >= 30)
         {
             if (!IsGrounded())
                 doubleJumpState = true;
 
             Debug.Log("Big Jump");
 
-            playerBody.velocity = new Vector2(0, 10);
+            playerBody.velocity = new Vector2(0, 20);
             jumpBufferFlag = 0;
+            jumpState = true;
         }
 
         // If the jump flag is equal or higher than 1 and the Up Arrow is NOT
         // pressed, the player will perform a short jump.
-        if (jumpBufferFlag >= 1 && (vAxis == 0))
+        if (jumpBufferFlag >= 1 && !Input.GetButton("Jump"))
         {
             if (!IsGrounded())
                 doubleJumpState = true;
 
             Debug.Log("Small Jump");
 
-            playerBody.velocity = new Vector2(0, 5);
+            playerBody.velocity = new Vector2(0, 10);
             jumpBufferFlag = 0;
+            jumpState = true;
         }
     }
 
