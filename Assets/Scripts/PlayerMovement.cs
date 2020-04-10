@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public             LayerMask groundLayer;
 
     // Defines the playerRigid body to add forces and control them
-    Rigidbody2D playerBody;
+    Rigidbody2D        playerBody;
+    Animator           playerAnim;
+    SpriteRenderer     playerSprite;
 
     // Defines the normal Force Multiplier
     public float       forceMultiplier = 20.0f;
@@ -25,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerBody = GetComponent<Rigidbody2D>();
+        playerBody =   GetComponent<Rigidbody2D>();
+        playerAnim =   GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -53,9 +57,25 @@ public class PlayerMovement : MonoBehaviour
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
 
-            if (doubleJumpState)
-                doubleJumpState = false;
+            // Changes the animations if the player is moving or not, flips sprite on X depending on
+            // direction
+            if (currentVelocity.x > 0)
+            {
+                playerSprite.flipX = false;
+                playerAnim.Play("ShikiRun");
+            }
+
+            else if (currentVelocity.x < 0)
+            {
+                playerSprite.flipX = true;
+                playerAnim.Play("ShikiRun");
+            }
+
+            else playerAnim.Play("ShikiIdle");
+
+            if (doubleJumpState) doubleJumpState = false;
         }
+
         else
         {
             if (hAxis != 0)
@@ -96,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpHeight(float vAxis)
     {
-        Debug.Log("Entered D.J. State: " + doubleJumpState);
+        //Debug.Log("Entered D.J. State: " + doubleJumpState);
 
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.

@@ -1,7 +1,85 @@
 fileFormatVersion: 2
 guid: 20554e801cb803842bc43ba675b01c4c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2074041794363335848
+    second: Shiki-Running-Sheet_0
+  - first:
+      213: 7689113846405975322
+    second: Shiki-Running-Sheet_1
+  - first:
+      213: 7887133438514994233
+    second: Shiki-Running-Sheet_2
+  - first:
+      213: 23380370896276113
+    second: Shiki-Running-Sheet_3
+  - first:
+      213: -4664124119412540563
+    second: Shiki-Running-Sheet_4
+  - first:
+      213: 3234239755170351753
+    second: Shiki-Running-Sheet_5
+  - first:
+      213: 5751317093908230447
+    second: Shiki-Running-Sheet_6
+  - first:
+      213: -4100555388687005876
+    second: Shiki-Running-Sheet_7
+  - first:
+      213: 4370318406168205850
+    second: Shiki-Running-Sheet_0
+  - first:
+      213: 2702440086206122272
+    second: Shiki-Running-Sheet_1
+  - first:
+      213: -8516130287167313747
+    second: Shiki-Running-Sheet_2
+  - first:
+      213: 5725888528324330291
+    second: Shiki-Running-Sheet_3
+  - first:
+      213: 8049514451321714872
+    second: Shiki-Running-Sheet_4
+  - first:
+      213: -4099871106563146400
+    second: Shiki-Running-Sheet_5
+  - first:
+      213: 1685551334627855163
+    second: Shiki-Running-Sheet_6
+  - first:
+      213: 278580084823265417
+    second: Shiki-Running-Sheet_7
+  - first:
+      213: 2743033897369379772
+    second: Shiki-Running-Sheet_8
+  - first:
+      213: -7216070749900242861
+    second: Shiki-Running-Sheet_9
+  - first:
+      213: 3519741385423756491
+    second: Shiki-Running-Sheet_10
+  - first:
+      213: 3192726118054355485
+    second: Shiki-Running-Sheet_11
+  - first:
+      213: -2437199904922056180
+    second: Shiki-Running-Sheet_12
+  - first:
+      213: -7314201853291610211
+    second: Shiki-Running-Sheet_13
+  - first:
+      213: -4802721588155362681
+    second: Shiki-Running-Sheet_14
+  - first:
+      213: 3160442775418929186
+    second: Shiki-Running-Sheet_15
+  - first:
+      213: -314532823618691499
+    second: Shiki-Running-Sheet_16
+  - first:
+      213: -6311531670523504790
+    second: Shiki-Running-Sheet_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +109,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +118,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +149,189 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ad10b7f6d76ac30800000000000000
+      internalID: 4370318406168205850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0298715b0fef08520800000000000000
+      internalID: 2702440086206122272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8627ccf90a0d980800000000000000
+      internalID: -8516130287167313747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333814a8741767f40800000000000000
+      internalID: 5725888528324330291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8776dcebe95bf60800000000000000
+      internalID: 8049514451321714872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d7a6c53f45a17c0800000000000000
+      internalID: -4099871106563146400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bcd272208446710800000000000000
+      internalID: 1685551334627855163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki-Running-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98093657c17bdd300800000000000000
+      internalID: 278580084823265417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
