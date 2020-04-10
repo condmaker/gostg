@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Variables that help determine if the player is grounded or not
     public             Transform groundPoint;
     public             LayerMask groundLayer;
 
@@ -17,10 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public float       airForceMultiplier = 10.0f;
     public float       maxSpeed = 50.0f;
 
-    // A flag that defines the jump buffer
-    ushort             jumpBufferFlag = 0;
+    public Vector2     currentVelocity;
 
-    // Flags 
+    public float       hAxis;
+    public float       vAxis;
+
+    // Flags
+    ushort             jumpBufferFlag = 0;
     bool               doubleJumpState = false;
     bool               jumpState = false;
 
@@ -36,12 +40,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Defines the Horizontal axis according to player input.
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
+        hAxis = Input.GetAxis("Horizontal");
+        vAxis = Input.GetAxis("Vertical");
 
         // Obtains the Movement Vector and calculates the x axis velocity with it
         float movementVect = hAxis * forceMultiplier;
-        Vector2 currentVelocity = playerBody.velocity;
+        currentVelocity = playerBody.velocity;
         currentVelocity.x = movementVect;
 
         // Verifies at the start of the frame if after jumping the "jump" button is still pressed
@@ -56,22 +60,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
-
-            // Changes the animations if the player is moving or not, flips sprite on X depending on
-            // direction
-            if (currentVelocity.x > 0)
-            {
-                playerSprite.flipX = false;
-                playerAnim.Play("ShikiRun");
-            }
-
-            else if (currentVelocity.x < 0)
-            {
-                playerSprite.flipX = true;
-                playerAnim.Play("ShikiRun");
-            }
-
-            else playerAnim.Play("ShikiIdle");
 
             if (doubleJumpState) doubleJumpState = false;
         }
@@ -148,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Checks if player is grounded or not
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null) return true;
 
