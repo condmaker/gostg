@@ -1,0 +1,515 @@
+fileFormatVersion: 2
+guid: 5a1f541ede947e643af8db8b9ad37b7b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5229562622326002071
+    second: Shiki_Idle_0
+  - first:
+      213: -3456097232808959359
+    second: Shiki_Idle_1
+  - first:
+      213: -6661851422505502552
+    second: Shiki_Idle_2
+  - first:
+      213: 7963358077250304760
+    second: Shiki_Idle_3
+  - first:
+      213: -5233741811668929765
+    second: Shiki_Idle_4
+  - first:
+      213: -439832391980068162
+    second: Shiki_Idle_5
+  - first:
+      213: 2858680574579141168
+    second: Shiki_Idle_6
+  - first:
+      213: 7755252014049170448
+    second: Shiki_Idle_7
+  - first:
+      213: 5376093168163602912
+    second: Shiki_Idle_8
+  - first:
+      213: -4164449763903390803
+    second: Shiki_Idle_9
+  - first:
+      213: -7315194242018730211
+    second: Shiki_Idle_10
+  - first:
+      213: -7883917783125711065
+    second: Shiki_Idle_11
+  - first:
+      213: 2759830366664196919
+    second: Shiki_Idle_12
+  - first:
+      213: -8374024503831322419
+    second: Shiki_Idle_13
+  - first:
+      213: 8746454190836613446
+    second: Shiki_Idle_14
+  - first:
+      213: -8564161231646960028
+    second: Shiki_Idle_15
+  - first:
+      213: -6838180909175293378
+    second: Shiki_Idle_16
+  - first:
+      213: -4685813905161390401
+    second: Shiki_Idle_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shiki_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791d6626f73239840800000000000000
+      internalID: 5229562622326002071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1822631c0e97900d0800000000000000
+      internalID: -3456097232808959359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8f02f5d695c83a0800000000000000
+      internalID: -6661851422505502552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fafdb5caf7838e60800000000000000
+      internalID: 7963358077250304760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b133d554d830e57b0800000000000000
+      internalID: -5233741811668929765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 148
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2515315c665e9f0800000000000000
+      internalID: -439832391980068162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a691e26d21ca720800000000000000
+      internalID: 2858680574579141168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01498012e9030ab60800000000000000
+      internalID: 7755252014049170448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1cbcfa048bb9a40800000000000000
+      internalID: 5376093168163602912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab34910107e436c0800000000000000
+      internalID: -4164449763903390803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f9d7d28953b7a90800000000000000
+      internalID: -7315194242018730211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 74
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727286a0c82b69290800000000000000
+      internalID: -7883917783125711065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7330b55a813ec4620800000000000000
+      internalID: 2759830366664196919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0a7bcc41d79cb80800000000000000
+      internalID: -8374024503831322419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6410b01feb5a16970800000000000000
+      internalID: 8746454190836613446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466d2841cbcf52980800000000000000
+      internalID: -8564161231646960028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 74
+        height: 74
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3abfbe71b6e911a0800000000000000
+      internalID: -6838180909175293378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

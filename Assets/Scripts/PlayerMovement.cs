@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log("Big Jump");
 
-            playerBody.velocity = new Vector2(0, 20);
+            playerBody.velocity = new Vector2(0, 250);
             jumpBufferFlag = 0;
             jumpState = true;
         }
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log("Small Jump");
 
-            playerBody.velocity = new Vector2(0, 10);
+            playerBody.velocity = new Vector2(0, 150);
             jumpBufferFlag = 0;
             jumpState = true;
         }
