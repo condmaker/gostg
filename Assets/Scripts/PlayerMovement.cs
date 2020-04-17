@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     // Defines the playerRigid body to add forces and control them
     Rigidbody2D        playerBody;
     Animator           playerAnim;
-    SpriteRenderer     playerSprite;
+    SpriteRenderer     playerSprite;  
 
     // Defines the normal Force Multiplier
     public float       forceMultiplier = 20.0f;
     public float       airForceMultiplier = 10.0f;
     public float       maxSpeed = 50.0f;
+    public float       smallJumpSpeed = 150;
+    public float       bigJumpSpeed = 250;
 
     public Vector2     currentVelocity;
 
@@ -28,12 +30,19 @@ public class PlayerMovement : MonoBehaviour
     bool               doubleJumpState = false;
     bool               jumpState = false;
 
+    // Colliders to change on air/ground
+    public CapsuleCollider2D groundCollider;
+    public BoxCollider2D airCollider;
+
     // Start is called before the first frame update
     void Start()
     {
         playerBody =   GetComponent<Rigidbody2D>();
         playerAnim =   GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
+
+        groundCollider = GetComponent<CapsuleCollider2D>();
+        airCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -55,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Jump Released");
         }
 
+        // 
+        airCollider.enabled = !IsGrounded();
+        groundCollider.enabled = IsGrounded();
+
         // Adds a velocity with the horizontal axis player input.
         if (IsGrounded())
         {
@@ -63,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (doubleJumpState) doubleJumpState = false;
         }
-
         else
         {
             if (hAxis != 0)
@@ -115,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log("Big Jump");
 
-            playerBody.velocity = new Vector2(0, 250);
+            playerBody.velocity = new Vector2(0, bigJumpSpeed);
             jumpBufferFlag = 0;
             jumpState = true;
         }
@@ -129,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log("Small Jump");
 
-            playerBody.velocity = new Vector2(0, 150);
+            playerBody.velocity = new Vector2(0, smallJumpSpeed);
             jumpBufferFlag = 0;
             jumpState = true;
         }

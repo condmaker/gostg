@@ -24,13 +24,15 @@ public class PlayerAnimTrack : MonoBehaviour
             // direction
             if (playerMove.currentVelocity.x > 0)
             {
+                if (transform.right.x < 0)
                 transform.rotation = Quaternion.identity;
                 playerAnim.Play("ShikiRun");
             }
 
             else if (playerMove.currentVelocity.x < 0)
             {
-                transform.rotation = transform.rotation = Quaternion.Euler(0, 180, 0);
+                if (transform.right.x > 0)
+                    transform.rotation = transform.rotation = Quaternion.Euler(0, 180, 0);
                 playerAnim.Play("ShikiRun");
             }
 
