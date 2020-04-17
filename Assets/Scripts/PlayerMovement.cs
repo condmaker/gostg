@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     // Variables that help determine if the player is grounded or not
     public             Transform groundPoint;
+    public             Transform groundPointLeft;
+    public             Transform groundPointRight;
     public             LayerMask groundLayer;
 
     // Defines the playerRigid body to add forces and control them
@@ -64,10 +66,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Jump Released");
         }
 
-        // 
-        airCollider.enabled = !IsGrounded();
-        groundCollider.enabled = IsGrounded();
-
+   
         // Adds a velocity with the horizontal axis player input.
         if (IsGrounded())
         {
@@ -150,7 +149,9 @@ public class PlayerMovement : MonoBehaviour
     // Checks if player is grounded or not
     public bool IsGrounded()
     {
-        if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null) return true;
+        if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null)      return true;
+        if (Physics2D.OverlapCircle(groundPointRight.position, 0.1f, groundLayer) != null) return true;
+        if (Physics2D.OverlapCircle(groundPointLeft.position, 0.1f, groundLayer) != null)  return true;
 
         return false;
     }
