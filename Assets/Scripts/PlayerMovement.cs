@@ -10,11 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public             Transform groundPointRight;
     public             LayerMask groundLayer;
 
-    // Defines the playerRigid body to add forces and control them
-    Rigidbody2D        playerBody;
-    Animator           playerAnim;
-    SpriteRenderer     playerSprite;  
-
     // Defines the normal Force Multiplier
     public float       forceMultiplier = 20.0f;
     public float       airForceMultiplier = 10.0f;
@@ -22,33 +17,37 @@ public class PlayerMovement : MonoBehaviour
     public float       smallJumpSpeed = 150;
     public float       bigJumpSpeed = 250;
 
+    public Vector3     groundDetectorPos = new Vector3(-24f, -0.8f, 0f);
     public Vector2     currentVelocity;
 
     public float       hAxis;
     public float       vAxis;
 
+    // Colliders to change on air/ground
+    public BoxCollider2D groundUpCollider;
+    public BoxCollider2D groundDownCollider;
+    public BoxCollider2D airCollider;
+
+    // Defines the playerRigid body to add forces and control them
+    Rigidbody2D playerBody;
+    Animator playerAnim;
+    SpriteRenderer playerSprite;
+
     // Flags
-    ushort             jumpBufferFlag = 0;
+    ushort             jumpFlag = 0;
     bool               doubleJumpState = false;
     bool               jumpState = false;
-
-    // Colliders to change on air/ground
-    public CapsuleCollider2D groundCollider;
-    public BoxCollider2D airCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerBody =   GetComponent<Rigidbody2D>();
-        playerAnim =   GetComponent<Animator>();
-        playerSprite = GetComponent<SpriteRenderer>();
+        playerBody =     GetComponent<Rigidbody2D>();
+        playerAnim =     GetComponent<Animator>();
+        playerSprite =   GetComponent<SpriteRenderer>();
 
-        groundCollider = GetComponent<CapsuleCollider2D>();
-        airCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Defines the Horizontal axis according to player input.
         hAxis = Input.GetAxis("Horizontal");
@@ -66,10 +65,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Jump Released");
         }
 
-   
+
         // Adds a velocity with the horizontal axis player input.
         if (IsGrounded())
         {
+            // Switches to ground-based colliders
+            ColliderSwitch(false);
+
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
 
@@ -77,6 +79,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // Switches to air-based colliders
+            ColliderSwitch(true);
+
             if (hAxis != 0)
             {
                 // Adds the velocity according to horizontal Axis, a multiplier, and the Delta Time.
@@ -104,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButton("Jump"))
             {
-                jumpBufferFlag += 1;
+                jumpFlag += 1;
             }
 
             JumpHeight(vAxis);
@@ -113,13 +118,38 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("H/V Axis:" + hAxis + " " + vAxis);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+    
+    }
+
+    // Switches the ground-based and air-based colliders
+    void ColliderSwitch(bool status)
+    {
+        if (status)
+        {
+            airCollider.enabled = true;
+            groundPointLeft.position = groundPoint.position;
+
+            groundDownCollider.enabled = false;
+            groundUpCollider.enabled =   false;
+        }
+        else
+        {
+            airCollider.enabled = false;
+            groundPointLeft.localPosition = groundDetectorPos;
+
+            groundDownCollider.enabled = true;
+            groundUpCollider.enabled =   true;
+        }
+    }
+
     void JumpHeight(float vAxis)
     {
-        //Debug.Log("Entered D.J. State: " + doubleJumpState);
-
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.
-        if (jumpBufferFlag >= 30)
+        if (jumpFlag >= 10)
         {
             if (!IsGrounded())
                 doubleJumpState = true;
@@ -127,13 +157,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Big Jump");
 
             playerBody.velocity = new Vector2(0, bigJumpSpeed);
-            jumpBufferFlag = 0;
+            jumpFlag = 0;
             jumpState = true;
         }
 
         // If the jump flag is equal or higher than 1 and the Up Arrow is NOT
         // pressed, the player will perform a short jump.
-        if (jumpBufferFlag >= 1 && !Input.GetButton("Jump"))
+        if (jumpFlag >= 1 && !Input.GetButton("Jump"))
         {
             if (!IsGrounded())
                 doubleJumpState = true;
@@ -141,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Small Jump");
 
             playerBody.velocity = new Vector2(0, smallJumpSpeed);
-            jumpBufferFlag = 0;
+            jumpFlag = 0;
             jumpState = true;
         }
     }
