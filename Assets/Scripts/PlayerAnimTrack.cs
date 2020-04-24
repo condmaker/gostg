@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimTrack : MonoBehaviour
 {
+    // TODO - Remove this whole script and implement animations directly on the needed scripts
+
     // Defines the playerRigid body to add forces and control them
     PlayerMovement     playerMove;
     Animator           playerAnim;
@@ -37,6 +39,11 @@ public class PlayerAnimTrack : MonoBehaviour
             }
 
             else playerAnim.Play("ShikiIdle");
+        }
+        else
+        {
+            // RE-DO Jump
+            playerAnim.Play("ShikiJump");
         }
     }
 }
