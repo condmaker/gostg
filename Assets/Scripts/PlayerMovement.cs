@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    // Using fixed update because of the heavy reliance on velocity manipulation.
     void FixedUpdate()
     {
         // Defines the Horizontal axis according to player input.
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             if (hAxis != 0)
             {
                 // Adds the velocity according to horizontal Axis, a multiplier, and the Delta Time.
-                currentVelocity.x += hAxis * airForceMultiplier * Time.deltaTime;
+                currentVelocity.x += hAxis * airForceMultiplier * Time.fixedDeltaTime;
                 // Limits the velocity so that the player does not fly away at high velocities.
                 currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
 
@@ -112,19 +113,16 @@ public class PlayerMovement : MonoBehaviour
                 jumpFlag += 1;
             }
 
-            JumpHeight(vAxis);
+            JumpHeight();
         }
 
         //Debug.Log("H/V Axis:" + hAxis + " " + vAxis);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-
-    // Switches the ground-based and air-based colliders
+    /// <summary>
+    /// Switches colliders based on if the player is grounded or not
+    /// </summary>
+    /// <param name="status">Boolean verification. True = On Ground / False = On Air</param>
     void ColliderSwitch(bool status)
     {
         if (status)
@@ -145,7 +143,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void JumpHeight(float vAxis)
+    /// <summary>
+    /// Utilizing the jump flags, verifies if the player made a Big or Small jump, and executes it
+    /// </summary>
+    void JumpHeight()
     {
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.
@@ -176,7 +177,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Checks if player is grounded or not
+    /// <summary>
+    /// Checks if player is grounded or not
+    /// </summary>
+    /// <returns>Boolean</returns>
     public bool IsGrounded()
     {
         if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundLayer) != null)      return true;
