@@ -27,7 +27,6 @@ public class PlayerAttack : MonoBehaviour
         {
             Attack("Q", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
         }
-
     }
 
     /// <summary>
