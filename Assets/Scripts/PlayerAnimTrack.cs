@@ -8,6 +8,7 @@ public class PlayerAnimTrack : MonoBehaviour
 
     // Defines the playerRigid body to add forces and control them
     PlayerMovement     playerMove;
+    PlayerAttack       playerAtk;
     Animator           playerAnim;
 
     // Start is called before the first frame update
@@ -15,11 +16,18 @@ public class PlayerAnimTrack : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMovement>();
         playerAnim = GetComponent<Animator>();
+        playerAtk = GetComponent<PlayerAttack>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        playerAnim.SetBool("isGrounded", playerMove.IsGrounded());
+        playerAnim.SetBool("doubleJumpState", playerMove.doubleJumpState);
+        playerAnim.SetFloat("velY", playerMove.currentVelocity.y);
+        playerAnim.SetFloat("velX", playerMove.currentVelocity.x);
+
         if (playerMove.IsGrounded())
         {
             // Changes the animations if the player is moving or not, flips sprite on X depending on
@@ -27,7 +35,8 @@ public class PlayerAnimTrack : MonoBehaviour
             if (playerMove.currentVelocity.x > 0)
             {
                 if (transform.right.x < 0)
-                transform.rotation = Quaternion.identity;
+                    transform.rotation = Quaternion.identity;
+
                 playerAnim.Play("ShikiRun");
             }
 
@@ -35,15 +44,14 @@ public class PlayerAnimTrack : MonoBehaviour
             {
                 if (transform.right.x > 0)
                     transform.rotation = transform.rotation = Quaternion.Euler(0, 180, 0);
+
                 playerAnim.Play("ShikiRun");
             }
 
-            else playerAnim.Play("ShikiIdle");
-        }
-        else
-        {
-            // RE-DO Jump
-            playerAnim.Play("ShikiJump");
+            else
+            {
+                if (!playerAtk.attackFlag) playerAnim.Play("ShikiIdle");
+            }
         }
     }
 }

@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 304031532}
   - component: {fileID: 304031533}
   - component: {fileID: 304031530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,13 +1964,16 @@ MonoBehaviour:
   maxSpeed: 500
   smallJumpSpeed: 150
   bigJumpSpeed: 260
-  groundDetectorPos: {x: -24, y: -0.8, z: 0}
+  groundDetectorPos: {x: -24, y: -35, z: 0}
   currentVelocity: {x: 0, y: 0}
   hAxis: 0
   vAxis: 0
   groundUpCollider: {fileID: 304031525}
   groundDownCollider: {fileID: 304031532}
   airCollider: {fileID: 304031533}
+  playerBody: {fileID: 0}
+  doubleJumpState: 0
+  jumpState: 0
 --- !u!212 &304031528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2135,6 +2138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f09f3466ad434a9faacd046a8d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTime: 0.45
+  attackFlag: 0
 --- !u!114 &403491880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,7 +2287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.96252, y: 40.499985, z: -10}
+  m_LocalPosition: {x: -30.965023, y: 40.499985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4026,7 +4031,7 @@ GameObject:
   - component: {fileID: 1187408913}
   - component: {fileID: 1187408912}
   - component: {fileID: 1187408914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Puppet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7344,7 +7349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864388678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.96252, y: 40.499985, z: -10}
+  m_LocalPosition: {x: -30.965023, y: 40.499985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1067351176}

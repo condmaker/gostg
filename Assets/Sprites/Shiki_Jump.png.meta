@@ -41,6 +41,48 @@ TextureImporter:
   - first:
       213: -2729374675525897579
     second: Shiki_Jump_12
+  - first:
+      213: -5801364915505144655
+    second: Shiki_Jump_8
+  - first:
+      213: 3320926107201371828
+    second: Shiki_Jump_9
+  - first:
+      213: 548059239043152388
+    second: Shiki_Jump_10
+  - first:
+      213: 1374924279665198660
+    second: Shiki_Jump_11
+  - first:
+      213: -2449536849802752711
+    second: Shiki_Jump_12
+  - first:
+      213: -5434387539870507002
+    second: Shiki_Jump_13
+  - first:
+      213: -7652353170497704755
+    second: Shiki_Jump_14
+  - first:
+      213: 1439764711467701336
+    second: Shiki_Jump_15
+  - first:
+      213: -1135440808722978373
+    second: Shiki_Jump_16
+  - first:
+      213: -6838760229353787873
+    second: Shiki_Jump_17
+  - first:
+      213: 5042636472578386286
+    second: Shiki_Jump_18
+  - first:
+      213: 2424570798421334174
+    second: Shiki_Jump_19
+  - first:
+      213: -6360347999177673021
+    second: Shiki_Jump_20
+  - first:
+      213: -5770394816452401348
+    second: Shiki_Jump_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -163,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -184,7 +226,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -205,7 +247,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -226,7 +268,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -247,7 +289,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -268,7 +310,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -289,7 +331,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -301,111 +343,6 @@ TextureImporter:
       bones: []
       spriteID: 3fb879ebecd9a09b0800000000000000
       internalID: -5113100915639350285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shiki_Jump_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7007c877b96f2240800000000000000
-      internalID: 4769146767134883966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shiki_Jump_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c374075f925c9ebb0800000000000000
-      internalID: -4906173535041337540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shiki_Jump_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75d2c275138f1d410800000000000000
-      internalID: 1500253041690684759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shiki_Jump_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8861f55750c4c470800000000000000
-      internalID: 8414061485171501195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shiki_Jump_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 592f45681305f1ad0800000000000000
-      internalID: -2729374675525897579
       vertices: []
       indices: 
       edges: []

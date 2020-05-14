@@ -29,19 +29,21 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D airCollider;
 
     // Defines the playerRigid body to add forces and control them
-    Rigidbody2D playerBody;
+    public Rigidbody2D playerBody;
     Animator playerAnim;
     SpriteRenderer playerSprite;
+    PlayerAttack   playerAtk;
 
     // Flags
     ushort             jumpFlag = 0;
-    bool               doubleJumpState = false;
-    bool               jumpState = false;
+    public bool        doubleJumpState = false;
+    public bool        jumpState = false;
 
     // Start is called before the first frame update
     void Start()
     {
         playerBody =     GetComponent<Rigidbody2D>();
+        playerAtk =      GetComponent<PlayerAttack>();
         playerAnim =     GetComponent<Animator>();
         playerSprite =   GetComponent<SpriteRenderer>();
 
@@ -55,9 +57,16 @@ public class PlayerMovement : MonoBehaviour
         vAxis = Input.GetAxis("Vertical");
 
         // Obtains the Movement Vector and calculates the x axis velocity with it
-        float movementVect = hAxis * forceMultiplier;
-        currentVelocity = playerBody.velocity;
-        currentVelocity.x = movementVect;
+        if (!playerAtk.attackFlag)
+        {
+            float movementVect = hAxis * forceMultiplier;
+            currentVelocity = playerBody.velocity;
+            currentVelocity.x = movementVect;
+        }
+        else
+        {
+            currentVelocity = new Vector2(0, 0);
+        }
 
         // Verifies at the start of the frame if after jumping the "jump" button is still pressed
         if (jumpState & !Input.GetButton("Jump"))
