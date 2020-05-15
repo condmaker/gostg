@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
 
         if ((attackTime <= 0) && (playerAttack != null))
         {
-            attackTime = 0.45f;
+            attackTime = 0.46f;
             attackFlag = false;
 
             Destroy(playerAttack);

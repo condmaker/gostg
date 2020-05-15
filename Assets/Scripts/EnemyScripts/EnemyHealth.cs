@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthscprit : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    public int EnemyHealth = 50;
+    public int enemyHealth = 50;
     public Slider slider;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class EnemyHealthscprit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = EnemyHealth;
+        slider.value = enemyHealth;
     }
 }

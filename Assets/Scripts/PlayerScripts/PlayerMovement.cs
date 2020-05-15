@@ -30,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
 
     // Defines the playerRigid body to add forces and control them
     public Rigidbody2D playerBody;
-    Animator playerAnim;
-    SpriteRenderer playerSprite;
-    PlayerAttack   playerAtk;
+    Animator           playerAnim;
+    SpriteRenderer     playerSprite;
+    PlayerAttack       playerAtk;
+    HealthPoints       hp;
 
     // Flags
     ushort             jumpFlag = 0;
@@ -47,11 +48,26 @@ public class PlayerMovement : MonoBehaviour
         playerAnim =     GetComponent<Animator>();
         playerSprite =   GetComponent<SpriteRenderer>();
 
+        hp =             GetComponent<HealthPoints>();
+
+        hp.onDead += OnDead;
+        hp.onHit += OnHit;
+
     }
 
     // Using fixed update because of the heavy reliance on velocity manipulation.
     void FixedUpdate()
     {
+        if (hp.hp == 0)
+        {
+            return;
+        }
+
+        if (hp.isInvul)
+        {
+            return;
+        }
+
         // Defines the Horizontal axis according to player input.
         hAxis = Input.GetAxis("Horizontal");
         vAxis = Input.GetAxis("Vertical");
@@ -74,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
             jumpState = false;
             Debug.Log("Jump Released");
         }
-
 
         // Adds a velocity with the horizontal axis player input.
         if (IsGrounded())
@@ -155,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Utilizing the jump flags, verifies if the player made a Big or Small jump, and executes it
     /// </summary>
-    void JumpHeight()
+    private void JumpHeight()
     {
         // If the jump flag is equal or higher than 25, the player will perform
         // a high jump. The program then resets the jump flag.
@@ -186,6 +201,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnDead()
+    {
+        Debug.Log("Death.");
+
+        playerBody.velocity = new Vector2(0, 200f); 
+    }
+
+    private void OnHit()
+    {
+        Debug.Log("Hit!");
+
+        // Animation Trigger here
+        if (transform.rotation == Quaternion.identity)
+            playerBody.velocity = new Vector2(-100f, 100f);
+
+        else if (transform.rotation == Quaternion.Euler(0, 180, 0))
+            playerBody.velocity = new Vector2(100f, 100f);
+    }
+
     /// <summary>
     /// Checks if player is grounded or not
     /// </summary>
@@ -197,5 +231,10 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapCircle(groundPointLeft.position, 0.1f, groundLayer) != null)  return true;
 
         return false;
+    }
+
+    void onDestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

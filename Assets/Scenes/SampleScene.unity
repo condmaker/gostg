@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 304031532}
   - component: {fileID: 304031533}
   - component: {fileID: 304031530}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Shiki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2138,7 +2138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f09f3466ad434a9faacd046a8d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTime: 0.45
+  attackTime: 0.46
   attackFlag: 0
 --- !u!114 &403491880
 MonoBehaviour:
@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ba287149427e8438f9f003d436a91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 50
+  enemyHealth: 50
   slider: {fileID: 920979242}
 --- !u!1 &1266854260
 GameObject:

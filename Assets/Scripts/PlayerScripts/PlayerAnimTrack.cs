@@ -32,7 +32,7 @@ public class PlayerAnimTrack : MonoBehaviour
         {
             // Changes the animations if the player is moving or not, flips sprite on X depending on
             // direction
-            if (playerMove.currentVelocity.x > 0)
+            if ((playerMove.currentVelocity.x > 0) && !playerAtk.attackFlag)
             {
                 if (transform.right.x < 0)
                     transform.rotation = Quaternion.identity;
@@ -40,10 +40,10 @@ public class PlayerAnimTrack : MonoBehaviour
                 playerAnim.Play("ShikiRun");
             }
 
-            else if (playerMove.currentVelocity.x < 0)
+            else if ((playerMove.currentVelocity.x < 0) && !playerAtk.attackFlag)
             {
                 if (transform.right.x > 0)
-                    transform.rotation = transform.rotation = Quaternion.Euler(0, 180, 0);
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
 
                 playerAnim.Play("ShikiRun");
             }
