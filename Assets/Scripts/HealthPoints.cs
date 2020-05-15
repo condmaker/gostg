@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthPoints : MonoBehaviour
 {
     public float       hp = 100;
     public float       invulTime = 0.5f;
     public bool        isInvul = false;
+    public Slider slider;
 
     public delegate void OnDead();
     public event OnDead onDead;
@@ -19,6 +21,7 @@ public class HealthPoints : MonoBehaviour
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
+        slider = GameObject.Find("SliderPlayer").GetComponent<Slider>();
     }
 
     void Update()
@@ -45,6 +48,7 @@ public class HealthPoints : MonoBehaviour
             isInvul = true;
 
             onHit();
+            slider.value  = hp;
         }
 
         if (hp <= 0)
