@@ -5,42 +5,41 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Variables that help determine if the player is grounded or not
-    public             Transform groundPoint;
-    public             Transform groundPointLeft;
-    public             Transform groundPointRight;
-    public             LayerMask groundLayer;
+    [SerializeField]             Transform groundPoint;
+    [SerializeField]             Transform groundPointLeft;
+    [SerializeField]             Transform groundPointRight;
+    [SerializeField]             LayerMask groundLayer;
 
     // Defines the normal Force Multiplier
-    public float       forceMultiplier = 20.0f;
-    public float       airForceMultiplier = 10.0f;
-    public float       maxSpeed = 50.0f;
-    public float       smallJumpSpeed = 150;
-    public float       bigJumpSpeed = 250;
+    [SerializeField] float       forceMultiplier = 20.0f;
+    [SerializeField] float       airForceMultiplier = 10.0f;
+    [SerializeField] float       maxSpeed = 50.0f;
+    [SerializeField] float       smallJumpSpeed = 150;
+    [SerializeField] float       bigJumpSpeed = 250;
 
-    public Vector3     groundDetectorPos = new Vector3(-24f, -0.8f, 0f);
-    public Vector2     currentVelocity;
+    [SerializeField] Vector3     groundDetectorPos = new Vector3(-24f, -0.8f, 0f);
+    public Vector2               currentVelocity;
 
-    public float       hAxis;
-    public float       vAxis;
+    [SerializeField] float       hAxis;
+    [SerializeField] float       vAxis;
 
     // Colliders to change on air/ground
-    public BoxCollider2D groundUpCollider;
-    public BoxCollider2D groundDownCollider;
-    public BoxCollider2D airCollider;
+    [SerializeField] BoxCollider2D groundUpCollider;
+    [SerializeField] BoxCollider2D groundDownCollider;
+    [SerializeField] BoxCollider2D airCollider;
 
     // Defines the playerRigid body to add forces and control them
-    public Rigidbody2D playerBody;
-    Animator           playerAnim;
-    SpriteRenderer     playerSprite;
-    PlayerAttack       playerAtk;
-    HealthPoints       hp;
+    [SerializeField] Rigidbody2D playerBody;
+    Animator                     playerAnim;
+    SpriteRenderer               playerSprite;
+    PlayerAttack                 playerAtk;
+    HealthPoints                 hp;
 
     // Flags
-    ushort             jumpFlag = 0;
-    public bool        doubleJumpState = false;
-    public bool        jumpState = false;
+    ushort                       jumpFlag = 0;
+    public bool                  doubleJumpState = false;
+    [SerializeField] bool        jumpState = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerBody =     GetComponent<Rigidbody2D>();
@@ -55,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Using fixed update because of the heavy reliance on velocity manipulation.
     void FixedUpdate()
     {
         if (hp.hp == 0)
@@ -125,6 +123,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentVelocity.x = 0;
                 playerBody.velocity = currentVelocity;
+            }
+
+            // Switches velocity when character is falling
+            if (currentVelocity.y <= 0)
+            {
+                playerBody.gravityScale = 100;
+            }
+            else
+            {
+                playerBody.gravityScale = 50;
             }
         }
 
@@ -201,6 +209,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Event that triggers when player dies. Needs an death animation.
+    /// </summary>
     private void OnDead()
     {
         Debug.Log("Death.");
@@ -208,6 +219,9 @@ public class PlayerMovement : MonoBehaviour
         playerBody.velocity = new Vector2(0, 200f); 
     }
 
+    /// <summary>
+    /// Event that triggers when player gets hit. Needs an hit animation.
+    /// </summary>
     private void OnHit()
     {
         Debug.Log("Hit!");

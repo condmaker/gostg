@@ -415,6 +415,7 @@ MonoBehaviour:
   hp: 100
   invulTime: 0.5
   isInvul: 0
+  slider: {fileID: 0}
   playerBody: {fileID: 0}
 --- !u!212 &215465595841603036
 SpriteRenderer:
