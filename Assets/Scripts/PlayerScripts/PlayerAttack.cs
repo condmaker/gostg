@@ -90,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (!attackFlag && (comboStringCounter > 0) && (comboDowntime <= 0))
+        if (!attackFlag && (comboStringCounter > 0))
         {
             comboStringCounter = 3;
             comboEndFlag = false;
