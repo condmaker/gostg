@@ -64,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
         // Verifies if the button is pressed and if there is no animation playing
         // IMP - Need to figure out how to implement the buffer
         // IMP - Need to implement the rest of the attacks
-        if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath"))
+        if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && comboStringCounter > 0)
         {
             // Q Attack
             if (currentAttack != CurrentAttack.QGroundAttack)
