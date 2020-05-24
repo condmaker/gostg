@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
                 jumpFlag += 1;
             }
 
-            JumpHeight();
+            if (!playerAtk.attackFlag) JumpHeight();
         }
 
         //Debug.Log("H/V Axis:" + hAxis + " " + vAxis);
@@ -216,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Death.");
 
-        playerBody.velocity = new Vector2(0, 200f); 
+        playerAnim.SetBool("shikiDeath", true);
     }
 
     /// <summary>
@@ -227,6 +227,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Hit!");
 
         // Animation Trigger here
+        playerAnim.SetTrigger("shikiHit");
+
         if (transform.rotation == Quaternion.identity)
             playerBody.velocity = new Vector2(-100f, 100f);
 

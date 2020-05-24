@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: b4c8236615d2e1247ab48abb9e79d682
+guid: a097f5e7fd8bd2d48a42e91baf05b8f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3019424127853119141
-    second: line_0
+      213: -1004647075698624028
+    second: Shiki_Hit_0
   - first:
-      213: -2983801191155921686
-    second: line_1
+      213: -1547126117107579280
+    second: Shiki_Hit_1
   - first:
-      213: 2827070441461746612
-    second: line_2
+      213: 4155129473475675761
+    second: Shiki_Hit_2
   - first:
-      213: -2956027928350987577
-    second: line_3
+      213: 7356451326623905252
+    second: Shiki_Hit_3
   - first:
-      213: 3257298273032107962
-    second: line_4
+      213: 6176483694385159829
+    second: Shiki_Hit_4
+  - first:
+      213: 8676860085318873095
+    second: Shiki_Hit_5
+  - first:
+      213: 8928917117647287003
+    second: Shiki_Hit_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -79,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,19 +97,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: line_0
+      name: Shiki_Hit_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 4
-        width: 44
-        height: 100
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +122,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b593219d0c9d816d0800000000000000
-      internalID: -3019424127853119141
+      spriteID: 4e93958bec6ce02f0800000000000000
+      internalID: -1004647075698624028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_1
+      name: Shiki_Hit_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 4
-        width: 44
-        height: 101
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aec83c020a86796d0800000000000000
-      internalID: -2983801191155921686
+      spriteID: 076c2175ef0878ae0800000000000000
+      internalID: -1547126117107579280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_2
+      name: Shiki_Hit_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 2
-        width: 44
-        height: 105
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bb855a8695cb3720800000000000000
-      internalID: 2827070441461746612
+      spriteID: 1760646cd3cf9a930800000000000000
+      internalID: 4155129473475675761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_3
+      name: Shiki_Hit_3
       rect:
         serializedVersion: 2
-        x: 201
-        y: 5
-        width: 44
-        height: 100
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ca6188c2441af6d0800000000000000
-      internalID: -2956027928350987577
+      spriteID: 4e57ed2618d571660800000000000000
+      internalID: 7356451326623905252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_4
+      name: Shiki_Hit_4
       rect:
         serializedVersion: 2
-        x: 264
-        y: 5
-        width: 46
-        height: 100
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +206,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab7729b758f343d20800000000000000
-      internalID: 3257298273032107962
+      spriteID: 59ed1d4123747b550800000000000000
+      internalID: 6176483694385159829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Hit_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700723f86466a6870800000000000000
+      internalID: 8676860085318873095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shiki_Hit_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd27542afc2e9eb70800000000000000
+      internalID: 8928917117647287003
       vertices: []
       indices: 
       edges: []

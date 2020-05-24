@@ -5,14 +5,21 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     // Normal variables
-    GameObject        playerAttack;
-    BoxCollider2D     attackHitbox;
+    GameObject           playerAttack;
+    BoxCollider2D        attackHitbox;
 
-    public float      attackTime = 1f;
-    public bool       attackFlag = false;
+    public float         attackTime = 0.28f;
+    public bool          attackFlag = false;
+    public CurrentAttack currentAttack = CurrentAttack.None;
+    
+    public bool          buttonPressedW = false;
+    public float         attackHoldTimeW = 0.5f;
+    public bool          buttonPressedQ = false;
+    public float         attackHoldTimeQ = 0.5f;
 
-    Animator          playerAnim;
-    PlayerMovement    playerMove;
+
+    Animator             playerAnim;
+    PlayerMovement       playerMove;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +31,13 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerAnim.SetBool("attackW", attackFlag);
+        // Bools for all possible attacks
+        playerAnim.SetBool("attackQ",  currentAttack == CurrentAttack.QGroundAttack);
+        playerAnim.SetBool("attackW",  currentAttack == CurrentAttack.WGroundAttack);
+        playerAnim.SetBool("attackE",  currentAttack == CurrentAttack.EGroundAttack);
+        playerAnim.SetBool("attackR",  currentAttack == CurrentAttack.RGroundAttack);
+        playerAnim.SetBool("attackQC", currentAttack == CurrentAttack.QCGroundAttack);
+        playerAnim.SetBool("attackEC", currentAttack == CurrentAttack.ECGroundAttack);
 
         if (attackFlag)
         {
@@ -33,8 +46,9 @@ public class PlayerAttack : MonoBehaviour
 
         if ((attackTime <= 0) && (playerAttack != null))
         {
-            attackTime = 0.46f;
+            attackTime = 0.38f;
             attackFlag = false;
+            currentAttack = 0;
 
             Destroy(playerAttack);
         }
@@ -45,14 +59,95 @@ public class PlayerAttack : MonoBehaviour
         // Verifies if the button is pressed and if there is no animation playing
         // IMP - Need to figure out how to implement the buffer
         // IMP - Need to implement the rest of the attacks
-        if (playerMove.IsGrounded())
+        if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath"))
         {
-            if (Input.GetButtonDown("Fire1") && !attackFlag)
-            {
-                Attack("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
-            }
+            // W Attack
+            BufferAttackGround("Fire1", buttonPressedW, 1);
+
+            // Q Attack
+            BufferAttackGround("Fire2", buttonPressedQ, 0);
         }
          
+    }
+
+    private void BufferAttackGround(string Fire, bool buttonPressed, ushort attackIdentif)
+    {
+        float attackHoldTime = 0.5f;
+
+        switch (attackIdentif)
+        {
+            case 0:
+                attackHoldTime = attackHoldTimeQ;
+                break;
+            case 1:
+                attackHoldTime = attackHoldTimeW;
+                break;
+            case 2:
+                //E
+                break;
+            case 3:
+                //R
+                break;
+        }
+
+        if (Input.GetButtonUp(Fire))
+        {
+            buttonPressed = false;
+            Debug.Log("Giant Dog");
+        }
+
+        if (Input.GetButton(Fire))
+        {
+            if (!buttonPressed) buttonPressed = true;
+
+            if (buttonPressed) attackHoldTime -= Time.deltaTime;
+        }
+
+        if (!attackFlag)
+        {
+            if ((attackHoldTime > 0f) && (attackHoldTime < 0.5f) && !buttonPressed)
+            {
+                switch (attackIdentif)
+                {
+                    case 0:
+                        AttackGround("Q", new Vector2(30, 34), new Vector2(-14f, -6f), new Vector3(48f, 0f, 0));
+                        break;
+                    case 1:
+                        AttackGround("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
+                        break;
+                    case 2:
+                        //AttackGround(E)
+                        break;
+                    case 3:
+                        //AttackGround(W)
+                        break;
+                }
+                
+                attackHoldTime = 0.5f;
+            }
+            else if (attackHoldTime <= 0f && !buttonPressed)
+            {
+                Debug.Log("Hold!");
+                attackHoldTime = 0.5f;
+                //AttackGround("Heavy",) com switch
+            }
+        }
+
+        switch (attackIdentif)
+        {
+            case 0:
+                attackHoldTimeQ = attackHoldTime;
+                break;
+            case 1:
+                attackHoldTimeW = attackHoldTime;
+                break;
+            case 2:
+                //E
+                break;
+            case 3:
+                //R
+                break;
+        }
     }
 
     /// <summary>
@@ -62,12 +157,12 @@ public class PlayerAttack : MonoBehaviour
     /// <param name="size">Size of the attack hitbox</param>
     /// <param name="offset">Offset of the attack hitbox</param>
     /// <param name="lPos">Position of object's Vector3 in relation to the player</param>
-    void Attack(string input, Vector2 size, Vector2 offset, Vector3 lPos)
+    private void AttackGround(string input, Vector2 size, Vector2 offset, Vector3 lPos)
     {
 
         Debug.Log("Pressed " + input);
 
-        playerAttack = new GameObject("W_Attack");
+        playerAttack = new GameObject(input + "_Attack");
         playerAttack.transform.SetParent(transform);
 
         // Creates an attack hitbox on playerAttack and plays correct attack animation
@@ -84,6 +179,27 @@ public class PlayerAttack : MonoBehaviour
         // Initiates the corresponding animation
         attackFlag = true;
 
+        switch (input)
+        {
+            case "Q":
+                currentAttack = CurrentAttack.QGroundAttack;
+                break;
+            case "W":
+                currentAttack = CurrentAttack.WGroundAttack;
+                break;
+            case "E":
+                currentAttack = CurrentAttack.EGroundAttack;
+                break;
+            case "R":
+                currentAttack = CurrentAttack.RGroundAttack;
+                break;
+            case "QC":
+                currentAttack = CurrentAttack.QCGroundAttack;
+                break;
+            case "EC":
+                currentAttack = CurrentAttack.ECGroundAttack;
+                break;
+        }
     }
 }
 

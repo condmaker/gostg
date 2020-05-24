@@ -8,7 +8,7 @@ public class HealthPoints : MonoBehaviour
     public float       hp = 100;
     public float       invulTime = 0.5f;
     public bool        isInvul = false;
-    public Slider slider;
+    public Slider      slider;
 
     public delegate void OnDead();
     public event OnDead onDead;
