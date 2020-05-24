@@ -6509,6 +6509,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 52.876556
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603034, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: comboStringCounter
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603037, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_LocalPosition.x

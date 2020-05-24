@@ -66,19 +66,21 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // Defines the Horizontal axis according to player input.
-        hAxis = Input.GetAxis("Horizontal");
-        vAxis = Input.GetAxis("Vertical");
-
         // Obtains the Movement Vector and calculates the x axis velocity with it
         if (!playerAtk.attackFlag)
         {
+            // Defines the Horizontal axis according to player input.
+            hAxis = Input.GetAxis("Horizontal");
+            vAxis = Input.GetAxis("Vertical");
+
             float movementVect = hAxis * forceMultiplier;
             currentVelocity = playerBody.velocity;
             currentVelocity.x = movementVect;
         }
         else
         {
+            // Breaks the buffer system
+            //Input.ResetInputAxes("Horizontal");
             currentVelocity = new Vector2(0, 0);
         }
 

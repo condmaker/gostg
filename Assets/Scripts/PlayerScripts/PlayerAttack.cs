@@ -8,6 +8,11 @@ public class PlayerAttack : MonoBehaviour
     GameObject           playerAttack;
     BoxCollider2D        attackHitbox;
 
+    public float         comboStringCounter = 3;
+    public float         comboDowntime = 3f;
+    public bool          comboEndFlag = false;
+
+
     public float         attackTime = 0.28f;
     public bool          attackFlag = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
@@ -61,13 +66,36 @@ public class PlayerAttack : MonoBehaviour
         // IMP - Need to implement the rest of the attacks
         if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath"))
         {
-            // W Attack
-            BufferAttackGround("Fire1", buttonPressedW, 1);
-
             // Q Attack
-            BufferAttackGround("Fire2", buttonPressedQ, 0);
+            if (currentAttack != CurrentAttack.QGroundAttack)
+                BufferAttackGround("Fire2", buttonPressedQ, 0);
+
+            // W Attack
+            if (currentAttack != CurrentAttack.WGroundAttack)
+                BufferAttackGround("Fire1", buttonPressedW, 1);
+        }     
+
+        if (comboStringCounter <= 0)
+        {
+            comboDowntime -= Time.deltaTime;
+
+            if (attackTime <= 0.15f)
+                comboEndFlag = true;
+
+            if (comboDowntime <= 0)
+            {
+                comboEndFlag = false;
+                comboStringCounter = 3;
+                comboDowntime = 3f;
+            }
         }
-         
+
+        if (!attackFlag && (comboStringCounter > 0) && (comboDowntime <= 0))
+        {
+            comboStringCounter = 3;
+            comboEndFlag = false;
+        }
+
     }
 
     private void BufferAttackGround(string Fire, bool buttonPressed, ushort attackIdentif)
@@ -93,6 +121,10 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButtonUp(Fire))
         {
             buttonPressed = false;
+
+            if (attackFlag)
+                comboStringCounter--;
+
             Debug.Log("Giant Dog");
         }
 
@@ -103,14 +135,14 @@ public class PlayerAttack : MonoBehaviour
             if (buttonPressed) attackHoldTime -= Time.deltaTime;
         }
 
-        if (!attackFlag)
+        if (!attackFlag && !comboEndFlag)
         {
             if ((attackHoldTime > 0f) && (attackHoldTime < 0.5f) && !buttonPressed)
             {
                 switch (attackIdentif)
                 {
                     case 0:
-                        AttackGround("Q", new Vector2(30, 34), new Vector2(-14f, -6f), new Vector3(48f, 0f, 0));
+                        AttackGround("Q", new Vector2(30, 34), new Vector2(-15f, 17f), new Vector3(48f, -30f, 0));
                         break;
                     case 1:
                         AttackGround("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
@@ -122,7 +154,10 @@ public class PlayerAttack : MonoBehaviour
                         //AttackGround(W)
                         break;
                 }
-                
+
+                if (comboStringCounter == 1)
+                    comboStringCounter = 0;
+
                 attackHoldTime = 0.5f;
             }
             else if (attackHoldTime <= 0f && !buttonPressed)
@@ -131,6 +166,7 @@ public class PlayerAttack : MonoBehaviour
                 attackHoldTime = 0.5f;
                 //AttackGround("Heavy",) com switch
             }
+
         }
 
         switch (attackIdentif)
