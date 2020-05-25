@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public bool          attackCooldown = false;
     public float         attackCooldownTimer = 1.0f;
 
-    public float         attackTime = 0.68f;
+    public float         attackTime = 0.60f;
     public bool          attackFlag = false;
     public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     public float         attackHoldTimeW = 0.5f;
     public bool          buttonPressedQ = true;
     public float         attackHoldTimeQ = 0.5f;
+    public bool          buttonPressedR = true;
+    public float         attackHoldTimeR = 0.5f;
 
 
     Animator             playerAnim;
@@ -49,12 +51,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackFlag)
         {
-            attackTime -= Time.fixedDeltaTime;
+            attackTime -= Time.deltaTime;
         }
 
         if (attackCooldown)
         {
-            attackCooldownTimer -= Time.fixedDeltaTime;
+            attackCooldownTimer -= Time.deltaTime;
         }
 
         if (attackCooldownTimer <= 0)
@@ -87,11 +89,15 @@ public class PlayerAttack : MonoBehaviour
             // W Attack
             if (currentAttack != CurrentAttack.WGroundAttack)
                 BufferAttackGround("Fire1", buttonPressedW, 1);
+
+            // R Attack
+            if (currentAttack != CurrentAttack.RGroundAttack)
+                BufferAttackGround("Fire4", buttonPressedR, 1);
         }     
 
         if (comboStringCounter <= 0)
         {
-            comboDowntime -= Time.fixedDeltaTime;
+            comboDowntime -= Time.deltaTime;
 
             if (attackTime <= 0.15f)
                 comboEndFlag = true;
@@ -128,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
                 //E
                 break;
             case 3:
-                //R
+                attackHoldTime = attackHoldTimeR;
                 break;
         }
 
@@ -159,7 +165,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (!buttonPressed) buttonPressed = true;
 
-            if (buttonPressed) attackHoldTime -= Time.fixedDeltaTime;
+            if (buttonPressed) attackHoldTime -= Time.deltaTime;
         }
 
         if (!attackFlag && !comboEndFlag && (!attackCooldown || bufferBypass))
@@ -178,7 +184,7 @@ public class PlayerAttack : MonoBehaviour
                         //AttackGround(E)
                         break;
                     case 3:
-                        //AttackGround(W)
+                        AttackGround("R", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
                         break;
                 }
 
@@ -213,7 +219,7 @@ public class PlayerAttack : MonoBehaviour
                 //E
                 break;
             case 3:
-                //R
+                attackHoldTimeR = attackHoldTime;
                 break;
         }
     }

@@ -483,7 +483,7 @@ MonoBehaviour:
   comboEndFlag: 0
   attackCooldown: 0
   attackCooldownTimer: 1
-  attackTime: 0.68
+  attackTime: 0.6
   attackFlag: 0
   bufferBypass: 0
   currentAttack: 0
