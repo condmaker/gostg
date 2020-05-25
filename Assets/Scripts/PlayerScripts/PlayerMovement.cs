@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float       maxSpeed = 50.0f;
     [SerializeField] float       smallJumpSpeed = 150;
     [SerializeField] float       bigJumpSpeed = 250;
+    [SerializeField] float       coyoteTime = 0.1f;
 
     [SerializeField] Vector3     groundDetectorPos = new Vector3(-24f, -0.8f, 0f);
     public Vector2               currentVelocity;
@@ -95,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
         // Adds a velocity with the horizontal axis player input.
         if (IsGrounded())
         {
+            coyoteTime = 0.1f;
+
             // Switches to ground-based colliders
             ColliderSwitch(false);
 
@@ -103,7 +106,20 @@ public class PlayerMovement : MonoBehaviour
 
             if (doubleJumpState) doubleJumpState = false;
         }
-        else
+        else if (!IsGrounded() && coyoteTime >= 0)
+        {
+            coyoteTime -= Time.fixedDeltaTime;
+
+            // Switches to ground-based colliders
+            ColliderSwitch(false);
+
+            currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
+            playerBody.velocity = currentVelocity;
+
+            if (doubleJumpState) doubleJumpState = false;
+        }
+
+        if (coyoteTime < 0)
         {
             // Switches to air-based colliders
             ColliderSwitch(true);
@@ -138,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.gravityScale = 50;
             }
         }
+
 
         // Observes if the Jump Button is pressed and adds +1 to the flag in
         // each frame.

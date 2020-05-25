@@ -8212,6 +8212,26 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603027, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: smallJumpSpeed
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603027, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: bigJumpSpeed
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603032, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.547261
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603032, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 18.984972
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603033, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_Offset.y
