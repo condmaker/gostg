@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 9d144441e5dd89d4c89101a38ddd6c19
+guid: c445247453a208846a8b7e5a891fd174
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7383021451464764934
-    second: line_h_0
+      213: 7333046172874737783
+    second: enemy_idle_sheet_0
   - first:
-      213: 7580855447950593815
-    second: line_h_1
+      213: -1399547855317441434
+    second: enemy_idle_sheet_1
   - first:
-      213: 7608876992831597875
-    second: line_h_2
+      213: 3253913484333212
+    second: enemy_idle_sheet_2
   - first:
-      213: -3181476739586809253
-    second: line_h_3
+      213: -2712827313375360998
+    second: enemy_idle_sheet_3
   - first:
-      213: 1113993745973381419
-    second: line_h_4
+      213: -915771307734753216
+    second: enemy_idle_sheet_4
   - first:
-      213: 7538255862255723904
-    second: line_h_5
+      213: 2864360348202825533
+    second: enemy_idle_sheet_5
   - first:
-      213: 4619765299420413785
-    second: line_h_6
-  - first:
-      213: -5061347781136560357
-    second: line_h_7
+      213: 4574116533461590045
+    second: enemy_idle_sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,7 +68,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -123,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: line_h_0
+      name: enemy_idle_sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 107
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af19a585b1d3a8990800000000000000
-      internalID: -7383021451464764934
+      spriteID: 7788cbf54a634c560800000000000000
+      internalID: 7333046172874737783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_h_1
+      name: enemy_idle_sheet_1
       rect:
         serializedVersion: 2
-        x: 107
+        x: 64
         y: 0
-        width: 107
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f0ea46ddb943960800000000000000
-      internalID: 7580855447950593815
+      spriteID: 664e4a504aec39ce0800000000000000
+      internalID: -1399547855317441434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_h_2
+      name: enemy_idle_sheet_2
       rect:
         serializedVersion: 2
-        x: 214
+        x: 128
         y: 0
-        width: 107
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33dae59bf49289960800000000000000
-      internalID: 7608876992831597875
+      spriteID: c901d55ca6f8b0000800000000000000
+      internalID: 3253913484333212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_h_3
+      name: enemy_idle_sheet_3
       rect:
         serializedVersion: 2
-        x: 321
+        x: 192
         y: 0
-        width: 107
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +197,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b52a2c3f2cf19d3d0800000000000000
-      internalID: -3181476739586809253
+      spriteID: a18c8418ee91a5ad0800000000000000
+      internalID: -2712827313375360998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: line_h_4
+      name: enemy_idle_sheet_4
       rect:
         serializedVersion: 2
-        x: 428
+        x: 256
         y: 0
-        width: 107
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +218,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2900c6e863b57f00800000000000000
-      internalID: 1113993745973381419
+      spriteID: 040a9faf8d68a43f0800000000000000
+      internalID: -915771307734753216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_idle_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37f7578f8040c720800000000000000
+      internalID: 2864360348202825533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_idle_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d102832a0c68a7f30800000000000000
+      internalID: 4574116533461590045
       vertices: []
       indices: 
       edges: []
