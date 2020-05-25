@@ -24,10 +24,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float       hAxis;
     [SerializeField] float       vAxis;
 
-    // Colliders to change on air/ground
-    [SerializeField] BoxCollider2D groundUpCollider;
-    [SerializeField] BoxCollider2D groundDownCollider;
-    [SerializeField] BoxCollider2D airCollider;
 
     // Defines the playerRigid body to add forces and control them
     [SerializeField] Rigidbody2D playerBody;
@@ -98,9 +94,6 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTime = 0.1f;
 
-            // Switches to ground-based colliders
-            ColliderSwitch(false);
-
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
 
@@ -110,9 +103,6 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTime -= Time.fixedDeltaTime;
 
-            // Switches to ground-based colliders
-            ColliderSwitch(false);
-
             currentVelocity.x = Mathf.Clamp(currentVelocity.x, -maxSpeed, maxSpeed);
             playerBody.velocity = currentVelocity;
 
@@ -121,8 +111,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (coyoteTime < 0)
         {
-            // Switches to air-based colliders
-            ColliderSwitch(true);
 
             if (hAxis != 0)
             {
@@ -169,30 +157,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Debug.Log("H/V Axis:" + hAxis + " " + vAxis);
-    }
-
-    /// <summary>
-    /// Switches colliders based on if the player is grounded or not
-    /// </summary>
-    /// <param name="status">Boolean verification. False = On Ground / True = On Air</param>
-    void ColliderSwitch(bool status)
-    {
-        if (status)
-        {
-            airCollider.enabled = true;
-            groundPointLeft.localPosition = groundDetectorPos + new Vector3(17, 0, 0); ;
-
-            groundDownCollider.enabled = false;
-            groundUpCollider.enabled =   false;
-        }
-        else
-        {
-            airCollider.enabled = false;
-            groundPointLeft.localPosition = groundDetectorPos;
-
-            groundDownCollider.enabled = true;
-            groundUpCollider.enabled =   true;
-        }
     }
 
     /// <summary>

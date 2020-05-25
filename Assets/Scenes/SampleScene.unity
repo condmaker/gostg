@@ -8207,6 +8207,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shiki
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603025, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -3.4417782
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603025, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 56.977795
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603026, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -8215,32 +8225,12 @@ PrefabInstance:
     - target: {fileID: 215465595841603027, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: smallJumpSpeed
-      value: 180
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 215465595841603027, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: bigJumpSpeed
       value: 290
-      objectReference: {fileID: 0}
-    - target: {fileID: 215465595841603032, guid: 44e08239c0e11fb42a208fb89b586b3a,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -1.547261
-      objectReference: {fileID: 0}
-    - target: {fileID: 215465595841603032, guid: 44e08239c0e11fb42a208fb89b586b3a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 18.984972
-      objectReference: {fileID: 0}
-    - target: {fileID: 215465595841603033, guid: 44e08239c0e11fb42a208fb89b586b3a,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -1.3322601
-      objectReference: {fileID: 0}
-    - target: {fileID: 215465595841603033, guid: 44e08239c0e11fb42a208fb89b586b3a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 52.876556
       objectReference: {fileID: 0}
     - target: {fileID: 215465595841603034, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
@@ -8255,7 +8245,7 @@ PrefabInstance:
     - target: {fileID: 215465595841603034, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: attackTime
-      value: 0.68
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 215465595841603035, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}

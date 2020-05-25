@@ -372,8 +372,6 @@ GameObject:
   - component: {fileID: 215465595841603039}
   - component: {fileID: 215465595841603026}
   - component: {fileID: 215465595841603025}
-  - component: {fileID: 215465595841603032}
-  - component: {fileID: 215465595841603033}
   - component: {fileID: 215465595841603038}
   m_Layer: 11
   m_Name: Shiki
@@ -391,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 215465595841603024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.8, y: 40.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 215465596401582664}
   - {fileID: 215465595485290564}
@@ -415,8 +413,8 @@ MonoBehaviour:
   hp: 100
   invulTime: 0.5
   isInvul: 0
-  slider: {fileID: 0}
-  playerBody: {fileID: 0}
+  slider: {fileID: 215465594594880512}
+  playerBody: {fileID: 215465595841603026}
 --- !u!212 &215465595841603036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -514,15 +512,13 @@ MonoBehaviour:
   forceMultiplier: 200
   airForceMultiplier: 200
   maxSpeed: 500
-  smallJumpSpeed: 150
-  bigJumpSpeed: 260
+  smallJumpSpeed: 195
+  bigJumpSpeed: 290
+  coyoteTime: 0.1
   groundDetectorPos: {x: -24, y: -35, z: 0}
   currentVelocity: {x: 0, y: 0}
   hAxis: 0
   vAxis: 0
-  groundUpCollider: {fileID: 215465595841603025}
-  groundDownCollider: {fileID: 215465595841603032}
-  airCollider: {fileID: 215465595841603033}
   playerBody: {fileID: 0}
   doubleJumpState: 0
   jumpState: 0
@@ -572,7 +568,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4158821, y: -1.4247894}
+  m_Offset: {x: -1.4158821, y: -3.4417782}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -583,59 +579,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.691833, y: 52.943817}
-  m_EdgeRadius: 0
---- !u!61 &215465595841603032
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215465595841603024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -8.164163, y: -29.953037}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 64, y: 64}
-    newSize: {x: 64, y: 64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 32.21878, y: 3.9242477}
-  m_EdgeRadius: 0
---- !u!61 &215465595841603033
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215465595841603024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.4694595, y: -3.423977}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 64, y: 64}
-    newSize: {x: 64, y: 64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 18.937958, y: 57.05999}
+  m_Size: {x: 18.691833, y: 56.977795}
   m_EdgeRadius: 0
 --- !u!95 &215465595841603038
 Animator:
