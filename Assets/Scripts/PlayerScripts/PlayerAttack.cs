@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     public bool          attackCooldown = false;
     public float         attackCooldownTimer = 1.0f;
 
-    public float         attackTime = 0.28f;
+    public float         attackTime = 0.68f;
     public bool          attackFlag = false;
     public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
@@ -65,7 +65,7 @@ public class PlayerAttack : MonoBehaviour
 
         if ((attackTime <= 0) && (playerAttack != null))
         {
-            attackTime = 0.38f;
+            attackTime = 0.68f;
             attackFlag = false;
             currentAttack = 0;
 

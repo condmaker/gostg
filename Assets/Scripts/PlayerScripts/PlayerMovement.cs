@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if (hp.hp == 0)
         {
             return;
@@ -218,6 +219,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Death.");
 
+        gameObject.layer = 12;
         playerAnim.SetBool("shikiDeath", true);
     }
 
@@ -231,11 +233,20 @@ public class PlayerMovement : MonoBehaviour
         // Animation Trigger here
         playerAnim.SetTrigger("shikiHit");
 
-        if (transform.rotation == Quaternion.identity)
-            playerBody.velocity = new Vector2(-100f, 100f);
+        if (currentVelocity.x == 0)
+        {
+            playerBody.velocity = new Vector2(0, 400f);
+        }
+        else
+        {
+            if (transform.rotation == Quaternion.identity)
+                playerBody.velocity = new Vector2(-100f, 250f);
 
-        else if (transform.rotation == Quaternion.Euler(0, 180, 0))
-            playerBody.velocity = new Vector2(100f, 100f);
+            else if (transform.rotation == Quaternion.Euler(0, -180, 0))
+                playerBody.velocity = new Vector2(100f, 250f);
+
+        }
+        
     }
 
     /// <summary>

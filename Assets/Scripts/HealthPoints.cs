@@ -53,6 +53,7 @@ public class HealthPoints : MonoBehaviour
 
         if (hp <= 0)
         {
+            hp = 0;
             onDead();
         }
 

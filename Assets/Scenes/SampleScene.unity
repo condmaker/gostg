@@ -3542,7 +3542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.963299, y: 40.499985, z: -10}
+  m_LocalPosition: {x: -30.965023, y: 40.499985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8207,6 +8207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shiki
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603026, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603033, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_Offset.y
@@ -8227,6 +8232,11 @@ PrefabInstance:
       propertyPath: buttonPressedW
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603034, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: attackTime
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603035, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: playerBody
@@ -8238,6 +8248,11 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 763257969}
+    - target: {fileID: 215465595841603035, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: invulTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 215465595841603037, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8312,10 +8327,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 853988458691031733, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141728, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.1974106
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141728, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 25.976852
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141729, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141731, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: damageMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_Name
       value: Puppet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
@@ -8382,6 +8427,31 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459317569776, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459576235590, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459746428111, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988460011258008, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988460519501731, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8391,6 +8461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231580436761838037, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -8404,7 +8479,7 @@ PrefabInstance:
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.963299
+      value: -30.965023
       objectReference: {fileID: 0}
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}
