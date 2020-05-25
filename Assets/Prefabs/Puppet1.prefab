@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 853988459208141728}
   - component: {fileID: 853988459208141730}
   - component: {fileID: 853988459208141731}
+  - component: {fileID: 7769327011731820780}
   m_Layer: 10
   m_Name: Puppet1
   m_TagString: Untagged
@@ -202,6 +203,26 @@ MonoBehaviour:
   damageMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &7769327011731820780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853988459208141756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089feb97a382f8f4fbc6b393591cf0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  line_h: {fileID: 4729663078129968773, guid: 552cabaa5569fdf47a65cbcb90cf84ee, type: 3}
+  line_v: {fileID: 395476058569679609, guid: 5f756e823cae03c43a2c254421772996, type: 3}
+  line_dh: {fileID: 5643832720268874947, guid: ac2a59b542c5f3b45ac2fdb9f9771f0f, type: 3}
+  line_uh: {fileID: 5247758838914119679, guid: 7401445656d7c2044b70e176bac2d0fa, type: 3}
+  line_rv: {fileID: 8899982382235084793, guid: 8ed272fa3ba4ecc478b5ccfc4205f11c, type: 3}
+  line_lv: {fileID: 8560113436950338517, guid: 02fd1e98930ee8c449e001dd3fd0a340, type: 3}
+  point: {fileID: 1457425525246119486, guid: 0a5f67ce74c343b478cc258d5d29ea82, type: 3}
+  lpoint: {fileID: 3850209800872186344, guid: aed9489e993457d4fa1b9a1978fe3153, type: 3}
 --- !u!1 &853988459317569776
 GameObject:
   m_ObjectHideFlags: 0

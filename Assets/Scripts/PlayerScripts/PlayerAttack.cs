@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
 
             // R Attack
             if (currentAttack != CurrentAttack.RGroundAttack)
-                BufferAttackGround("Fire4", buttonPressedR, 1);
+                BufferAttackGround("Fire4", buttonPressedR, 3);
         }     
 
         if (comboStringCounter <= 0)
