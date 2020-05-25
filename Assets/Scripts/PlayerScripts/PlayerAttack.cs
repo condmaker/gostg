@@ -12,14 +12,17 @@ public class PlayerAttack : MonoBehaviour
     public float         comboDowntime = 3f;
     public bool          comboEndFlag = false;
 
+    public bool          attackCooldown = false;
+    public float         attackCooldownTimer = 1.0f;
 
     public float         attackTime = 0.28f;
     public bool          attackFlag = false;
+    public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
     
-    public bool          buttonPressedW = false;
+    public bool          buttonPressedW = true;
     public float         attackHoldTimeW = 0.5f;
-    public bool          buttonPressedQ = false;
+    public bool          buttonPressedQ = true;
     public float         attackHoldTimeQ = 0.5f;
 
 
@@ -46,7 +49,18 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackFlag)
         {
-            attackTime -= Time.deltaTime;
+            attackTime -= Time.fixedDeltaTime;
+        }
+
+        if (attackCooldown)
+        {
+            attackCooldownTimer -= Time.fixedDeltaTime;
+        }
+
+        if (attackCooldownTimer <= 0)
+        {
+            attackCooldown = false;
+            attackCooldownTimer = 1.0f;
         }
 
         if ((attackTime <= 0) && (playerAttack != null))
@@ -62,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
         // playing, destroying said object afterwards.
 
         // Verifies if the button is pressed and if there is no animation playing
-        // IMP - Need to figure out how to implement the buffer
+        // IMP - Need to figure out how to implement the buffer (Now to implement universal comboStringCounter)
         // IMP - Need to implement the rest of the attacks
         if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && comboStringCounter > 0)
         {
@@ -77,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (comboStringCounter <= 0)
         {
-            comboDowntime -= Time.deltaTime;
+            comboDowntime -= Time.fixedDeltaTime;
 
             if (attackTime <= 0.15f)
                 comboEndFlag = true;
@@ -120,11 +134,24 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp(Fire))
         {
-            buttonPressed = false;
+            if (!attackCooldown)
+            {
+                Debug.Log("WHY DOE");
+                buttonPressed = false;
+            }
+            else
+            {
+                Debug.Log("THERE IS NO WAY");
+                buttonPressed = true;
+            }
 
             if (attackFlag)
+            {
+                buttonPressed = false;
                 comboStringCounter--;
-
+                bufferBypass = true;
+            }
+                
             Debug.Log("Giant Dog");
         }
 
@@ -132,12 +159,12 @@ public class PlayerAttack : MonoBehaviour
         {
             if (!buttonPressed) buttonPressed = true;
 
-            if (buttonPressed) attackHoldTime -= Time.deltaTime;
+            if (buttonPressed) attackHoldTime -= Time.fixedDeltaTime;
         }
 
-        if (!attackFlag && !comboEndFlag)
+        if (!attackFlag && !comboEndFlag && (!attackCooldown || bufferBypass))
         {
-            if ((attackHoldTime > 0f) && (attackHoldTime < 0.5f) && !buttonPressed)
+            if ((attackHoldTime > 0f) && (attackHoldTime < 0.5f) && (!buttonPressed || bufferBypass))
             {
                 switch (attackIdentif)
                 {
@@ -158,6 +185,7 @@ public class PlayerAttack : MonoBehaviour
                 if (comboStringCounter == 1)
                     comboStringCounter = 0;
 
+                bufferBypass = false;
                 attackHoldTime = 0.5f;
             }
             else if (attackHoldTime <= 0f && !buttonPressed)
@@ -165,6 +193,10 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log("Hold!");
                 attackHoldTime = 0.5f;
                 //AttackGround("Heavy",) com switch
+            }
+            else if (attackHoldTime <= 0f)
+            {
+                attackHoldTime = 0.5f;
             }
 
         }
@@ -214,6 +246,7 @@ public class PlayerAttack : MonoBehaviour
 
         // Initiates the corresponding animation
         attackFlag = true;
+        attackCooldown = true;
 
         switch (input)
         {

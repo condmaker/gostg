@@ -156,13 +156,13 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Switches colliders based on if the player is grounded or not
     /// </summary>
-    /// <param name="status">Boolean verification. True = On Ground / False = On Air</param>
+    /// <param name="status">Boolean verification. False = On Ground / True = On Air</param>
     void ColliderSwitch(bool status)
     {
         if (status)
         {
             airCollider.enabled = true;
-            groundPointLeft.position = groundPoint.position;
+            groundPointLeft.localPosition = groundDetectorPos + new Vector3(17, 0, 0); ;
 
             groundDownCollider.enabled = false;
             groundUpCollider.enabled =   false;
