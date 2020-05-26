@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float       hAxis;
     [SerializeField] float       vAxis;
 
+    // Enemy Detector
+    [SerializeField] Collider2D  detectionZone;
+    [SerializeField] LayerMask   detectionMask;
+    [SerializeField] Image       playerPortrait;
+
+    ContactFilter2D              contactFilter;
 
     // Defines the playerRigid body to add forces and control them
     [SerializeField] Rigidbody2D playerBody;
@@ -39,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        contactFilter = new ContactFilter2D();
+        contactFilter.SetLayerMask(detectionMask);
+        contactFilter.useTriggers = true;
+
         playerBody =     GetComponent<Rigidbody2D>();
         playerAtk =      GetComponent<PlayerAttack>();
         playerAnim =     GetComponent<Animator>();
@@ -62,6 +73,15 @@ public class PlayerMovement : MonoBehaviour
         if (hp.isInvul)
         {
             return;
+        }
+
+        if (IsEnemyClose())
+        {
+            playerPortrait.fillAmount -= Time.deltaTime * 1.5f;
+        }
+        else
+        {
+            playerPortrait.fillAmount += Time.deltaTime * 1.5f;
         }
 
         // Obtains the Movement Vector and calculates the x axis velocity with it
@@ -228,6 +248,21 @@ public class PlayerMovement : MonoBehaviour
 
         }
         
+    }
+
+    public bool IsEnemyClose()
+    {
+        Collider2D[] results = new Collider2D[18];
+
+        int nCollisions = Physics2D.OverlapCollider(detectionZone, contactFilter, results);
+
+        if (nCollisions > 0)
+        {
+            Debug.Log("This is working!");
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>

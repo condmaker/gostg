@@ -94,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
 
             // E Attack
             if (currentAttack != CurrentAttack.RGroundAttack)
-                BufferAttackGround("Fire3", buttonPressedR, 2);
+                BufferAttackGround("Fire3", buttonPressedE, 2);
 
             // R Attack
             if (currentAttack != CurrentAttack.RGroundAttack)
@@ -187,10 +187,10 @@ public class PlayerAttack : MonoBehaviour
                         AttackGround("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
                         break;
                     case 2:
-                        AttackGround("E", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
+                        AttackGround("E", new Vector2(30, 34), new Vector2(-15f, -17f), new Vector3(48f, 30f, 0));
                         break;
                     case 3:
-                        AttackGround("R", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
+                        AttackGround("R", new Vector2(43, 13), new Vector2(-21.6f, 0.5f), new Vector3(48f, 5f, 0));
                         break;
                 }
 
