@@ -26,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     public float         attackHoldTimeQ = 0.5f;
     public bool          buttonPressedR = true;
     public float         attackHoldTimeR = 0.5f;
+    public bool          buttonPressedE = true;
+    public float         attackHoldTimeE = 0.5f;
 
 
     Animator             playerAnim;
@@ -90,6 +92,10 @@ public class PlayerAttack : MonoBehaviour
             if (currentAttack != CurrentAttack.WGroundAttack)
                 BufferAttackGround("Fire1", buttonPressedW, 1);
 
+            // E Attack
+            if (currentAttack != CurrentAttack.RGroundAttack)
+                BufferAttackGround("Fire3", buttonPressedR, 2);
+
             // R Attack
             if (currentAttack != CurrentAttack.RGroundAttack)
                 BufferAttackGround("Fire4", buttonPressedR, 3);
@@ -131,7 +137,7 @@ public class PlayerAttack : MonoBehaviour
                 attackHoldTime = attackHoldTimeW;
                 break;
             case 2:
-                //E
+                attackHoldTime = attackHoldTimeE;
                 break;
             case 3:
                 attackHoldTime = attackHoldTimeR;
@@ -181,7 +187,7 @@ public class PlayerAttack : MonoBehaviour
                         AttackGround("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
                         break;
                     case 2:
-                        //AttackGround(E)
+                        AttackGround("E", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
                         break;
                     case 3:
                         AttackGround("R", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
@@ -216,7 +222,7 @@ public class PlayerAttack : MonoBehaviour
                 attackHoldTimeW = attackHoldTime;
                 break;
             case 2:
-                //E
+                attackHoldTimeE = attackHoldTime;
                 break;
             case 3:
                 attackHoldTimeR = attackHoldTime;
