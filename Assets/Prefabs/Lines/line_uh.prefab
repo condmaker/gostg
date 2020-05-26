@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: -3019424127853119141, guid: b4c8236615d2e1247ab48abb9e79d682,
+  m_LightCookieSprite: {fileID: -4441232019842899823, guid: 7f640700c2f2cfa48bf8e188a727a181,
     type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 0
