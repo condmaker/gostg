@@ -227,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Event that triggers when player gets hit. Needs an hit animation.
     /// </summary>
-    private void OnHit()
+    private void OnHit(Vector2 direction)
     {
         Debug.Log("Hit!");
 
@@ -235,18 +235,9 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetTrigger("shikiHit");
 
         if (currentVelocity.x == 0)
-        {
             playerBody.velocity = new Vector2(0, 400f);
-        }
         else
-        {
-            if (transform.rotation == Quaternion.identity)
-                playerBody.velocity = new Vector2(-100f, 250f);
-
-            else if (transform.rotation == Quaternion.Euler(0, -180, 0))
-                playerBody.velocity = new Vector2(100f, 250f);
-
-        }
+            playerBody.velocity = direction * 200f;
         
     }
 

@@ -13,7 +13,7 @@ public class HealthPoints : MonoBehaviour
     public delegate void OnDead();
     public event OnDead onDead;
 
-    public delegate void OnHit();
+    public delegate void OnHit(Vector2 direction);
     public event OnHit onHit;
 
     public Rigidbody2D playerBody;
@@ -38,7 +38,7 @@ public class HealthPoints : MonoBehaviour
     }
 
     // TODO - Make the entity fickle when invunerable
-    public void DealDamage(int damage)
+    public void DealDamage(int damage, Vector2 direction)
     {
         if (hp < 0) return;
 
@@ -47,7 +47,7 @@ public class HealthPoints : MonoBehaviour
             hp -= damage;
             isInvul = true;
 
-            onHit();
+            onHit(direction);
             slider.value  = hp;
         }
 

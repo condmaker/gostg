@@ -203,6 +203,9 @@ MonoBehaviour:
   damageMask:
     serializedVersion: 2
     m_Bits: 2048
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &7769327011731820780
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ public class DamageZone : MonoBehaviour
 {
     [SerializeField] Collider2D damageZone;
     [SerializeField] LayerMask  damageMask;
+    [SerializeField] LayerMask  enemyMask;
 
     ContactFilter2D contactFilter;
 
-    // Start is called before the first frame update
     void Start()
     {
         contactFilter = new ContactFilter2D();
@@ -18,7 +18,6 @@ public class DamageZone : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         Collider2D[] results = new Collider2D[18];
@@ -30,12 +29,18 @@ public class DamageZone : MonoBehaviour
             for (int i = 0; i < nCollisions; i++)
             {
                 Collider2D otherCollider = results[i];
+                Collider2D collider = Physics2D.OverlapBox(otherCollider.bounds.center, otherCollider.bounds.size, 0, enemyMask);
+                Vector2    direction;
 
                 HealthPoints playerHp = otherCollider.GetComponent<HealthPoints>();
 
                 if (playerHp != null)
                 {
-                    playerHp.DealDamage(20);
+                    direction = otherCollider.bounds.center - collider.bounds.center;
+                    direction.Normalize();
+                    direction.y = 1f;
+
+                    playerHp.DealDamage(20, direction);
                 }
             }
 
