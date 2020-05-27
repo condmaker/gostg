@@ -481,6 +481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f09f3466ad434a9faacd046a8d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  hitboxMask:
+    serializedVersion: 2
+    m_Bits: 32768
   comboStringCounter: 3
   comboDowntime: 3
   comboEndFlag: 0
@@ -490,6 +496,9 @@ MonoBehaviour:
   attackFlag: 0
   bufferBypass: 0
   currentAttack: 0
+  collisionCheck: 0
+  currentLine: {fileID: 0}
+  currentLineCol: {fileID: 0}
   buttonPressedW: 1
   attackHoldTimeW: 0.5
   buttonPressedQ: 1

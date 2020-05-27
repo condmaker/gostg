@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Ground
   - Hitbox
+  - line
+  - point
+  - line_dh
+  - line_h
+  - line_lv
+  - line_rv
+  - line_uh
+  - line_v
+  - lpoint
   layers:
   - Default
   - TransparentFX
@@ -16,13 +25,13 @@ TagManager:
   - 
   - 
   - Ground
-  - Hitbox
+  - Attack Check
   - Entity
   - Player
   - Dead
   - Detector
-  - 
-  - 
+  - Line
+  - Hitbox
   - 
   - 
   - 

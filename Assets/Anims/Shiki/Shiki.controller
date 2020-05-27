@@ -260,7 +260,7 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2909776870754517968}
-    m_Position: {x: 200, y: 310, z: 0}
+    m_Position: {x: 220, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3277951973495359381}
     m_Position: {x: 180, y: -60, z: 0}
@@ -283,11 +283,8 @@ AnimatorStateMachine:
     m_State: {fileID: -4030469022175731897}
     m_Position: {x: -40, y: 370, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 7109117048217364747}
-    m_Position: {x: 580, y: 490, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 8795634263259747176}
-    m_Position: {x: 230, y: 470, z: 0}
+    m_Position: {x: 220, y: 470, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6110781904514620712}
@@ -1376,32 +1373,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 2d1b84b923247bd42bc0e7cb3ec2fd65, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &7109117048217364747
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ShikiAirAttackE
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5c618a5ede5f9c24bbf31c5f2f20c79e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

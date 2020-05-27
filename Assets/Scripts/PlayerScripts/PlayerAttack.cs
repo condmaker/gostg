@@ -6,7 +6,13 @@ public class PlayerAttack : MonoBehaviour
 {
     // Normal variables
     GameObject           playerAttack;
+    GameObject           playerHitbox;
+    BoxCollider2D        attackCheck;
     BoxCollider2D        attackHitbox;
+    ContactFilter2D      contactFilter;
+    ContactFilter2D      attackFilter;
+    [SerializeField] LayerMask            enemyMask;
+    [SerializeField] LayerMask hitboxMask;
 
     public float         comboStringCounter = 3;
     public float         comboDowntime = 3f;
@@ -19,6 +25,9 @@ public class PlayerAttack : MonoBehaviour
     public bool          attackFlag = false;
     public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
+    public CurrentAttack collisionCheck = CurrentAttack.None;
+    public GameObject    currentLine;
+    public Collider2D    currentLineCol;
     
     public bool          buttonPressedW = true;
     public float         attackHoldTimeW = 0.5f;
@@ -38,6 +47,14 @@ public class PlayerAttack : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMovement>();
         playerAnim = GetComponent<Animator>();
+
+        contactFilter = new ContactFilter2D();
+        contactFilter.SetLayerMask(enemyMask);
+        contactFilter.useTriggers = true;
+
+        attackFilter = new ContactFilter2D();
+        attackFilter.SetLayerMask(hitboxMask);
+        attackFilter.useTriggers = true;
     }
 
     // Update is called once per frame
@@ -53,6 +70,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackFlag)
         {
+            if (collisionCheck != 0)
+            {
+                CheckLineCollision();
+            }
+            else
+                CheckEnemyCollision();
             attackTime -= Time.deltaTime;
         }
 
@@ -93,7 +116,7 @@ public class PlayerAttack : MonoBehaviour
                 BufferAttackGround("Fire1", buttonPressedW, 1);
 
             // E Attack
-            if (currentAttack != CurrentAttack.RGroundAttack)
+            if (currentAttack != CurrentAttack.EGroundAttack)
                 BufferAttackGround("Fire3", buttonPressedE, 2);
 
             // R Attack
@@ -184,13 +207,13 @@ public class PlayerAttack : MonoBehaviour
                         AttackGround("Q", new Vector2(30, 34), new Vector2(-15f, 17f), new Vector3(48f, -30f, 0));
                         break;
                     case 1:
-                        AttackGround("W", new Vector2(43, 13), new Vector2(-21.6f, 2.2f), new Vector3(48f, 0f, 0));
+                        AttackGround("W", new Vector2(43, 13), new Vector2(-21.5f, 0.5f), new Vector3(68f, 3f, 0));
                         break;
                     case 2:
-                        AttackGround("E", new Vector2(30, 34), new Vector2(-15f, -17f), new Vector3(48f, 30f, 0));
+                        AttackGround("E", new Vector2(30, 48.4f), new Vector2(-15f, -24.2f), new Vector3(48f, 30f, 0));
                         break;
                     case 3:
-                        AttackGround("R", new Vector2(43, 13), new Vector2(-21.6f, 0.5f), new Vector3(48f, 5f, 0));
+                        AttackGround("R", new Vector2(12.75f, 10.9f), new Vector2(-6.5f, 0.5f), new Vector3(44.4f, 5f, 0));
                         break;
                 }
 
@@ -239,21 +262,25 @@ public class PlayerAttack : MonoBehaviour
     /// <param name="lPos">Position of object's Vector3 in relation to the player</param>
     private void AttackGround(string input, Vector2 size, Vector2 offset, Vector3 lPos)
     {
-
         Debug.Log("Pressed " + input);
 
         playerAttack = new GameObject(input + "_Attack");
+        playerHitbox = new GameObject(input + "_Hitbox");
         playerAttack.transform.SetParent(transform);
+        playerHitbox.transform.SetParent(playerAttack.transform);
 
         // Creates an attack hitbox on playerAttack and plays correct attack animation
         // IMP - Needs to check if player is flipped or not
-        attackHitbox = playerAttack.AddComponent<BoxCollider2D>();
-        attackHitbox.size = size;
-        attackHitbox.offset = offset;
+        attackCheck = playerAttack.AddComponent<BoxCollider2D>();
+        attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
+        playerHitbox.AddComponent<Rigidbody2D>();
 
-        playerAttack.tag = "Hitbox";
+        attackCheck.size = size;
+        attackCheck.offset = offset;
+
         playerAttack.layer = 9;
         playerAttack.transform.localPosition = lPos;
+
         Debug.Log("Attack Vect: " + playerAttack.transform.position);
 
         // Initiates the corresponding animation
@@ -264,15 +291,28 @@ public class PlayerAttack : MonoBehaviour
         {
             case "Q":
                 currentAttack = CurrentAttack.QGroundAttack;
+
+                attackHitbox.size = size - new Vector2(10, 10);
+                attackHitbox.offset = offset - new Vector2(-24.7f, 28.4f);
+                playerHitbox.layer = 15;
                 break;
-            case "W":
+            case "W":                
                 currentAttack = CurrentAttack.WGroundAttack;
+
+                attackHitbox.size = size;
+                attackHitbox.offset = offset; 
+                playerHitbox.layer = 15;
                 break;
             case "E":
                 currentAttack = CurrentAttack.EGroundAttack;
+
+                attackHitbox.size = size;
+                attackHitbox.offset = offset;
+                playerHitbox.layer = 15;
                 break;
             case "R":
                 currentAttack = CurrentAttack.RGroundAttack;
+                playerAttack.layer = 15;
                 break;
             case "QC":
                 currentAttack = CurrentAttack.QCGroundAttack;
@@ -281,6 +321,93 @@ public class PlayerAttack : MonoBehaviour
                 currentAttack = CurrentAttack.ECGroundAttack;
                 break;
         }
+
+        // Flips the attack if needed
+        if (transform.rotation != Quaternion.identity)
+            playerAttack.transform.rotation = Quaternion.Euler(0, 180, 0);
+    }
+
+    private void CheckEnemyCollision()
+    {
+        Collider2D[] results = new Collider2D[5];
+
+        int nCollisions = Physics2D.OverlapCollider(attackCheck, contactFilter, results);
+
+        if (nCollisions > 0)
+        {
+            for (int i = 0; i < nCollisions; i++)
+            {
+                Collider2D enemyCollider = results[i];
+
+                foreach (Transform t in enemyCollider.transform)
+                {
+                    GameObject line = t.gameObject;
+
+                    if (((line.tag == "line_dh") || (line.tag == "line_uh")) 
+                        && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack))
+                    {
+                        if (enemyCollider.IsTouchingLayers(15))
+                        {
+                            Destroy(line);
+                        }
+                    }
+                    else if (((line.tag == "line_rv") || (line.tag == "line_lv")) 
+                        && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
+                    {
+                        if (enemyCollider.IsTouchingLayers(15))
+                        {
+                            Destroy(line);
+                        }
+                    }
+                    else if ((line.tag == "line_h") 
+                        && currentAttack == CurrentAttack.WGroundAttack)
+                    {
+                        collisionCheck = currentAttack;
+                        currentLine = line;
+                        currentLineCol = currentLine.GetComponent<Collider2D>();
+                    }
+                    else if ((line.tag == "line_v") 
+                        && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
+                    {
+                        if (enemyCollider.IsTouchingLayers(15))
+                        {
+                            Destroy(line);
+                        }
+                    }
+                    else if (((line.tag == "point") || (line.tag == "lpoint") 
+                        && currentAttack == CurrentAttack.RGroundAttack))
+                    {
+                        if (enemyCollider.IsTouchingLayers(15))
+                        {
+                            Destroy(line);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void CheckLineCollision()
+    {
+        Collider2D[] results = new Collider2D[5];
+
+        int nCollisions = Physics2D.OverlapCollider(currentLineCol, attackFilter, results);
+
+        switch (collisionCheck)
+        {
+            case CurrentAttack.WGroundAttack:
+                Debug.Log("testy test");
+                if (nCollisions > 1)
+                {
+                    Debug.Log("testy test2");
+                    Destroy(currentLine);
+                }
+                break;
+            default:
+                break;
+        }
+
+        collisionCheck = 0;
     }
 }
 
