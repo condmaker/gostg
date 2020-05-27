@@ -368,8 +368,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 215465595841603037}
+  - component: {fileID: 5921848481175753555}
   - component: {fileID: 215465595841603036}
-  - component: {fileID: 8848139652018962971}
   - component: {fileID: 215465595841603034}
   - component: {fileID: 215465595841603027}
   - component: {fileID: 215465595841603039}
@@ -402,6 +402,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5921848481175753555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215465595841603024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b72a268adde3947b5c247e8b75e0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  invulTime: 0.5
+  attackCooldownTimer: 0
+  isInvul: 0
+  slider: {fileID: 0}
+  Stamina: {fileID: 0}
+  playerBody: {fileID: 0}
 --- !u!212 &215465595841603036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -453,25 +472,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &8848139652018962971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215465595841603024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b72a268adde3947b5c247e8b75e0c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  invulTime: 0.5
-  attackCooldownTimer: 0
-  isInvul: 0
-  slider: {fileID: 0}
-  Stamina: {fileID: 0}
-  playerBody: {fileID: 0}
 --- !u!114 &215465595841603034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +496,9 @@ MonoBehaviour:
   attackCooldown: 0
   attackCooldownTimer: 1
   attackTime: 0.4
+  attackTimeAir: 0.4
   attackFlag: 0
+  attackFlagAir: 0
   bufferBypass: 0
   currentAttack: 0
   collisionCheck: 0

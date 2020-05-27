@@ -95,11 +95,10 @@ public class PlayerMovement : MonoBehaviour
             currentVelocity = playerBody.velocity;
             currentVelocity.x = movementVect;
         }
-        else
+        else 
         {
             // Breaks the buffer system
             //Input.ResetInputAxes("Horizontal");
-            currentVelocity = new Vector2(0, 0);
         }
 
         // Verifies at the start of the frame if after jumping the "jump" button is still pressed

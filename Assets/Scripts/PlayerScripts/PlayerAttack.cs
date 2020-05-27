@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     ContactFilter2D      attackFilter;
     [SerializeField] LayerMask            enemyMask;
     [SerializeField] LayerMask hitboxMask;
+    Rigidbody2D          rb;
 
     public float         comboStringCounter = 3;
     public float         comboDowntime = 3f;
@@ -22,7 +23,9 @@ public class PlayerAttack : MonoBehaviour
     public float         attackCooldownTimer = 1.0f;
 
     public float         attackTime = 0.40f;
+    public float         attackTimeAir = 0.40f;
     public bool          attackFlag = false;
+    public bool          attackFlagAir = false;
     public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
     public CurrentAttack collisionCheck = CurrentAttack.None;
@@ -48,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
     {
         playerMove = GetComponent<PlayerMovement>();
         playerAnim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
         contactFilter = new ContactFilter2D();
         contactFilter.SetLayerMask(enemyMask);
@@ -69,20 +73,37 @@ public class PlayerAttack : MonoBehaviour
         playerAnim.SetBool("attackQC", currentAttack == CurrentAttack.QCGroundAttack);
         playerAnim.SetBool("attackEC", currentAttack == CurrentAttack.ECGroundAttack);
 
+        playerAnim.SetBool("attackQA", currentAttack == CurrentAttack.QAirAttack);
+        playerAnim.SetBool("attackWA", currentAttack == CurrentAttack.WAirAttack);
+        playerAnim.SetBool("attackEA", currentAttack == CurrentAttack.EAirAttack);
+        playerAnim.SetBool("attackRA", currentAttack == CurrentAttack.RAirAttack);
+
         if (attackFlag)
         {
             if (collisionCheck != 0)
             {
+                Debug.Log("Enter colCh");
                 CheckLineCollision();
             }
             else
                 CheckEnemyCollision();
+
             attackTime -= Time.deltaTime;
         }
-        else
-        {
+        else if (!attackFlagAir)
             collisionCheck = 0;
+
+        if (attackFlagAir)
+        {
+            if (collisionCheck != 0)
+                CheckLineCollision();
+            else
+                CheckEnemyCollision();
+
+            attackTimeAir -= Time.deltaTime;
         }
+        else if (!attackFlag)
+            collisionCheck = 0;
 
         if (attackCooldown)
         {
@@ -95,10 +116,19 @@ public class PlayerAttack : MonoBehaviour
             attackCooldownTimer = 1.0f;
         }
 
-        if ((attackTime <= 0) && (playerAttack != null))
+        if (attackTime <= 0)
         {
             attackTime = 0.40f;
             attackFlag = false;
+            currentAttack = 0;
+
+            Destroy(playerAttack);
+        }
+
+        if (attackTimeAir <= 0)
+        {
+            attackTimeAir = 0.40f;
+            attackFlagAir = false;
             currentAttack = 0;
 
             Destroy(playerAttack);
@@ -127,12 +157,30 @@ public class PlayerAttack : MonoBehaviour
             if (currentAttack != CurrentAttack.RGroundAttack)
                 BufferAttackGround("Fire4", buttonPressedR, 3);
         }     
+        else if (!playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && !attackFlagAir)
+        {
+            // Q Attack
+            if (currentAttack != CurrentAttack.QAirAttack)
+                BufferAttackAir("Fire2", buttonPressedQ, 0);
+
+            // W Attack
+            if (currentAttack != CurrentAttack.WAirAttack)
+                BufferAttackAir("Fire1", buttonPressedW, 1);
+
+            // E Attack
+            if (currentAttack != CurrentAttack.EAirAttack)
+                BufferAttackAir("Fire3", buttonPressedE, 2);
+
+            // R Attack
+            if (currentAttack != CurrentAttack.RAirAttack)
+                BufferAttackAir("Fire4", buttonPressedR, 3);
+        }
 
         if (comboStringCounter <= 0)
         {
             comboDowntime -= Time.deltaTime;
 
-            if (attackTime <= 0.15f)
+            if (attackTime <= 0.05f)
                 comboEndFlag = true;
 
             if (comboDowntime <= 0)
@@ -184,8 +232,6 @@ public class PlayerAttack : MonoBehaviour
                 comboStringCounter--;
                 bufferBypass = true;
             }
-                
-            Debug.Log("Giant Dog");
         }
 
         if (Input.GetButton(Fire))
@@ -214,6 +260,11 @@ public class PlayerAttack : MonoBehaviour
                         AttackGround("R", new Vector2(12.75f, 10.9f), new Vector2(-6.5f, 0.5f), new Vector3(44.4f, 5f, 0));
                         break;
                 }
+
+                if (transform.rotation == Quaternion.identity)
+                    rb.velocity = new Vector2(50000000000, 0);
+                else
+                    rb.velocity = new Vector2(-500000000000, 0);
 
                 if (comboStringCounter == 1)
                     comboStringCounter = 0;
@@ -248,6 +299,28 @@ public class PlayerAttack : MonoBehaviour
             case 3:
                 attackHoldTimeR = attackHoldTime;
                 break;
+        }
+    }
+
+    private void BufferAttackAir(string Fire, bool buttonPressed, ushort attackIdentif)
+    {
+        if (Input.GetButtonDown(Fire))
+        {
+            switch (attackIdentif)
+            {
+                case 0:
+                    AttackAir("Q", new Vector2(30, 43.8f), new Vector2(-15f, 21.6f), new Vector3(48f, -30f, 0));
+                    break;
+                case 1:
+                    AttackAir("W", new Vector2(43, 13), new Vector2(-21.5f, 0.5f), new Vector3(68f, 3f, 0));
+                    break;
+                case 2:
+                    AttackAir("E", new Vector2(30, 48.4f), new Vector2(-15f, -24.2f), new Vector3(48f, 30f, 0));
+                    break;
+                case 3:
+                    AttackAir("R", new Vector2(12.75f, 10.9f), new Vector2(-6.5f, 0.5f), new Vector3(44.4f, 5f, 0));
+                    break;
+            }
         }
     }
 
@@ -325,11 +398,72 @@ public class PlayerAttack : MonoBehaviour
             playerAttack.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
+    private void AttackAir(string input, Vector2 size, Vector2 offset, Vector3 lPos)
+    {
+        Debug.Log("(Air) Pressed " + input);
+
+        playerAttack = new GameObject(input + "_Attack");
+        playerHitbox = new GameObject(input + "_Hitbox");
+        playerAttack.transform.SetParent(transform);
+        playerHitbox.transform.SetParent(playerAttack.transform);
+
+        // Creates an attack hitbox on playerAttack and plays correct attack animation
+        attackCheck = playerAttack.AddComponent<BoxCollider2D>();
+        attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
+        playerHitbox.AddComponent<Rigidbody2D>();
+
+        attackCheck.size = size;
+        attackCheck.offset = offset;
+
+        playerAttack.layer = 9;
+        playerAttack.transform.localPosition = lPos;
+
+        Debug.Log("Attack Vect: " + playerAttack.transform.position);
+
+        // Initiates the corresponding animation
+        attackFlagAir = true;
+
+        switch (input)
+        {
+            case "Q":
+                currentAttack = CurrentAttack.QAirAttack;
+
+                attackHitbox.size = new Vector2(14, 14);
+                attackHitbox.offset = new Vector2(-23f, 36.5f);
+                playerHitbox.layer = 15;
+                break;
+            case "W":
+                currentAttack = CurrentAttack.WAirAttack;
+
+                attackHitbox.size = size;
+                attackHitbox.offset = offset;
+                playerHitbox.layer = 15;
+                break;
+            case "E":
+                currentAttack = CurrentAttack.EAirAttack;
+
+                attackHitbox.size = new Vector2(11, 16);
+                attackHitbox.offset = new Vector2(-24.45f, -39.85f);
+                playerHitbox.layer = 15;
+                break;
+            case "R":
+                currentAttack = CurrentAttack.RAirAttack;
+                playerAttack.layer = 15;
+                break;
+        }
+
+        // Flips the attack if needed
+        if (transform.rotation != Quaternion.identity)
+            playerAttack.transform.rotation = Quaternion.Euler(0, 180, 0);
+    }
+
     private void CheckEnemyCollision()
     {
         Collider2D[] results = new Collider2D[5];
+        int nCollisions = 0;
 
-        int nCollisions = Physics2D.OverlapCollider(attackCheck, contactFilter, results);
+        if (attackCheck != null)
+            nCollisions = Physics2D.OverlapCollider(attackCheck, contactFilter, results);
 
         if (nCollisions > 0)
         {
@@ -342,12 +476,14 @@ public class PlayerAttack : MonoBehaviour
                     GameObject line = t.gameObject;
 
                     if (((line.tag == "line_dh") || (line.tag == "line_uh")) 
-                        && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack))
+                        && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack
+                        || currentAttack == CurrentAttack.QAirAttack || currentAttack == CurrentAttack.EAirAttack))
                     {
                         collisionCheck = currentAttack;
                         currentLine = line;
                         currentLineCol1 = currentLine.GetComponent<Collider2D>();
                         currentLineCol2 = currentLine.GetComponent<Collider2D>();
+                        Debug.Log(collisionCheck);
                     }
                     else if (((line.tag == "line_rv") || (line.tag == "line_lv")) 
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
@@ -356,16 +492,19 @@ public class PlayerAttack : MonoBehaviour
                         currentLine = line;
                         currentLineCol1 = currentLine.GetComponent<Collider2D>();
                         currentLineCol2 = currentLine.GetComponent<Collider2D>();
+                        Debug.Log(collisionCheck);
                     }
                     else if ((line.tag == "line_h") 
-                        && currentAttack == CurrentAttack.WGroundAttack)
+                        && (currentAttack == CurrentAttack.WGroundAttack || currentAttack == CurrentAttack.WAirAttack))
                     {
                         collisionCheck = currentAttack;
                         currentLine = line;
                         currentLineCol1 = currentLine.GetComponent<Collider2D>();
+                        Debug.Log(collisionCheck);
                     }
                     else if ((line.tag == "line_v") 
-                        && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
+                        && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack
+                        || currentAttack == CurrentAttack.RAirAttack))
                     {
                         
                     }
@@ -375,11 +514,12 @@ public class PlayerAttack : MonoBehaviour
                         collisionCheck = currentAttack;
                         currentLine = line;
                         currentLineCol1 = currentLine.GetComponent<Collider2D>();
+                        Debug.Log(collisionCheck);
                     }
                 }
             }
         }
-    }
+    } 
 
     private void CheckLineCollision()
     {
@@ -391,42 +531,11 @@ public class PlayerAttack : MonoBehaviour
         else
             nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
 
-        switch (collisionCheck)
+        Debug.Log("nCollisions: " + nCollisions);
+        if (nCollisions >= 1)
         {
-            case CurrentAttack.QGroundAttack:
-                Debug.Log("nCollisions: " + nCollisions);
-                if (nCollisions >= 1)
-                {
-                    Debug.Log("testy test2");
-                    Destroy(currentLine);
-                }
-                break;
-            case CurrentAttack.WGroundAttack:
-                Debug.Log("nCollisions: " + nCollisions);
-                if (nCollisions >= 1)
-                {
-                    Debug.Log("testy test2");
-                    Destroy(currentLine);
-                }
-                break;
-            case CurrentAttack.EGroundAttack:
-                Debug.Log("nCollisions: " + nCollisions);
-                if (nCollisions >= 1)
-                {
-                    Debug.Log("testy test2");
-                    Destroy(currentLine);
-                }
-                break;
-            case CurrentAttack.RGroundAttack:
-                Debug.Log("nCollisions: " + nCollisions);
-                if (nCollisions >= 1)
-                {
-                    Debug.Log("testy test2");
-                    Destroy(currentLine);
-                }
-                break;
-            default:
-                break;
+            Debug.Log("testy test2");
+            Destroy(currentLine);
         }
     }
 }
