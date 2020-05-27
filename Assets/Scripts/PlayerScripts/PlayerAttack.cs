@@ -100,7 +100,8 @@ public class PlayerAttack : MonoBehaviour
             else
                 CheckEnemyCollision();
 
-            attackTimeAir -= Time.deltaTime;
+            if (currentAttack != CurrentAttack.RAirAttack)
+                attackTimeAir -= Time.deltaTime;
         }
         else if (!attackFlag)
             collisionCheck = 0;
@@ -132,6 +133,12 @@ public class PlayerAttack : MonoBehaviour
             currentAttack = 0;
 
             Destroy(playerAttack);
+        }
+
+        if ((currentAttack == CurrentAttack.RAirAttack) && (playerMove.IsGrounded()))
+        {
+            Destroy(playerAttack);
+            currentAttack = 0;
         }
 
         // Verifies if there is a 'Hitbox' tagged GameObject as a child, and if the animation has stopped 
@@ -300,16 +307,17 @@ public class PlayerAttack : MonoBehaviour
             switch (attackIdentif)
             {
                 case 0:
-                    AttackAir("Q", new Vector2(30, 43.8f), new Vector2(-15f, 21.6f), new Vector3(48f, -30f, 0));
+                    // Animation TBD
+                    AttackAir("Q", new Vector2(20.5f, 17.56f), new Vector2(-35.68f, -8f), new Vector3(48f, -30f, 0));
                     break;
                 case 1:
-                    AttackAir("W", new Vector2(43, 13), new Vector2(-21.5f, 0.5f), new Vector3(68f, 3f, 0));
+                    AttackAir("W", new Vector2(20.5f, 17.56f), new Vector2(-35.68f, -8f), new Vector3(68f, 3f, 0));
                     break;
                 case 2:
                     AttackAir("E", new Vector2(30, 48.4f), new Vector2(-15f, -24.2f), new Vector3(48f, 30f, 0));
                     break;
                 case 3:
-                    AttackAir("R", new Vector2(12.75f, 10.9f), new Vector2(-6.5f, 0.5f), new Vector3(44.4f, 5f, 0));
+                    AttackAir("R", new Vector2(17.31f, 35.68f), new Vector2(-33.56f, -11.89f), new Vector3(44.4f, 5f, 0));
                     break;
             }
         }
@@ -339,7 +347,6 @@ public class PlayerAttack : MonoBehaviour
             playerHitbox = new GameObject(input + "_Hitbox");
             playerHitbox.transform.SetParent(playerAttack.transform);
             attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
-            playerHitbox.AddComponent<Rigidbody2D>();
         }
         
         attackCheck.size = size;
@@ -400,14 +407,17 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("(Air) Pressed " + input);
 
         playerAttack = new GameObject(input + "_Attack");
-        playerHitbox = new GameObject(input + "_Hitbox");
         playerAttack.transform.SetParent(transform);
-        playerHitbox.transform.SetParent(playerAttack.transform);
 
         // Creates an attack hitbox on playerAttack and plays correct attack animation
         attackCheck = playerAttack.AddComponent<BoxCollider2D>();
-        attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
-        playerHitbox.AddComponent<Rigidbody2D>();
+
+        if (input != "R")
+        {
+            playerHitbox = new GameObject(input + "_Hitbox");
+            playerHitbox.transform.SetParent(playerAttack.transform);
+            attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
+        }
 
         attackCheck.size = size;
         attackCheck.offset = offset;
@@ -439,8 +449,8 @@ public class PlayerAttack : MonoBehaviour
             case "E":
                 currentAttack = CurrentAttack.EAirAttack;
 
-                attackHitbox.size = new Vector2(11, 16);
-                attackHitbox.offset = new Vector2(-24.45f, -39.85f);
+                attackHitbox.size = new Vector2(30, 38.4f);
+                attackHitbox.offset = new Vector2(-24.45f, -7.95f);
                 playerHitbox.layer = 15;
                 break;
             case "R":
@@ -503,7 +513,10 @@ public class PlayerAttack : MonoBehaviour
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack
                         || currentAttack == CurrentAttack.RAirAttack))
                     {
-                        
+                        collisionCheck = currentAttack;
+                        currentLine = line;
+                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
+                        Debug.Log(collisionCheck);
                     }
                     else if (((line.tag == "point") || (line.tag == "lpoint") 
                         && currentAttack == CurrentAttack.RGroundAttack))
@@ -523,7 +536,7 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] results = new Collider2D[5];
         int nCollisions;
 
-        if (collisionCheck == CurrentAttack.RGroundAttack)
+        if ((collisionCheck == CurrentAttack.RGroundAttack) || (collisionCheck == CurrentAttack.RAirAttack))
             nCollisions = Physics2D.OverlapCollider(attackCheck, attackFilter, results);
         else
             nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
@@ -533,6 +546,8 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("testy test2");
             Destroy(currentLine);
+
+            collisionCheck = 0;
         }
     }
 }

@@ -72,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (hp.isInvul)
         {
+            if (playerAtk.currentAttack == CurrentAttack.RAirAttack)
+                playerAtk.currentAttack = 0;
+
             return;
         }
 
@@ -85,10 +88,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Obtains the Movement Vector and calculates the x axis velocity with it
-        if (!playerAtk.attackFlag)
+        if ((!playerAtk.attackFlag) && (playerAtk.currentAttack != CurrentAttack.RAirAttack))
         {
-            Debug.Log("Can Move");
-
             // Defines the Horizontal axis according to player input.
             hAxis = Input.GetAxis("Horizontal");
             vAxis = Input.GetAxis("Vertical");
@@ -96,6 +97,11 @@ public class PlayerMovement : MonoBehaviour
             float movementVect = hAxis * forceMultiplier;
             currentVelocity = playerBody.velocity;
             currentVelocity.x = movementVect;
+        }
+        else if (playerAtk.currentAttack == CurrentAttack.RAirAttack)
+        {
+            currentVelocity = new Vector2(0, -280f);
+            playerBody.velocity = currentVelocity;
         }
         else 
         {
@@ -142,13 +148,6 @@ public class PlayerMovement : MonoBehaviour
                 if (vAxis < 0)
                     currentVelocity.x = 0;
 
-                playerBody.velocity = currentVelocity;
-            }
-
-            // If the player presses down, it stops him immediately on the air.
-            if (vAxis < 0)
-            {
-                currentVelocity.x = 0;
                 playerBody.velocity = currentVelocity;
             }
 
@@ -248,10 +247,7 @@ public class PlayerMovement : MonoBehaviour
         int nCollisions = Physics2D.OverlapCollider(detectionZone, contactFilter, results);
 
         if (nCollisions > 0)
-        {
-            Debug.Log("This is working!");
             return true;
-        }
 
         return false;
     }
