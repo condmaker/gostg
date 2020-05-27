@@ -27,8 +27,9 @@ public class PlayerAttack : MonoBehaviour
     public CurrentAttack currentAttack = CurrentAttack.None;
     public CurrentAttack collisionCheck = CurrentAttack.None;
     public GameObject    currentLine;
-    public Collider2D    currentLineCol;
-    
+    public Collider2D    currentLineCol1;
+    public Collider2D    currentLineCol2;
+
     public bool          buttonPressedW = true;
     public float         attackHoldTimeW = 0.5f;
     public bool          buttonPressedQ = true;
@@ -78,6 +79,10 @@ public class PlayerAttack : MonoBehaviour
                 CheckEnemyCollision();
             attackTime -= Time.deltaTime;
         }
+        else
+        {
+            collisionCheck = 0;
+        }
 
         if (attackCooldown)
         {
@@ -103,7 +108,6 @@ public class PlayerAttack : MonoBehaviour
         // playing, destroying said object afterwards.
 
         // Verifies if the button is pressed and if there is no animation playing
-        // IMP - Need to figure out how to implement the buffer (Now to implement universal comboStringCounter)
         // IMP - Need to implement the rest of the attacks
         if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && comboStringCounter > 0)
         {
@@ -170,15 +174,9 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButtonUp(Fire))
         {
             if (!attackCooldown)
-            {
-                Debug.Log("WHY DOE");
                 buttonPressed = false;
-            }
             else
-            {
-                Debug.Log("THERE IS NO WAY");
                 buttonPressed = true;
-            }
 
             if (attackFlag)
             {
@@ -204,7 +202,7 @@ public class PlayerAttack : MonoBehaviour
                 switch (attackIdentif)
                 {
                     case 0:
-                        AttackGround("Q", new Vector2(30, 34), new Vector2(-15f, 17f), new Vector3(48f, -30f, 0));
+                        AttackGround("Q", new Vector2(30, 43.8f), new Vector2(-15f, 21.6f), new Vector3(48f, -30f, 0));
                         break;
                     case 1:
                         AttackGround("W", new Vector2(43, 13), new Vector2(-21.5f, 0.5f), new Vector3(68f, 3f, 0));
@@ -292,22 +290,22 @@ public class PlayerAttack : MonoBehaviour
             case "Q":
                 currentAttack = CurrentAttack.QGroundAttack;
 
-                attackHitbox.size = size - new Vector2(10, 10);
-                attackHitbox.offset = offset - new Vector2(-24.7f, 28.4f);
+                attackHitbox.size = new Vector2(14, 14);
+                attackHitbox.offset = new Vector2(-23f, 36.5f);
                 playerHitbox.layer = 15;
                 break;
             case "W":                
                 currentAttack = CurrentAttack.WGroundAttack;
 
                 attackHitbox.size = size;
-                attackHitbox.offset = offset; 
+                attackHitbox.offset = offset;
                 playerHitbox.layer = 15;
                 break;
             case "E":
                 currentAttack = CurrentAttack.EGroundAttack;
 
-                attackHitbox.size = size;
-                attackHitbox.offset = offset;
+                attackHitbox.size = new Vector2(11, 16);
+                attackHitbox.offset = new Vector2(-24.45f, -39.85f);
                 playerHitbox.layer = 15;
                 break;
             case "R":
@@ -346,41 +344,37 @@ public class PlayerAttack : MonoBehaviour
                     if (((line.tag == "line_dh") || (line.tag == "line_uh")) 
                         && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack))
                     {
-                        if (enemyCollider.IsTouchingLayers(15))
-                        {
-                            Destroy(line);
-                        }
+                        collisionCheck = currentAttack;
+                        currentLine = line;
+                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
+                        currentLineCol2 = currentLine.GetComponent<Collider2D>();
                     }
                     else if (((line.tag == "line_rv") || (line.tag == "line_lv")) 
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
                     {
-                        if (enemyCollider.IsTouchingLayers(15))
-                        {
-                            Destroy(line);
-                        }
+                        collisionCheck = currentAttack;
+                        currentLine = line;
+                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
+                        currentLineCol2 = currentLine.GetComponent<Collider2D>();
                     }
                     else if ((line.tag == "line_h") 
                         && currentAttack == CurrentAttack.WGroundAttack)
                     {
                         collisionCheck = currentAttack;
                         currentLine = line;
-                        currentLineCol = currentLine.GetComponent<Collider2D>();
+                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
                     }
                     else if ((line.tag == "line_v") 
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
                     {
-                        if (enemyCollider.IsTouchingLayers(15))
-                        {
-                            Destroy(line);
-                        }
+                        
                     }
                     else if (((line.tag == "point") || (line.tag == "lpoint") 
                         && currentAttack == CurrentAttack.RGroundAttack))
                     {
-                        if (enemyCollider.IsTouchingLayers(15))
-                        {
-                            Destroy(line);
-                        }
+                        collisionCheck = currentAttack;
+                        currentLine = line;
+                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
                     }
                 }
             }
@@ -390,14 +384,42 @@ public class PlayerAttack : MonoBehaviour
     private void CheckLineCollision()
     {
         Collider2D[] results = new Collider2D[5];
+        int nCollisions;
 
-        int nCollisions = Physics2D.OverlapCollider(currentLineCol, attackFilter, results);
+        if (collisionCheck == CurrentAttack.RGroundAttack)
+            nCollisions = Physics2D.OverlapCollider(attackCheck, attackFilter, results);
+        else
+            nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
 
         switch (collisionCheck)
         {
+            case CurrentAttack.QGroundAttack:
+                Debug.Log("nCollisions: " + nCollisions);
+                if (nCollisions >= 1)
+                {
+                    Debug.Log("testy test2");
+                    Destroy(currentLine);
+                }
+                break;
             case CurrentAttack.WGroundAttack:
-                Debug.Log("testy test");
-                if (nCollisions > 1)
+                Debug.Log("nCollisions: " + nCollisions);
+                if (nCollisions >= 1)
+                {
+                    Debug.Log("testy test2");
+                    Destroy(currentLine);
+                }
+                break;
+            case CurrentAttack.EGroundAttack:
+                Debug.Log("nCollisions: " + nCollisions);
+                if (nCollisions >= 1)
+                {
+                    Debug.Log("testy test2");
+                    Destroy(currentLine);
+                }
+                break;
+            case CurrentAttack.RGroundAttack:
+                Debug.Log("nCollisions: " + nCollisions);
+                if (nCollisions >= 1)
                 {
                     Debug.Log("testy test2");
                     Destroy(currentLine);
@@ -406,8 +428,6 @@ public class PlayerAttack : MonoBehaviour
             default:
                 break;
         }
-
-        collisionCheck = 0;
     }
 }
 

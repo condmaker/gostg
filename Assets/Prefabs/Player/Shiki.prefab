@@ -486,7 +486,7 @@ MonoBehaviour:
     m_Bits: 1024
   hitboxMask:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 16384
   comboStringCounter: 3
   comboDowntime: 3
   comboEndFlag: 0
