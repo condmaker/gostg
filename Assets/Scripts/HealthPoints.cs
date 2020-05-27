@@ -7,8 +7,10 @@ public class HealthPoints : MonoBehaviour
 {
     public float       hp = 100;
     public float       invulTime = 0.5f;
+    public float      attackCooldownTimer;
     public bool        isInvul = false;
     public Slider      slider;
+    public Slider      Stamina;
 
     public delegate void OnDead();
     public event OnDead onDead;
@@ -21,11 +23,14 @@ public class HealthPoints : MonoBehaviour
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
-        slider = GameObject.Find("SliderPlayer").GetComponent<Slider>();
+        slider = GameObject.Find("Health").GetComponent<Slider>();
+        Stamina = GameObject.Find("Stamina").GetComponent<Slider>();
     }
 
     void Update()
     {
+        attackCooldownTimer = GameObject.Find("Shiki").GetComponent<PlayerAttack>().attackCooldownTimer;
+        Stamina.value = attackCooldownTimer;
         if (isInvul)
         {
             invulTime -= Time.deltaTime;
