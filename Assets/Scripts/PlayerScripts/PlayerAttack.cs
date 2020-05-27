@@ -261,11 +261,6 @@ public class PlayerAttack : MonoBehaviour
                         break;
                 }
 
-                if (transform.rotation == Quaternion.identity)
-                    rb.velocity = new Vector2(50000000000, 0);
-                else
-                    rb.velocity = new Vector2(-500000000000, 0);
-
                 if (comboStringCounter == 1)
                     comboStringCounter = 0;
 
@@ -277,10 +272,6 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log("Hold!");
                 attackHoldTime = 0.5f;
                 //AttackGround("Heavy",) com switch
-            }
-            else if (attackHoldTime <= 0f)
-            {
-                attackHoldTime = 0.5f;
             }
 
         }
@@ -336,16 +327,21 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("Pressed " + input);
 
         playerAttack = new GameObject(input + "_Attack");
-        playerHitbox = new GameObject(input + "_Hitbox");
+        
         playerAttack.transform.SetParent(transform);
-        playerHitbox.transform.SetParent(playerAttack.transform);
 
         // Creates an attack hitbox on playerAttack and plays correct attack animation
         // IMP - Needs to check if player is flipped or not
         attackCheck = playerAttack.AddComponent<BoxCollider2D>();
-        attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
-        playerHitbox.AddComponent<Rigidbody2D>();
 
+        if (input != "R")
+        {
+            playerHitbox = new GameObject(input + "_Hitbox");
+            playerHitbox.transform.SetParent(playerAttack.transform);
+            attackHitbox = playerHitbox.AddComponent<BoxCollider2D>();
+            playerHitbox.AddComponent<Rigidbody2D>();
+        }
+        
         attackCheck.size = size;
         attackCheck.offset = offset;
 
@@ -357,6 +353,7 @@ public class PlayerAttack : MonoBehaviour
         // Initiates the corresponding animation
         attackFlag = true;
         attackCooldown = true;
+
 
         switch (input)
         {

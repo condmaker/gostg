@@ -87,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
         // Obtains the Movement Vector and calculates the x axis velocity with it
         if (!playerAtk.attackFlag)
         {
+            Debug.Log("Can Move");
+
             // Defines the Horizontal axis according to player input.
             hAxis = Input.GetAxis("Horizontal");
             vAxis = Input.GetAxis("Vertical");
@@ -97,8 +99,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         {
-            // Breaks the buffer system
-            //Input.ResetInputAxes("Horizontal");
+            currentVelocity = new Vector2(0, 0);
         }
 
         // Verifies at the start of the frame if after jumping the "jump" button is still pressed
