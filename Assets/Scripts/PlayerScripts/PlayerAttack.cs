@@ -545,7 +545,7 @@ public class PlayerAttack : MonoBehaviour
         if (nCollisions >= 1)
         {
             Debug.Log("testy test2");
-            Destroy(currentLine);
+            currentLine.transform.parent.GetComponent<EnemyHealth>().DestroyLine(currentLine);
 
             collisionCheck = 0;
         }

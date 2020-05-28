@@ -7,19 +7,19 @@ public class EnemyHealthBar : MonoBehaviour
 {
     public Slider slider;
 
-    HealthPoints health;
+    EnemyHealth health;
 
     // Start is called before the first frame update
     void Start()
     {
         slider = GameObject.Find("SliderEnemy").GetComponent<Slider>();
-        health = GetComponent<HealthPoints>();
+        health = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        slider.value = health.hp;
+        slider.value = health.enemyHealth;
 
         //if (collision.)
     }

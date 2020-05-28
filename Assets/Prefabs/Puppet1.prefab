@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853988459208141759}
-  - component: {fileID: 853988459208141732}
+  - component: {fileID: 4141188891157566372}
   - component: {fileID: 853988459208141758}
   - component: {fileID: 853988459208141757}
   - component: {fileID: 853988459208141729}
   - component: {fileID: 853988459208141728}
-  - component: {fileID: 853988459208141730}
   - component: {fileID: 853988459208141731}
   - component: {fileID: 7769327011731820780}
   m_Layer: 10
@@ -40,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &853988459208141732
+--- !u!114 &4141188891157566372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,14 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 853988459208141756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23205e63bdf525947b1b0ff64b4dbf0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 20c6c10c9ad2050459ca7c0c0f2751e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  invulTime: 3
-  isInvul: 0
+  enemyHealth: 0
   slider: {fileID: 0}
-  playerBody: {fileID: 0}
+  healthLine: 0
+  lineTimer: 0.5
 --- !u!212 &853988459208141758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -174,19 +172,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.788208, y: 55.85565}
   m_EdgeRadius: 0
---- !u!114 &853988459208141730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853988459208141756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ba287149427e8438f9f003d436a91e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 853988460011258010}
 --- !u!114 &853988459208141731
 MonoBehaviour:
   m_ObjectHideFlags: 0
