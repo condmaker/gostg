@@ -26,8 +26,8 @@ public class LinesInEnemy : MonoBehaviour
         lineArray.Add(line_v);
         lineArray.Add(line_dh); 
         lineArray.Add(line_uh);
-        lineArray.Add(line_rv);
-        lineArray.Add(line_lv);
+        //lineArray.Add(line_rv);
+        //lineArray.Add(line_lv);
         lineArray.Add(point);
         lineArray.Add(lpoint);
 

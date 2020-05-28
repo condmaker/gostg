@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public Slider    slider;
     public int       healthLine;
     public float     lineTimer = 0.5f;
+    public float     deathTimer = 1f;
 
     private LinesInEnemy linesInEnemy;
     private bool  onDead;
@@ -31,11 +32,17 @@ public class EnemyHealth : MonoBehaviour
         slider.value = enemyHealth;
 
         if (onDead)
-            Destroy(gameObject);
+        {
+            gameObject.layer = 12;
+            StartCoroutine(DestroyEnemy(gameObject));
+        }
     }
 
     public void DestroyLine(GameObject line)
     {
+        if (onDead)
+            return;
+
         healthLine--;
         //SoundMng.instance.PlaySound(lineDestructionSound);
         Destroy(line);
@@ -50,23 +57,30 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    IEnumerator DestroyEnemy(GameObject gameObject)
+    {
+        float enemyDestroyTimer = deathTimer;
 
+        Debug.Log("Deathy");
+        yield return new WaitForSeconds(enemyDestroyTimer);
+        Debug.Log("Deathy Death");
+
+        Destroy(gameObject);
+    }
+
+    // For some reason kills everything on collision
     IEnumerator LineDestruction(GameObject line)
     {
         float lineDestroyTimer = lineTimer;
 
         Debug.Log("Boom?");
-        line.GetComponent<Collider2D>().enabled = false;
-        line.GetComponent<Collider2D>().enabled = false;
+        line.layer = 12;
 
-        while (lineDestroyTimer > 0)
-        {
-            lineDestroyTimer -= 0.1f;
-            yield return null;
-        }
+        //animação de fade da linha
+        yield return new WaitForSeconds(lineDestroyTimer);
+        
 
         Debug.Log("Boom!");
         DestroyLine(line);
-        yield return null;
     }
 }

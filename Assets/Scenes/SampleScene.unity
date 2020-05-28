@@ -5117,7 +5117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aaf5fd7f4817ec4eb57d48c27dde703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMusic: {fileID: 8300000, guid: f9db4f25726741945859ea9bb5d9372d, type: 3}
+  sceneMusic: {fileID: 8300000, guid: b06484b9d1b6e744c916b540c9c98789, type: 3}
 --- !u!4 &1199045834
 Transform:
   m_ObjectHideFlags: 0
