@@ -324,6 +324,8 @@ public class PlayerAttack : MonoBehaviour
                     AttackAir("R", new Vector2(17.31f, 44f), new Vector2(-33.56f, -26.4f), new Vector3(44.4f, 5f, 0));
                     break;
             }
+
+            SoundMng.instance.PlaySound(attackSound, 0.3f);
         }
     }
 

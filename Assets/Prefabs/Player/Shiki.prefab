@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f09f3466ad434a9faacd046a8d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: d832e499fa6c39040a3cb7e34fe358b7, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 1024
