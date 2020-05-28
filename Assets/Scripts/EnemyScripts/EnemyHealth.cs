@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public AudioClip enemyDeathSound;
     public AudioClip lineDestructionSound;
+    public Animator enemyAnim;
 
     public int       enemyHealth;
 
@@ -21,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         slider = transform.Find("Canvas").transform.Find("SliderEnemy").GetComponent<Slider>();
+        enemyAnim = GetComponent<Animator>();
         linesInEnemy = GetComponent<LinesInEnemy>();
         healthLine = linesInEnemy.NumOfLines;
         slider.maxValue = healthLine * 10;
@@ -62,6 +64,7 @@ public class EnemyHealth : MonoBehaviour
         float enemyDestroyTimer = deathTimer;
 
         Debug.Log("Deathy");
+        enemyAnim.SetBool("onDead", true);
         yield return new WaitForSeconds(enemyDestroyTimer);
         Debug.Log("Deathy Death");
 
