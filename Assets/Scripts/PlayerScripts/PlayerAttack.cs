@@ -499,11 +499,6 @@ public class PlayerAttack : MonoBehaviour
                     else if (((line.tag == "line_rv") || (line.tag == "line_lv")) 
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
                     {
-                        collisionCheck = currentAttack;
-                        currentLine = line;
-                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
-                        currentLineCol2 = currentLine.GetComponent<Collider2D>();
-                        Debug.Log(collisionCheck);
                     }
                     else if ((line.tag == "line_h") 
                         && (currentAttack == CurrentAttack.WGroundAttack || currentAttack == CurrentAttack.WAirAttack))

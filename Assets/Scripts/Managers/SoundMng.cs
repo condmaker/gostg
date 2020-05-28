@@ -8,7 +8,6 @@ public class SoundMng : MonoBehaviour
 
     List<AudioSource> audioSources;
     AudioSource       currentMusic;
-    private bool      musicIsPlaying;
 
     void Awake()
     {
@@ -27,10 +26,9 @@ public class SoundMng : MonoBehaviour
 
     public void PlayMusic(AudioClip music, float volume = 1.0f)
     {
-        if (musicIsPlaying)
+        if (currentMusic != null && currentMusic.isPlaying)
         {
             currentMusic.Stop();
-            Destroy(currentMusic);
         }
 
         AudioSource audioSource = NewSoundObject();
@@ -40,7 +38,6 @@ public class SoundMng : MonoBehaviour
         audioSource.loop = true;
         currentMusic = audioSource;
 
-        musicIsPlaying = true;
     }
 
     public void PlaySound(AudioClip sound, float volume = 0.5f)
