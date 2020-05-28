@@ -270,7 +270,7 @@ public class PlayerAttack : MonoBehaviour
                         break;
                 }
 
-                //SoundMng.instance.PlaySound(attackSound, 0.5f);
+                SoundMng.instance.PlaySound(attackSound, 0.3f);
 
                 if (comboStringCounter == 1)
                     comboStringCounter = 0;

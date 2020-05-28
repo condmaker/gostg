@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3631,7 +3631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.960522, y: 40.499985, z: -10}
+  m_LocalPosition: {x: -30.96539, y: 40.499985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1307055103}
@@ -8802,6 +8802,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shiki
       objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603034, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d832e499fa6c39040a3cb7e34fe358b7, type: 3}
     - target: {fileID: 215465595841603035, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: playerBody
@@ -9275,7 +9280,7 @@ PrefabInstance:
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.960522
+      value: -30.96539
       objectReference: {fileID: 0}
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}
