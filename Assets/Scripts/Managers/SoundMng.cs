@@ -20,7 +20,7 @@ public class SoundMng : MonoBehaviour
 
         instance = this;
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         audioSources = new List<AudioSource>();
     }
