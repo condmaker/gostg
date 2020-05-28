@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    Collider2D       playerDetector;
-    Rigidbody2D      enemyBody;
-    Animator         enemyAnim;
+    Collider2D playerDetector;
 
-    ContactFilter2D  contactFilter;
+    Rigidbody2D enemyBody;
+    Animator enemyAnim;
+
+    ContactFilter2D contactFilter;
     public LayerMask playerMask;
-    public bool      isRunning = false;
+
+    public Transform groundPoint;
+    public LayerMask groundMask;
+
+    public bool isRunning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +46,20 @@ public class FollowPlayer : MonoBehaviour
             if (direction.x >= 0)
             {
                 transform.rotation = Quaternion.identity;
+
+                if (!IsGrounded())
+                    return;
+
                 enemyBody.velocity = new Vector2(30, 0);
                 isRunning = true;
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+
+                if (!IsGrounded())
+                    return;
+
                 enemyBody.velocity = new Vector2(-30, 0);
                 isRunning = true;
             }
@@ -54,5 +67,12 @@ public class FollowPlayer : MonoBehaviour
         }
         else
             isRunning = false;
+    }
+
+    public bool IsGrounded()
+    {
+        if (Physics2D.OverlapCircle(groundPoint.position, 0.1f, groundMask) != null) return true;
+
+        return false;
     }
 }
