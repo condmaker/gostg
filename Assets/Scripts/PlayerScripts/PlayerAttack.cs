@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     // Normal variables
+    public AudioClip     attackSound;
+
     GameObject           playerAttack;
     GameObject           playerHitbox;
     BoxCollider2D        attackCheck;
@@ -264,9 +266,11 @@ public class PlayerAttack : MonoBehaviour
                         AttackGround("E", new Vector2(30, 48.4f), new Vector2(-15f, -24.2f), new Vector3(48f, 30f, 0));
                         break;
                     case 3:
-                        AttackGround("R", new Vector2(12.75f, 10.9f), new Vector2(-6.5f, 0.5f), new Vector3(44.4f, 5f, 0));
+                        AttackGround("R", new Vector2(18.2f, 12.8f), new Vector2(-9.28f, 2.59f), new Vector3(44.4f, 5f, 0));
                         break;
                 }
+
+                //SoundMng.instance.PlaySound(attackSound, 0.5f);
 
                 if (comboStringCounter == 1)
                     comboStringCounter = 0;
@@ -308,7 +312,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 case 0:
                     // Animation TBD
-                    AttackAir("Q", new Vector2(20.5f, 17.56f), new Vector2(-35.68f, -8f), new Vector3(48f, -30f, 0));
+                    AttackAir("Q", new Vector2(30f, 30f), new Vector2(-15f, 18f), new Vector3(48f, -30f, 0));
                     break;
                 case 1:
                     AttackAir("W", new Vector2(20.5f, 17.56f), new Vector2(-35.68f, -8f), new Vector3(68f, 3f, 0));
@@ -317,7 +321,7 @@ public class PlayerAttack : MonoBehaviour
                     AttackAir("E", new Vector2(30, 48.4f), new Vector2(-15f, -24.2f), new Vector3(48f, 30f, 0));
                     break;
                 case 3:
-                    AttackAir("R", new Vector2(17.31f, 35.68f), new Vector2(-33.56f, -11.89f), new Vector3(44.4f, 5f, 0));
+                    AttackAir("R", new Vector2(17.31f, 44f), new Vector2(-33.56f, -26.4f), new Vector3(44.4f, 5f, 0));
                     break;
             }
         }
@@ -367,8 +371,8 @@ public class PlayerAttack : MonoBehaviour
             case "Q":
                 currentAttack = CurrentAttack.QGroundAttack;
 
-                attackHitbox.size = new Vector2(14, 14);
-                attackHitbox.offset = new Vector2(-23f, 36.5f);
+                attackHitbox.size = new Vector2(21.4f, 21.4f);
+                attackHitbox.offset = new Vector2(-19.3f, 32.6f);
                 playerHitbox.layer = 15;
                 break;
             case "W":                
@@ -436,7 +440,7 @@ public class PlayerAttack : MonoBehaviour
                 currentAttack = CurrentAttack.QAirAttack;
 
                 attackHitbox.size = new Vector2(14, 14);
-                attackHitbox.offset = new Vector2(-23f, 36.5f);
+                attackHitbox.offset = new Vector2(-23f, 25.7f);
                 playerHitbox.layer = 15;
                 break;
             case "W":

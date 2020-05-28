@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimTrack : MonoBehaviour
 {
-    // TODO - Remove this whole script and implement animations directly on the needed scripts
+    public AudioClip walkSound;
 
     // Defines the playerRigid body to add forces and control them
+
     PlayerMovement     playerMove;
     PlayerAttack       playerAtk;
     Animator           playerAnim;
@@ -40,6 +41,8 @@ public class PlayerAnimTrack : MonoBehaviour
                         transform.rotation = Quaternion.identity;
 
                     playerAnim.Play("ShikiRun");
+                    //SoundMng.instance.PlaySound(walkSound, 0.2f);
+
                 }
 
                 else if ((playerMove.currentVelocity.x < 0) && !playerAtk.attackFlag)
@@ -48,6 +51,7 @@ public class PlayerAnimTrack : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, 180, 0);
 
                     playerAnim.Play("ShikiRun");
+                    //SoundMng.instance.PlaySound(walkSound, 0.2f);
                 }
 
                 else

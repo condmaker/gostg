@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int    enemyHealth;
+    public AudioClip enemyDeathSound;
+    public AudioClip lineDestructionSound;
 
-    public Slider slider;
-    public int    healthLine;
-    public float  lineTimer = 0.5f;
+    public int       enemyHealth;
+
+    public Slider    slider;
+    public int       healthLine;
+    public float     lineTimer = 0.5f;
 
     private LinesInEnemy linesInEnemy;
     private bool  onDead;
@@ -34,12 +37,15 @@ public class EnemyHealth : MonoBehaviour
     public void DestroyLine(GameObject line)
     {
         healthLine--;
+        //SoundMng.instance.PlaySound(lineDestructionSound);
         Destroy(line);
         //StartCoroutine(LineDestruction(line));
 
         if (healthLine <= 0)
         {
+            gameObject.layer = 12;
             healthLine = 0;
+            //SoundMng.instance.PlaySound(enemyDeathSound);
             onDead = true;
         }
     }

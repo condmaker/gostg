@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+
     // Variables that help determine if the player is grounded or not
     [SerializeField]             Transform groundPoint;
     [SerializeField]             Transform groundPointLeft;
@@ -100,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (playerAtk.currentAttack == CurrentAttack.RAirAttack)
         {
-            currentVelocity = new Vector2(0, -280f);
+            currentVelocity = new Vector2(0, -350f);
             playerBody.velocity = currentVelocity;
         }
         else 
@@ -218,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDead()
     {
         Debug.Log("Death.");
+        //SoundMng.instance.PlaySound(deathSound);
 
         gameObject.layer = 12;
         playerAnim.SetBool("shikiDeath", true);
@@ -229,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnHit(Vector2 direction)
     {
         Debug.Log("Hit!");
+        //SoundMng.instance.PlaySound(hitSound);
 
         // Animation Trigger here
         playerAnim.SetTrigger("shikiHit");
