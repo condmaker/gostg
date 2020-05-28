@@ -8,7 +8,7 @@ public class SceneIdentifier : MonoBehaviour
 
     void Start()
     {
-        //SoundMng.instance.PlayMusic(sceneMusic);
+        SoundMng.instance.PlayMusic(sceneMusic);
     }
 
 }
