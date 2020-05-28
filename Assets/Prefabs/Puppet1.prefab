@@ -56,10 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeathSound: {fileID: 0}
   lineDestructionSound: {fileID: 0}
+  enemyAnim: {fileID: 0}
   enemyHealth: 0
   slider: {fileID: 0}
   healthLine: 0
   lineTimer: 0.5
+  deathTimer: 1
 --- !u!212 &853988459208141758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3822612553444958138, guid: 883e073b6f411464c857f28c530ef20b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
