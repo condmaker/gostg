@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Elevator_teleport : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Elevator_teleport : MonoBehaviour
     public Animator panel;
     bool elevatorOn;
     public AudioClip sceneMusic;
+    public CinemachineVirtualCamera vcam;
 
     void Start()
     {
@@ -50,6 +52,11 @@ public class Elevator_teleport : MonoBehaviour
             SoundMng.instance.PlayMusic(sceneMusic);
             shiki.transform.position = new Vector2(2323, 181);
             shiki.transform.localScale = new Vector2(1.2f, 1.2f);
+            vcam.m_Lens.OrthographicSize = 200;
+        }
+        else if (gameObject.name == "Parte2")
+        {
+            shiki.transform.position = new Vector2(3912, -600);
         }
     }
 }
