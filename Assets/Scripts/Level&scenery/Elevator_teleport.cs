@@ -46,7 +46,7 @@ public class Elevator_teleport : MonoBehaviour
         else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {
             shiki.transform.position = new Vector2(2323, 181);
-
+            shiki.transform.localScale = new Vector2(1.2f, 1.2f);
         }
     }
 }

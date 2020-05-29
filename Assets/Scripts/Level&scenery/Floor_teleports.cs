@@ -15,7 +15,7 @@ public class Floor_teleports : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown("s"))
+        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine(Teleport());
         }
