@@ -785,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
@@ -906,6 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad15e1f49ad4df24fbfaf532119b7c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 1709343060}
+  cityTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   city_left: {fileID: 0}
 --- !u!1001 &173411652
@@ -1348,6 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 1392273804}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
@@ -4614,7 +4618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048343048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 761.3281, y: 890.45, z: -10}
+  m_LocalPosition: {x: 762.53094, y: 890.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466331356}
@@ -4756,6 +4760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad15e1f49ad4df24fbfaf532119b7c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 1392967874}
+  cityTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   city_left: {fileID: 247514551}
 --- !u!1 &1085666538
@@ -22395,6 +22401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad15e1f49ad4df24fbfaf532119b7c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 248351402}
+  cityTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   city_left: {fileID: 0}
 --- !u!1 &1392967872
@@ -22467,6 +22475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 1079250162}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
@@ -22686,6 +22695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 8300000, guid: bea95421b5cdd57429c934bcb55d3002, type: 3}
   vcam: {fileID: 2725095283069656104}
@@ -24153,6 +24163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 155608684}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
@@ -86430,6 +86441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad15e1f49ad4df24fbfaf532119b7c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 2118103094}
+  cityTargetPosition: {fileID: 0}
   panel: {fileID: 2031342852}
   city_left: {fileID: 0}
 --- !u!50 &2102963031 stripped
@@ -86538,6 +86551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5d924027949a64988ffc6b0b6cad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shikiTargetPosition: {fileID: 2077290560}
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
@@ -86717,7 +86731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2725095283069656105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 761.3281, y: 890.45, z: -10}
+  m_LocalPosition: {x: 762.53094, y: 890.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2725095282269991143}

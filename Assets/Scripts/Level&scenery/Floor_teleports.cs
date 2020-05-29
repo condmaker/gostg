@@ -4,53 +4,42 @@ using UnityEngine;
 
 public class Floor_teleports : MonoBehaviour
 {
-    GameObject        shiki;
-    public Animator   panel;
+    public Transform shikiTargetPosition;
+    public Transform cityTargetPosition;
+
+    GameObject shiki;
+    public Animator panel;
     public GameObject city_left;
 
-    private bool      isPressed = false;
+    bool keyPressed;
 
     void Start()
     {
-        shiki = GameObject.Find("Shiki");
+        shiki = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
     }
     void Update()
     {
+        keyPressed = Input.GetKeyDown(KeyCode.S);
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S) && !isPressed)
+        if ((other.GetComponentInParent<PlayerMovement>() != null) && (keyPressed))
+        //if (other.gameObject.tag == "Player" && keyPressed)
         {
             StartCoroutine(Teleport());
         }
     }
     IEnumerator Teleport()
     {
-        isPressed = true;
-
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
         shiki.transform.localScale = new Vector2(0.8f, 0.8f);
-        if (gameObject.name == "Door401405")
+        shikiTargetPosition.position += new Vector3(0, 0, -shikiTargetPosition.position.z);
+        shiki.transform.position = shikiTargetPosition.position;
+        if (cityTargetPosition)
         {
-            shiki.transform.position = new Vector2(-2, 0);
+            city_left.transform.position = cityTargetPosition.position;
         }
-        else if (gameObject.name == "Door406410")
-        {
-            shiki.transform.position = new Vector2(-2, -473);
-        }
-        else if (gameObject.name == "Door411415")
-        {
-            city_left.transform.position -= new Vector3(0, 200, 0);
-            shiki.transform.position = new Vector2(-2, -713);
-        }
-        else if (gameObject.name == "Door416420")
-        {
-            shiki.transform.position = new Vector2(-2, -1000);
-        }
-
-        isPressed = false;
-
     }
 }
 

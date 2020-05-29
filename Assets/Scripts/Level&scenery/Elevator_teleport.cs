@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class Elevator_teleport : MonoBehaviour
 {
+    public Transform shikiTargetPosition;
+
     GameObject shiki;
     public Animator panel;
 
@@ -15,18 +17,21 @@ public class Elevator_teleport : MonoBehaviour
     public GameObject city_left;
 
     private bool isPressed = false;
+    bool keyPressed;
 
     void Start()
     {
-        shiki = GameObject.Find("Shiki");
+        shiki = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
     }
     void Update()
     {
         elevatorOn = GameObject.Find("ButtonRight").GetComponent<Button>().elevatorOn;
+        keyPressed = Input.GetKeyDown(KeyCode.S);
+
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S) && !isPressed)
+        if (other.tag == "Player" && (keyPressed) && !isPressed)
         {
             StartCoroutine(Teleport());
         }
@@ -38,24 +43,8 @@ public class Elevator_teleport : MonoBehaviour
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
         shiki.transform.localScale = new Vector2(1.5f, 1.5f);
-        if (gameObject.name == "DoorElevator1")
-        {
-            shiki.transform.position = new Vector2(-36, 990);
-        }
-        else if (gameObject.name == "DoorElevator2")
-        {
-            shiki.transform.position = new Vector2(509, 990);
-        }
-        else if (gameObject.name == "DoorElevator3")
-        {
-            shiki.transform.position = new Vector2(1050, 990);
-            city_left.transform.position += new Vector3(0, 200, 0);
-        }
-        else if (gameObject.name == "DoorElevator4")
-        {
-            shiki.transform.position = new Vector2(1587, 990);
-        }
-        else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
+        shiki.transform.position = shikiTargetPosition.position;
+        if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {
             SoundMng.instance.PlayMusic(sceneMusic);
 
