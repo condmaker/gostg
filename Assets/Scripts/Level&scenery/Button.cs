@@ -5,10 +5,14 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public bool elevatorOn;
+
     public GameObject puppet;
     public Transform button;
     public GameObject light;
     public GameObject light2;
+
+    private bool isPressed = false;
+
     void Start()
     {
     }
@@ -17,7 +21,7 @@ public class Button : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown("s"))
+        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S))
         {
             if (gameObject.name == "wrongbutton1")
             {

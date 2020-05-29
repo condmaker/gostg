@@ -7,10 +7,14 @@ public class Elevator_teleport : MonoBehaviour
 {
     GameObject shiki;
     public Animator panel;
+
     bool elevatorOn;
+
     public AudioClip sceneMusic;
     public CinemachineVirtualCamera vcam;
     public GameObject city_left;
+
+    private bool isPressed = false;
 
     void Start()
     {
@@ -22,13 +26,15 @@ public class Elevator_teleport : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown("s"))
+        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S) && !isPressed)
         {
             StartCoroutine(Teleport());
         }
     }
     IEnumerator Teleport()
     {
+        isPressed = true;
+
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
         shiki.transform.localScale = new Vector2(1.5f, 1.5f);
@@ -52,13 +58,17 @@ public class Elevator_teleport : MonoBehaviour
         else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {
             SoundMng.instance.PlayMusic(sceneMusic);
-            shiki.transform.position = new Vector2(2323, 181);
-            shiki.transform.localScale = new Vector2(1.2f, 1.2f);
+
+            shiki.transform.position = new Vector2(2353.24f, 181);
+            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
             vcam.m_Lens.OrthographicSize = 200;
         }
         else if (gameObject.name == "Parte2")
         {
             shiki.transform.position = new Vector2(3912, -600);
+            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
         }
+
+        isPressed = false;
     }
 }

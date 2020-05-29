@@ -3631,7 +3631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.961773, y: 40.499985, z: -10}
+  m_LocalPosition: {x: -30.960522, y: 40.499985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1307055103}
@@ -5954,7 +5954,7 @@ SpriteRenderer:
   m_Size: {x: 1913, y: 1016}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1619400313
@@ -6035,7 +6035,7 @@ SpriteRenderer:
   m_Size: {x: 1913, y: 1016}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1622833496
@@ -8757,7 +8757,7 @@ SpriteRenderer:
   m_Size: {x: 1913, y: 1016}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &215465595606123252
@@ -8862,6 +8862,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603037, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 215465595841603037, guid: 44e08239c0e11fb42a208fb89b586b3a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1020511764201716623, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
@@ -9291,7 +9301,7 @@ PrefabInstance:
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.961773
+      value: -30.960522
       objectReference: {fileID: 0}
     - target: {fileID: 2725095283733859527, guid: 7fbedb280187e2c499f68a37bf42bcee,
         type: 3}

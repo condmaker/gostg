@@ -15,7 +15,7 @@ public class Teleporter_right : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            shiki.transform.position = new Vector2(-300, 848);
+            shiki.transform.position = new Vector2(-300, shiki.transform.position.y);
         }
     }
 }

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Floor_teleports : MonoBehaviour
 {
-    GameObject shiki;
-    public Animator panel;
+    GameObject        shiki;
+    public Animator   panel;
     public GameObject city_left;
+
+    private bool      isPressed = false;
+
     void Start()
     {
         shiki = GameObject.Find("Shiki");
@@ -16,13 +19,15 @@ public class Floor_teleports : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S))
+        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S) && !isPressed)
         {
             StartCoroutine(Teleport());
         }
     }
     IEnumerator Teleport()
     {
+        isPressed = true;
+
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
         shiki.transform.localScale = new Vector2(0.8f, 0.8f);
@@ -43,6 +48,8 @@ public class Floor_teleports : MonoBehaviour
         {
             shiki.transform.position = new Vector2(-2, -1000);
         }
+
+        isPressed = false;
 
     }
 }

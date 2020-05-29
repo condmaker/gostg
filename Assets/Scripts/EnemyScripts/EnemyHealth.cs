@@ -19,13 +19,9 @@ public class EnemyHealth : MonoBehaviour
     private LinesInEnemy linesInEnemy;
     private bool  onDead;
 
-    void Start()
+    void OnEnable()
     {
-        slider = transform.Find("Canvas").transform.Find("SliderEnemy").GetComponent<Slider>();
-        enemyAnim = GetComponent<Animator>();
-        linesInEnemy = GetComponent<LinesInEnemy>();
-        healthLine = linesInEnemy.NumOfLines;
-        slider.maxValue = healthLine * 10;
+        StartCoroutine(GetComps());
     }
 
     void Update()
@@ -85,5 +81,15 @@ public class EnemyHealth : MonoBehaviour
 
         Debug.Log("Boom!");
         DestroyLine(line);
+    }
+
+    IEnumerator GetComps()
+    {
+        yield return new WaitForSeconds(0.1f);
+        slider = transform.Find("Canvas").transform.Find("SliderEnemy").GetComponent<Slider>();
+        enemyAnim = GetComponent<Animator>();
+        linesInEnemy = GetComponent<LinesInEnemy>();
+        healthLine = linesInEnemy.NumOfLines;
+        slider.maxValue = healthLine * 10;
     }
 }

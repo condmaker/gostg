@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
     public bool isRunning = false;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         playerDetector = gameObject.transform.Find("Player Detector").GetComponent<Collider2D>();
         enemyBody = gameObject.GetComponent<Rigidbody2D>();

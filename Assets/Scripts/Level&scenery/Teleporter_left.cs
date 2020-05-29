@@ -19,7 +19,7 @@ public class Teleporter_left : MonoBehaviour
         Debug.Log("Collided");
         if(other.gameObject.tag == "Player")
         {
-            shiki.transform.position = new Vector2(1840, 848);
+            shiki.transform.position = new Vector2(1840, shiki.transform.position.y);
             cam.transform.position = new Vector2(1940, 848);
         }
     }

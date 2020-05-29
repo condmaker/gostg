@@ -10,7 +10,7 @@ public class DamageZone : MonoBehaviour
 
     ContactFilter2D contactFilter;
 
-    void Start()
+    void OnEnable()
     {
         contactFilter = new ContactFilter2D();
         contactFilter.SetLayerMask(damageMask);
