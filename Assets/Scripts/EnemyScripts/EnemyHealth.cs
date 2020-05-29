@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.layer = 12;
             healthLine = 0;
-            //SoundMng.instance.PlaySound(enemyDeathSound);
+            SoundMng.instance.PlaySound(enemyDeathSound);
             onDead = true;
         }
     }

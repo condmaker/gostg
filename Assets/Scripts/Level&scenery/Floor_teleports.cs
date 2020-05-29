@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door_teleports : MonoBehaviour
+public class Floor_teleports : MonoBehaviour
 {
     GameObject shiki;
     public Animator panel;
@@ -17,7 +17,6 @@ public class Door_teleports : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && Input.GetKeyDown("s"))
         {
-            Debug.Log("The~Door");
             StartCoroutine(Teleport());
         }
     }
@@ -26,7 +25,23 @@ public class Door_teleports : MonoBehaviour
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
         shiki.transform.localScale = new Vector2(0.8f, 0.8f);
-        shiki.transform.position = new Vector2(1000, 0);
+        if (gameObject.name == "Door401405")
+        {
+            shiki.transform.position = new Vector2(-2, 0);
+        }
+        else if (gameObject.name == "Door406410")
+        {
+            shiki.transform.position = new Vector2(-2, -473);
+        }
+        else if (gameObject.name == "Door411415")
+        {
+            shiki.transform.position = new Vector2(-2, -713);
+        }
+        else if (gameObject.name == "Door416420")
+        {
+            shiki.transform.position = new Vector2(-2, -1000);
+        }
+
     }
 }
 
