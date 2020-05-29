@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    bool elevatorOn;
+    public bool elevatorOn;
     public GameObject puppet;
     public Transform button;
     void Start()
@@ -29,7 +29,7 @@ public class Button : MonoBehaviour
             {
                 Instantiate(puppet, new Vector3(860, -980), transform.rotation);
             }
-            else if (gameObject.name == "RightButton")
+            else if (gameObject.name == "ButtonRight")
             {
                 elevatorOn = true;
             }

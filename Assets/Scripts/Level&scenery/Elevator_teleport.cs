@@ -6,12 +6,14 @@ public class Elevator_teleport : MonoBehaviour
 {
     GameObject shiki;
     public Animator panel;
+    bool elevatorOn;
     void Start()
     {
         shiki = GameObject.Find("Shiki");
     }
     void Update()
     {
+        elevatorOn = GameObject.Find("ButtonRight").GetComponent<Button>().elevatorOn;
     }
     void OnTriggerStay2D(Collider2D other)
     {
@@ -38,9 +40,13 @@ public class Elevator_teleport : MonoBehaviour
             shiki.transform.position = new Vector2(1050, 990);
         }
         else if (gameObject.name == "DoorElevator4")
-        { 
+        {
             shiki.transform.position = new Vector2(1587, 990);
         }
+        else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
+        {
+            shiki.transform.position = new Vector2(2323, 181);
 
+        }
     }
 }
