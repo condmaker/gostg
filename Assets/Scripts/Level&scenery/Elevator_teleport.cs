@@ -7,6 +7,8 @@ public class Elevator_teleport : MonoBehaviour
     GameObject shiki;
     public Animator panel;
     bool elevatorOn;
+    public AudioClip sceneMusic;
+
     void Start()
     {
         shiki = GameObject.Find("Shiki");
@@ -45,6 +47,7 @@ public class Elevator_teleport : MonoBehaviour
         }
         else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {
+            SoundMng.instance.PlayMusic(sceneMusic);
             shiki.transform.position = new Vector2(2323, 181);
             shiki.transform.localScale = new Vector2(1.2f, 1.2f);
         }
