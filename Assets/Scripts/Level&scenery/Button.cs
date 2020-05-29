@@ -17,21 +17,21 @@ public class Button : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && Input.GetKeyDown("s"))
         {
-            if (gameObject.name == "WrongButton1")
+            if (gameObject.name == "wrongbutton1")
             {
-                Instantiate(puppet, button.position - new Vector2(300, transform.position.y), transform.rotation);
+                Instantiate(puppet, new Vector3(860, 3), transform.rotation);
             }
-            else if (gameObject.name == "WrongButton2")
+            else if (gameObject.name == "wrongbutton2")
             {
-                Instantiate(puppet, button.position - new Vector2(300, transform.position.y));
+                Instantiate(puppet, new Vector3(860, -467), transform.rotation);
             }
-            else if (gameObject.name == "wrongButton3")
+            else if (gameObject.name == "wrongbutton3")
             {
-                Instantiate(puppet, button.position - new Vector2(300, transform.position.y));
+                Instantiate(puppet, new Vector3(860, -980), transform.rotation);
             }
             else if (gameObject.name == "RightButton")
             {
-                
+                elevatorOn = true;
             }
 
         }
