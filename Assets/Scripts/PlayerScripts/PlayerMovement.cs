@@ -67,6 +67,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
 
         if (hp.hp == 0)
         {

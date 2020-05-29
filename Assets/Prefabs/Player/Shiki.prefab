@@ -466,7 +466,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5229562622326002071, guid: aa6af98907f4e1a439a8f720ba110008,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -499,7 +499,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   comboStringCounter: 3
-  comboDowntime: 3
+  comboDowntime: 1
   comboEndFlag: 0
   attackCooldown: 0
   attackCooldownTimer: 1
