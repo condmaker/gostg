@@ -10,6 +10,7 @@ public class Elevator_teleport : MonoBehaviour
     bool elevatorOn;
     public AudioClip sceneMusic;
     public CinemachineVirtualCamera vcam;
+    public GameObject city_left;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class Elevator_teleport : MonoBehaviour
         else if (gameObject.name == "DoorElevator3")
         {
             shiki.transform.position = new Vector2(1050, 990);
+            city_left.transform.position += new Vector3(0, 200, 0);
         }
         else if (gameObject.name == "DoorElevator4")
         {

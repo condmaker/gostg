@@ -722,6 +722,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
+  city_left: {fileID: 0}
 --- !u!4 &139370842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7993411639814366397, guid: 44e08239c0e11fb42a208fb89b586b3a,
@@ -840,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2031342852}
+  city_left: {fileID: 0}
 --- !u!1001 &173411652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1219,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
+  city_left: {fileID: 0}
 --- !u!1 &267297130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2940,7 @@ PrefabInstance:
     - target: {fileID: 215465595841603036, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 215465595841603037, guid: 44e08239c0e11fb42a208fb89b586b3a,
         type: 3}
@@ -4111,6 +4114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2031342852}
+  city_left: {fileID: 247514551}
 --- !u!1 &1085666538
 GameObject:
   m_ObjectHideFlags: 0
@@ -21734,6 +21738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2031342852}
+  city_left: {fileID: 0}
 --- !u!1 &1392967872
 GameObject:
   m_ObjectHideFlags: 0
@@ -21807,6 +21812,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
+  city_left: {fileID: 247514551}
 --- !u!1 &1416618911
 GameObject:
   m_ObjectHideFlags: 0
@@ -22025,6 +22031,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 8300000, guid: bea95421b5cdd57429c934bcb55d3002, type: 3}
   vcam: {fileID: 2725095283069656104}
+  city_left: {fileID: 0}
 --- !u!212 &1462034655
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23410,6 +23417,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
+  city_left: {fileID: 0}
 --- !u!1 &1716743364
 GameObject:
   m_ObjectHideFlags: 0
@@ -85476,6 +85484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2031342852}
+  city_left: {fileID: 0}
 --- !u!50 &2102963031 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 215465595841603026, guid: 44e08239c0e11fb42a208fb89b586b3a,
@@ -85555,6 +85564,7 @@ MonoBehaviour:
   panel: {fileID: 2031342852}
   sceneMusic: {fileID: 0}
   vcam: {fileID: 0}
+  city_left: {fileID: 0}
 --- !u!1 &2124382337
 GameObject:
   m_ObjectHideFlags: 0

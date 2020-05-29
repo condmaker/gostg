@@ -6,6 +6,7 @@ public class Floor_teleports : MonoBehaviour
 {
     GameObject shiki;
     public Animator panel;
+    public GameObject city_left;
     void Start()
     {
         shiki = GameObject.Find("Shiki");
@@ -35,6 +36,7 @@ public class Floor_teleports : MonoBehaviour
         }
         else if (gameObject.name == "Door411415")
         {
+            city_left.transform.position -= new Vector3(0, 200, 0);
             shiki.transform.position = new Vector2(-2, -713);
         }
         else if (gameObject.name == "Door416420")
