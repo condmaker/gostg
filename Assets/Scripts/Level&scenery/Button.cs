@@ -18,11 +18,16 @@ public class Button : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+            isPressed = true;
+        else
+            isPressed = false;
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.S))
+        if (other.gameObject.tag == "Player" && isPressed)
         {
+
             if (gameObject.name == "wrongbutton1")
             {
                 Instantiate(puppet, new Vector3(860, 3), transform.rotation);

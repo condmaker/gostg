@@ -19,7 +19,10 @@ public class Floor_teleports : MonoBehaviour
     }
     void Update()
     {
-        keyPressed = Input.GetKeyDown(KeyCode.S);
+        if (Input.GetKey(KeyCode.S))
+            keyPressed = true;
+        else
+            keyPressed = false;
     }
     void OnTriggerStay2D(Collider2D other)
     {
