@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthPoints : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class HealthPoints : MonoBehaviour
         {
             hp = 0;
             onDead();
+            SceneManager.LoadScene("Level1");
         }
 
     }
