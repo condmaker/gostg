@@ -42,7 +42,7 @@ public class HealthPoints : MonoBehaviour
             }
             if (invulTime <= 0)
             {
-                invulTime = 4f;
+                invulTime = 2f;
                 isInvul = false;
             }
         }
