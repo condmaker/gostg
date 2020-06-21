@@ -48,16 +48,6 @@ public class PlayerAttack : MonoBehaviour
 
     public AttackButton[] attackButtons;
 
-    public bool          buttonPressedW = true;
-    public float         attackHoldTimeW = 0.5f;
-    public bool          buttonPressedQ = true;
-    public float         attackHoldTimeQ = 0.5f;
-    public bool          buttonPressedR = true;
-    public float         attackHoldTimeR = 0.5f;
-    public bool          buttonPressedE = true;
-    public float         attackHoldTimeE = 0.5f;
-
-
     Animator             playerAnim;
     PlayerMovement       playerMove;
 
@@ -167,13 +157,14 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (currentAttack != attackButtons[i].attack)
                 {
-                    BufferAttackGround(attackButtons[i].text, attackButtons[i].buttonPressed, ref attackButtons[i].attackHoldTime, attackButtons[i].identif);
+                    BufferAttackGround(attackButtons[i].text, ref attackButtons[i].buttonPressed, ref attackButtons[i].attackHoldTime, attackButtons[i].identif);
                 }
             }
 
         }     
         else if (!playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && !attackFlagAir)
         {
+            // Bug where ground attack gets air buffered and "gets out" when player returns to the ground
             for (int i = 0; i < attackButtons.Length; i++)
             {
                 if (currentAttack != attackButtons[i].attack)
@@ -206,7 +197,7 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    private void BufferAttackGround(string Fire, bool buttonPressed, ref float currentAttackHold, ushort attackIdentif)
+    private void BufferAttackGround(string Fire, ref bool buttonPressed, ref float currentAttackHold, ushort attackIdentif)
     {
         float attackHoldTime = currentAttackHold;
 
@@ -456,6 +447,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     GameObject line = t.gameObject;
 
+                    // fix
                     if (((line.tag == "line_dh") || (line.tag == "line_uh")) 
                         && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack
                         || currentAttack == CurrentAttack.QAirAttack || currentAttack == CurrentAttack.EAirAttack))
@@ -465,10 +457,6 @@ public class PlayerAttack : MonoBehaviour
                         currentLineCol1 = currentLine.GetComponent<Collider2D>();
                         currentLineCol2 = currentLine.GetComponent<Collider2D>();
                         Debug.Log(collisionCheck);
-                    }
-                    else if (((line.tag == "line_rv") || (line.tag == "line_lv")) 
-                        && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack))
-                    {
                     }
                     else if ((line.tag == "line_h") 
                         && (currentAttack == CurrentAttack.WGroundAttack || currentAttack == CurrentAttack.WAirAttack))
