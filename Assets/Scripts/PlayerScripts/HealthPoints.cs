@@ -48,7 +48,6 @@ public class HealthPoints : MonoBehaviour
         }
     }
 
-    // TODO - Make the entity fickle when invunerable
     public void DealDamage(int damage, Vector2 direction)
     {
         if (hp < 0) return;

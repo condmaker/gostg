@@ -17,8 +17,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] LayerMask hitboxMask;
     Rigidbody2D          rb;
 
-    public float         comboStringCounter = 3;
-    public float         comboDowntime = 3f;
+    public float         comboStringCounter;
+    public float         comboDowntime;
     public bool          comboEndFlag = false;
 
     public bool          attackCooldown = false;
@@ -34,6 +34,19 @@ public class PlayerAttack : MonoBehaviour
     public GameObject    currentLine;
     public Collider2D    currentLineCol1;
     public Collider2D    currentLineCol2;
+
+    [System.Serializable]
+    public class AttackButton
+    {
+        public CurrentAttack attack;
+
+        public string    text;
+        public bool      buttonPressed;
+        public float     attackHoldTime;
+        public ushort    identif;
+    }
+
+    public AttackButton[] attackButtons;
 
     public bool          buttonPressedW = true;
     public float         attackHoldTimeW = 0.5f;
@@ -150,39 +163,24 @@ public class PlayerAttack : MonoBehaviour
         // IMP - Need to implement the rest of the attacks
         if (playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && comboStringCounter > 0)
         {
-            // Q Attack
-            if (currentAttack != CurrentAttack.QGroundAttack)
-                BufferAttackGround("Fire2", buttonPressedQ, 0);
+            for (int i = 0; i < attackButtons.Length; i++)
+            {
+                if (currentAttack != attackButtons[i].attack)
+                {
+                    BufferAttackGround(attackButtons[i].text, attackButtons[i].buttonPressed, ref attackButtons[i].attackHoldTime, attackButtons[i].identif);
+                }
+            }
 
-            // W Attack
-            if (currentAttack != CurrentAttack.WGroundAttack)
-                BufferAttackGround("Fire1", buttonPressedW, 1);
-
-            // E Attack
-            if (currentAttack != CurrentAttack.EGroundAttack)
-                BufferAttackGround("Fire3", buttonPressedE, 2);
-
-            // R Attack
-            if (currentAttack != CurrentAttack.RGroundAttack)
-                BufferAttackGround("Fire4", buttonPressedR, 3);
         }     
         else if (!playerMove.IsGrounded() && !playerAnim.GetBool("shikiDeath") && !attackFlagAir)
         {
-            // Q Attack
-            if (currentAttack != CurrentAttack.QAirAttack)
-                BufferAttackAir("Fire2", buttonPressedQ, 0);
-
-            // W Attack
-            if (currentAttack != CurrentAttack.WAirAttack)
-                BufferAttackAir("Fire1", buttonPressedW, 1);
-
-            // E Attack
-            if (currentAttack != CurrentAttack.EAirAttack)
-                BufferAttackAir("Fire3", buttonPressedE, 2);
-
-            // R Attack
-            if (currentAttack != CurrentAttack.RAirAttack)
-                BufferAttackAir("Fire4", buttonPressedR, 3);
+            for (int i = 0; i < attackButtons.Length; i++)
+            {
+                if (currentAttack != attackButtons[i].attack)
+                {
+                    BufferAttackAir(attackButtons[i].text, attackButtons[i].identif);
+                }
+            }
         }
 
         if (comboStringCounter <= 0)
@@ -196,7 +194,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 comboEndFlag = false;
                 comboStringCounter = 3;
-                comboDowntime = 3f;
+                comboDowntime = 0.4f;
             }
         }
 
@@ -208,25 +206,9 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    private void BufferAttackGround(string Fire, bool buttonPressed, ushort attackIdentif)
+    private void BufferAttackGround(string Fire, bool buttonPressed, ref float currentAttackHold, ushort attackIdentif)
     {
-        float attackHoldTime = 0.5f;
-
-        switch (attackIdentif)
-        {
-            case 0:
-                attackHoldTime = attackHoldTimeQ;
-                break;
-            case 1:
-                attackHoldTime = attackHoldTimeW;
-                break;
-            case 2:
-                attackHoldTime = attackHoldTimeE;
-                break;
-            case 3:
-                attackHoldTime = attackHoldTimeR;
-                break;
-        }
+        float attackHoldTime = currentAttackHold;
 
         if (Input.GetButtonUp(Fire))
         {
@@ -287,24 +269,10 @@ public class PlayerAttack : MonoBehaviour
 
         }
 
-        switch (attackIdentif)
-        {
-            case 0:
-                attackHoldTimeQ = attackHoldTime;
-                break;
-            case 1:
-                attackHoldTimeW = attackHoldTime;
-                break;
-            case 2:
-                attackHoldTimeE = attackHoldTime;
-                break;
-            case 3:
-                attackHoldTimeR = attackHoldTime;
-                break;
-        }
+        currentAttackHold = attackHoldTime;
     }
 
-    private void BufferAttackAir(string Fire, bool buttonPressed, ushort attackIdentif)
+    private void BufferAttackAir(string Fire, ushort attackIdentif)
     {
         if (Input.GetButtonDown(Fire))
         {

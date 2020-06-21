@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215465594866347225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -35, z: 0}
+  m_LocalPosition: {x: -7, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215465595841603037}
@@ -366,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215465595485290587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -35, z: 0}
+  m_LocalPosition: {x: 0, y: -40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 215465595841603037}
@@ -521,6 +521,27 @@ MonoBehaviour:
   currentLine: {fileID: 0}
   currentLineCol1: {fileID: 0}
   currentLineCol2: {fileID: 0}
+  attackButtons:
+  - attack: 1
+    text: Fire2
+    buttonPressed: 0
+    attackHoldTime: 0.5
+    identif: 0
+  - attack: 2
+    text: Fire1
+    buttonPressed: 0
+    attackHoldTime: 0.5
+    identif: 1
+  - attack: 3
+    text: Fire3
+    buttonPressed: 0
+    attackHoldTime: 0.5
+    identif: 2
+  - attack: 4
+    text: Fire4
+    buttonPressed: 0
+    attackHoldTime: 0.5
+    identif: 3
   buttonPressedW: 1
   attackHoldTimeW: 0.5
   buttonPressedQ: 1

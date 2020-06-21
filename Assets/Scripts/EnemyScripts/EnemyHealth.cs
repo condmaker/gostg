@@ -67,7 +67,6 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // For some reason kills everything on collision
     IEnumerator LineDestruction(GameObject line)
     {
         float lineDestroyTimer = lineTimer;
