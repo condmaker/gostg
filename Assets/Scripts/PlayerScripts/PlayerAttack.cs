@@ -493,7 +493,9 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] results = new Collider2D[5];
         int nCollisions;
 
-        if ((collisionCheck == CurrentAttack.RGroundAttack) || (collisionCheck == CurrentAttack.RAirAttack))
+        if (Physics2D.OverlapCollider(attackCheck, attackFilter, results) == null)
+            return;
+        else if ((collisionCheck == CurrentAttack.RGroundAttack) || (collisionCheck == CurrentAttack.RAirAttack))
             nCollisions = Physics2D.OverlapCollider(attackCheck, attackFilter, results);
         else
             nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
@@ -502,7 +504,7 @@ public class PlayerAttack : MonoBehaviour
         if (nCollisions >= 1)
         {
             Debug.Log("testy test2");
-            currentLine.transform.parent.GetComponent<EnemyHealth>().DestroyLine(currentLine);
+            currentLine.transform.parent.GetComponent<EnemyHealth>().DestroyLine(currentLine, transform.gameObject.GetComponent<HealthPoints>());
 
             collisionCheck = 0;
         }

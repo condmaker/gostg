@@ -70,4 +70,13 @@ public class HealthPoints : MonoBehaviour
         }
 
     }
+
+    public void RestoreHealth(float heal)
+    {
+        hp += heal;
+        if (hp > 100)
+            hp = 100;
+
+        slider.value = hp;
+    }
 }

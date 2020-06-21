@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    // TO-DO:
+    // Merge this into only one hp script shared with player (not really quintessential)
+    // Make player recover health when an enemy dies
     public AudioClip enemyDeathSound;
     public AudioClip lineDestructionSound;
     public Animator enemyAnim;
 
     public int       enemyHealth;
 
+    public float     deathRestore;
     public Slider    slider;
     public int       healthLine;
     public float     lineTimer = 0.5f;
@@ -36,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void DestroyLine(GameObject line)
+    public void DestroyLine(GameObject line, HealthPoints playerHealth)
     {
         if (onDead)
             return;
@@ -50,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.layer = 12;
             healthLine = 0;
+            playerHealth.RestoreHealth(deathRestore);
             SoundMng.instance.PlaySound(enemyDeathSound);
             onDead = true;
         }
@@ -79,13 +84,24 @@ public class EnemyHealth : MonoBehaviour
         
 
         Debug.Log("Boom!");
-        DestroyLine(line);
+        //DestroyLine(line);
     }
 
     IEnumerator GetComps()
     {
         yield return new WaitForSeconds(0.1f);
-        slider = transform.Find("Canvas").transform.Find("SliderEnemy").GetComponent<Slider>();
+
+        Slider[] sliders = GetComponentsInChildren<Slider>();
+
+        foreach (var s in sliders)
+        {
+            if (s.name == "SliderEnemy")
+            {
+                slider = s;
+                break;
+            }
+        }
+
         enemyAnim = GetComponent<Animator>();
         linesInEnemy = GetComponent<LinesInEnemy>();
         healthLine = linesInEnemy.NumOfLines;

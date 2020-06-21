@@ -45,7 +45,8 @@ public class FollowPlayer : MonoBehaviour
 
             if (direction.x >= 0)
             {
-                transform.rotation = Quaternion.identity;
+                if (transform.right.x < 0)
+                    transform.rotation = Quaternion.identity;
 
                 if (!IsGrounded())
                     return;
@@ -55,7 +56,8 @@ public class FollowPlayer : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                if (transform.right.x > 0)
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
 
                 if (!IsGrounded())
                     return;
