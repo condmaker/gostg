@@ -31,7 +31,7 @@ public class HealthPoints : MonoBehaviour
 
     void Update()
     {
-        attackCooldownTimer = GameObject.Find("Shiki").GetComponent<PlayerAttack>().attackCooldownTimer;
+        attackCooldownTimer = GameObject.FindObjectOfType<PlayerAttack>().attackCooldownTimer;
         Stamina.value = attackCooldownTimer;
         if (isInvul)
         {

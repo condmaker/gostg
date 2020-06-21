@@ -8,6 +8,7 @@ public class Floor_teleports : MonoBehaviour
     public Transform cityTargetPosition;
 
     GameObject shiki;
+    Coroutine  cr;
     public Animator panel;
     public GameObject city_left;
 
@@ -26,10 +27,13 @@ public class Floor_teleports : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if ((other.GetComponentInParent<PlayerMovement>() != null) && (keyPressed))
-        //if (other.gameObject.tag == "Player" && keyPressed)
+        if (cr == null)
         {
-            StartCoroutine(Teleport());
+            if ((other.GetComponentInParent<PlayerMovement>() != null) && (keyPressed))
+            //if (other.gameObject.tag == "Player" && keyPressed)
+            {
+                cr = StartCoroutine(Teleport());
+            }
         }
     }
     IEnumerator Teleport()
@@ -43,6 +47,8 @@ public class Floor_teleports : MonoBehaviour
         {
             city_left.transform.position = cityTargetPosition.position;
         }
+
+        cr = null;
     }
 }
 

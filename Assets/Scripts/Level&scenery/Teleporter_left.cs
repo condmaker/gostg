@@ -5,11 +5,11 @@ using UnityEngine;
 public class Teleporter_left : MonoBehaviour
 {
     GameObject shiki;
-    GameObject cam;
+    Camera cam;
     void Start()
     {
         shiki = GameObject.Find("Shiki");
-        cam = GameObject.Find("Main Camera");
+        cam = Camera.main;
     }
     void Update()
     {

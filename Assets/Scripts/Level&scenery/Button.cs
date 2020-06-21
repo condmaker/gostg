@@ -40,7 +40,7 @@ public class Button : MonoBehaviour
             }
             else if (gameObject.name == "wrongbutton3")
             {
-                Instantiate(puppet, new Vector3(860, -980), transform.rotation);
+                Instantiate(puppet, new Vector3(860, -1382), transform.rotation);
                 light2.SetActive(true);
             }
             else if (gameObject.name == "ButtonRight")

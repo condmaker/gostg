@@ -8,6 +8,7 @@ public class Elevator_teleport : MonoBehaviour
     public Transform shikiTargetPosition;
 
     GameObject shiki;
+    Coroutine  cr;
     public Animator panel;
 
     bool elevatorOn;
@@ -33,10 +34,13 @@ public class Elevator_teleport : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && keyPressed)
+        if (cr == null)
         {
-            StartCoroutine(Teleport());
-        }
+            if (other.tag == "Player" && keyPressed)
+            {
+                cr = StartCoroutine(Teleport());
+            }
+        }  
     }
     IEnumerator Teleport()
     {
@@ -69,7 +73,7 @@ public class Elevator_teleport : MonoBehaviour
             shiki.transform.localScale = new Vector2(1.5f, 1.5f);
         }
 
-
         keyPressed = false;
+        cr = null;
     }
 }
