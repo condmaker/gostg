@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class HealthPoints : MonoBehaviour
 {
     public float       hp = 100;
-    public float       invulTime = 0.5f;
+    public float       invulTime = 2f;
     public float       attackCooldownTimer;
     public bool        isInvul = false;
+    public bool        isInmove = false;
     public Slider      slider;
     public Slider      Stamina;
 
@@ -35,9 +36,13 @@ public class HealthPoints : MonoBehaviour
         if (isInvul)
         {
             invulTime -= Time.deltaTime;
+            if (invulTime <= 1.5)
+            {
+                isInmove = false;
+            }
             if (invulTime <= 0)
             {
-                invulTime = 0.5f;
+                invulTime = 4f;
                 isInvul = false;
             }
         }
@@ -52,6 +57,7 @@ public class HealthPoints : MonoBehaviour
         {
             hp -= damage;
             isInvul = true;
+            isInmove = true;
 
             onHit(direction);
             slider.value  = hp;

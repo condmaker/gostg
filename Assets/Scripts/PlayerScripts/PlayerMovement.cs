@@ -79,11 +79,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (hp.isInvul)
         {
-            if (playerAtk.currentAttack == CurrentAttack.RAirAttack)
-                playerAtk.currentAttack = 0;
+            if (playerSprite.color.a == 1)
+                playerSprite.color -= new Color(0, 0, 0, 1);
+            else
+                playerSprite.color += new Color(0, 0, 0, 1);
 
-            return;
+            if (hp.isInmove)
+            {
+                if (playerAtk.currentAttack == CurrentAttack.RAirAttack)
+                    playerAtk.currentAttack = 0;
+
+                return;
+            }
         }
+        else
+            if (playerSprite.color.a == 0) playerSprite.color += new Color(0, 0, 0, 1);
 
         if (IsEnemyClose())
         {
@@ -242,10 +252,7 @@ public class PlayerMovement : MonoBehaviour
         // Animation Trigger here
         playerAnim.SetTrigger("shikiHit");
 
-        if (currentVelocity.x == 0)
-            playerBody.velocity = new Vector2(0, 400f);
-        else
-            playerBody.velocity = direction * 200f;
+        playerBody.velocity = direction * 200f;
         
     }
 

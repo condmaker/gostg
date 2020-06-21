@@ -429,9 +429,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  invulTime: 0.5
+  invulTime: 2
   attackCooldownTimer: 0
   isInvul: 0
+  isInmove: 0
   slider: {fileID: 0}
   Stamina: {fileID: 0}
   playerBody: {fileID: 0}

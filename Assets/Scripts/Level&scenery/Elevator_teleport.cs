@@ -45,10 +45,15 @@ public class Elevator_teleport : MonoBehaviour
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
 
-        if (gameObject.name != "elevatorbutton")
+        if (gameObject.name == "Parte2")
         {
-            shiki.transform.position = new Vector3(shikiTargetPosition.position.x, shikiTargetPosition.position.y + 100, 0);
-            shiki.transform.localScale = new Vector2(1.5f, 1.5f);
+            shiki.transform.position = shikiTargetPosition.position; ;
+            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
+        }
+        else if (gameObject.name == "Parte3")
+        {
+            shiki.transform.position = shikiTargetPosition.position;
+            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
         }
         else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {
@@ -58,11 +63,12 @@ public class Elevator_teleport : MonoBehaviour
             shiki.transform.localScale = new Vector2(0.8f, 0.8f);
             vcam.m_Lens.OrthographicSize = 200;
         }
-        else if (gameObject.name == "Parte2")
+        else if (gameObject.name != "elevatorbutton")
         {
-            shiki.transform.position = new Vector2(3912, -600);
-            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
+            shiki.transform.position = new Vector3(shikiTargetPosition.position.x, shikiTargetPosition.position.y + 100, 0);
+            shiki.transform.localScale = new Vector2(1.5f, 1.5f);
         }
+
 
         keyPressed = false;
     }
