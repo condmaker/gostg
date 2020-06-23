@@ -48,12 +48,7 @@ public class Elevator_teleport : MonoBehaviour
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
 
-        if (gameObject.name == "Parte2")
-        {
-            shiki.transform.position = shikiTargetPosition.position; ;
-            shiki.transform.localScale = new Vector2(0.8f, 0.8f);
-        }
-        else if (gameObject.name == "Parte3")
+        if (gameObject.layer == 18)
         {
             shiki.transform.position = shikiTargetPosition.position;
             shiki.transform.localScale = new Vector2(0.8f, 0.8f);
