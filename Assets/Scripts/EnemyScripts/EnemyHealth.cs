@@ -22,14 +22,18 @@ public class EnemyHealth : MonoBehaviour
 
     private LinesInEnemy linesInEnemy;
     private bool  onDead;
+    private bool   compGet = false;
 
-    void OnEnable()
+    void Start()
     {
         StartCoroutine(GetComps());
     }
 
     void Update()
     {
+        if (!compGet)
+            return;
+
         enemyHealth = healthLine * 10;
         slider.value = enemyHealth;
 
@@ -104,5 +108,7 @@ public class EnemyHealth : MonoBehaviour
         linesInEnemy = GetComponent<LinesInEnemy>();
         healthLine = linesInEnemy.NumOfLines;
         slider.maxValue = healthLine * 10;
+
+        compGet = true;
     }
 }
