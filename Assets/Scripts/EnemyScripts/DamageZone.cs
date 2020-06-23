@@ -34,7 +34,7 @@ public class DamageZone : MonoBehaviour
 
                 HealthPoints playerHp = otherCollider.GetComponent<HealthPoints>();
 
-                if (playerHp != null)
+                if ((playerHp != null) && (gameObject.layer != 12))
                 {
                     direction = otherCollider.bounds.center - collider.bounds.center;
                     direction.Normalize();
