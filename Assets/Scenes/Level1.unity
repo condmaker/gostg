@@ -928,6 +928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1006,12 +1011,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -1940,6 +1945,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2018,12 +2028,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -4683,7 +4693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048343048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 762.53687, y: 890.45, z: -10}
+  m_LocalPosition: {x: 762.5375, y: 890.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466331356}
@@ -5044,6 +5054,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5122,12 +5137,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -26563,6 +26578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26641,12 +26661,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -26666,6 +26686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Puppet1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
@@ -26745,12 +26770,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -26843,6 +26868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26921,12 +26951,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -27697,6 +27727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27775,12 +27810,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -28113,6 +28148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28191,12 +28231,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -41720,6 +41760,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41798,12 +41843,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -41896,6 +41941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41974,12 +42024,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -42088,6 +42138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puppet1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 853988459208141759, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42166,12 +42221,12 @@ PrefabInstance:
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853988460519501732, guid: 87423faff8d8a204eb9426e7f3bcb509,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
@@ -93835,7 +93890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2725095283069656105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 762.53687, y: 890.45, z: -10}
+  m_LocalPosition: {x: 762.5375, y: 890.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2725095282269991143}
