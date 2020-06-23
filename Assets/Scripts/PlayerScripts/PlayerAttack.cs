@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     BoxCollider2D        attackHitbox;
     ContactFilter2D      contactFilter;
     ContactFilter2D      attackFilter;
+    BoxCollider2D[]      sepColliders;
     [SerializeField] LayerMask            enemyMask;
     [SerializeField] LayerMask hitboxMask;
     Rigidbody2D          rb;
@@ -31,9 +32,8 @@ public class PlayerAttack : MonoBehaviour
     public bool          bufferBypass = false;
     public CurrentAttack currentAttack = CurrentAttack.None;
     public CurrentAttack collisionCheck = CurrentAttack.None;
-    public GameObject    currentLine;
-    public Collider2D    currentLineCol1;
-    public Collider2D    currentLineCol2;
+
+    public List<GameObject>    currentLines;
 
     [System.Serializable]
     public class AttackButton
@@ -431,7 +431,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckEnemyCollision()
     {
-        Collider2D[] results = new Collider2D[5];
+        currentLines.Clear();
+
+        BoxCollider2D[] results = new BoxCollider2D[5];
         int nCollisions = 0;
 
         if (attackCheck != null)
@@ -441,47 +443,43 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < nCollisions; i++)
             {
-                Collider2D enemyCollider = results[i];
+                BoxCollider2D enemyCollider = results[i];
 
                 foreach (Transform t in enemyCollider.transform)
                 {
                     GameObject line = t.gameObject;
 
                     // fix
-                    if (((line.tag == "line_dh") || (line.tag == "line_uh")) 
-                        && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.EGroundAttack
-                        || currentAttack == CurrentAttack.QAirAttack || currentAttack == CurrentAttack.EAirAttack))
+                    if (((line.tag == "line_dh") || (line.tag == "line_uh"))
+                        && (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.QAirAttack 
+                             || currentAttack == CurrentAttack.EGroundAttack || currentAttack == CurrentAttack.EAirAttack))
                     {
                         collisionCheck = currentAttack;
-                        currentLine = line;
-                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
-                        currentLineCol2 = currentLine.GetComponent<Collider2D>();
-                        Debug.Log(collisionCheck);
-                    }
+                        currentLines.Add(line);
+                        sepColliders = line.GetComponents<BoxCollider2D>();
+                        Debug.Log("Q, E:" + collisionCheck);
+                    } 
                     else if ((line.tag == "line_h") 
                         && (currentAttack == CurrentAttack.WGroundAttack || currentAttack == CurrentAttack.WAirAttack))
                     {
                         collisionCheck = currentAttack;
-                        currentLine = line;
-                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
-                        Debug.Log(collisionCheck);
+                        currentLines.Add(line);
+                        Debug.Log("W: " + collisionCheck);
                     }
                     else if ((line.tag == "line_v") 
                         && (currentAttack == CurrentAttack.QCGroundAttack || currentAttack == CurrentAttack.ECGroundAttack
                         || currentAttack == CurrentAttack.RAirAttack))
                     {
                         collisionCheck = currentAttack;
-                        currentLine = line;
-                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
-                        Debug.Log(collisionCheck);
+                        currentLines.Add(line);
+                        Debug.Log("Rair: " + collisionCheck);
                     }
-                    else if (((line.tag == "point") || (line.tag == "lpoint") 
-                        && currentAttack == CurrentAttack.RGroundAttack))
+                    else if (((line.tag == "point") || (line.tag == "lpoint"))
+                        && (currentAttack == CurrentAttack.RGroundAttack))
                     {
                         collisionCheck = currentAttack;
-                        currentLine = line;
-                        currentLineCol1 = currentLine.GetComponent<Collider2D>();
-                        Debug.Log(collisionCheck);
+                        currentLines.Add(line);
+                        Debug.Log("R: " + collisionCheck);
                     }
                 }
             }
@@ -490,24 +488,69 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckLineCollision()
     {
-        Collider2D[] results = new Collider2D[5];
-        int nCollisions;
+        bool test = false;
 
-        if (Physics2D.OverlapCollider(attackCheck, attackFilter, results) == null)
-            return;
-        else if ((collisionCheck == CurrentAttack.RGroundAttack) || (collisionCheck == CurrentAttack.RAirAttack))
-            nCollisions = Physics2D.OverlapCollider(attackCheck, attackFilter, results);
-        else
-            nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
+        Debug.Log("number: " + currentLines.Count);
 
-        Debug.Log("nCollisions: " + nCollisions);
-        if (nCollisions >= 1)
-        {
-            Debug.Log("testy test2");
-            currentLine.transform.parent.GetComponent<EnemyHealth>().DestroyLine(currentLine, transform.gameObject.GetComponent<HealthPoints>());
+        foreach (GameObject i in currentLines)
+        { 
+            BoxCollider2D[] results = new BoxCollider2D[5];
+            int nCollisions;
 
-            collisionCheck = 0;
+            if (attackCheck == null)
+                return;
+            else if ((collisionCheck == CurrentAttack.RGroundAttack) || (collisionCheck == CurrentAttack.RAirAttack))
+                nCollisions = Physics2D.OverlapCollider(attackCheck, attackFilter, results);
+            else
+            {
+                if (attackHitbox == null)
+                    return;
+
+                nCollisions = Physics2D.OverlapCollider(attackHitbox, attackFilter, results);
+            }
+
+            Debug.Log("nCollisions: " + nCollisions);
+            if (nCollisions >= 1)
+            {
+                test = false;
+                if (currentAttack == CurrentAttack.QGroundAttack || currentAttack == CurrentAttack.QAirAttack)
+                {
+                    foreach (BoxCollider2D col in results)
+                    {
+                        if (col != null)
+                        {
+                            if ((col == sepColliders[0]) && (col.tag == i.tag))
+                                test = true;
+                        }
+                    }
+
+                    if (!test)
+                        continue;
+                }
+                else if (currentAttack == CurrentAttack.EGroundAttack || currentAttack == CurrentAttack.EAirAttack)
+                {
+                    foreach (BoxCollider2D col in results)
+                    {
+                        if (col != null)
+                        {
+                            if ((col == sepColliders[1]) && (col.tag == i.tag))
+                                test = true;
+                        }
+                    }
+
+                    if (!test)
+                        continue;
+                }
+
+                i.transform.parent.GetComponent<EnemyHealth>().DestroyLine(i, transform.gameObject.GetComponent<HealthPoints>());
+                collisionCheck = 0;
+            }
         }
+
+        currentLines.Clear();
+
+        if (!test)
+            collisionCheck = 0;
     }
 }
 

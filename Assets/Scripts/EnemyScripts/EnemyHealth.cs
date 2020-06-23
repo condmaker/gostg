@@ -64,10 +64,8 @@ public class EnemyHealth : MonoBehaviour
     {
         float enemyDestroyTimer = deathTimer;
 
-        Debug.Log("Deathy");
         enemyAnim.SetBool("onDead", true);
         yield return new WaitForSeconds(enemyDestroyTimer);
-        Debug.Log("Deathy Death");
 
         Destroy(gameObject);
     }

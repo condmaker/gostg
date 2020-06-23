@@ -43,8 +43,6 @@ public class DamageZone : MonoBehaviour
                     playerHp.DealDamage(20, direction);
                 }
             }
-
-            Debug.Log("Collision");
         }
         
     }

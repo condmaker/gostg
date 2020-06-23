@@ -30,7 +30,6 @@ public class Elevator_teleport : MonoBehaviour
             keyPressed = false;
 
         elevatorOn = GameObject.Find("ButtonRight").GetComponent<Button>().elevatorOn;
-        Debug.Log(elevatorOn);
     }
     void OnTriggerStay2D(Collider2D other)
     {
