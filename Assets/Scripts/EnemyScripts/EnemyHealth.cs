@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     public float     deathTimer = 1f;
 
     private LinesInEnemy linesInEnemy;
-    private bool  onDead;
+    private bool   onDead;
     private bool   compGet = false;
 
     void Start()
