@@ -230,6 +230,7 @@ MonoBehaviour:
   - {fileID: 4729663078129968773, guid: 552cabaa5569fdf47a65cbcb90cf84ee, type: 3}
   - {fileID: 5247758838914119679, guid: 7401445656d7c2044b70e176bac2d0fa, type: 3}
   - {fileID: 395476058569679609, guid: 5f756e823cae03c43a2c254421772996, type: 3}
+  maxLines: 2
 --- !u!1 &1621583482804106478
 GameObject:
   m_ObjectHideFlags: 0
