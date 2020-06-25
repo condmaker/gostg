@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    GameObject shiki;
+    GameObject               shiki;
     CinemachineVirtualCamera cine;
-    public int teleportPosition;
-    private bool warp = false;
+    public int               teleportPosition;
+
+    private bool             warp = false;
+    public                   Vector3 posOffset;
 
     void Start()
     {
@@ -20,10 +22,10 @@ public class Teleporter : MonoBehaviour
         if (warp)
         {
             Vector3 oldPos = shiki.transform.position;
-
             shiki.transform.position = new Vector2(teleportPosition, shiki.transform.position.y);
-            cine.OnTargetObjectWarped(shiki.transform, shiki.transform.position - oldPos);
+            posOffset = shiki.transform.position - oldPos;
 
+            cine.OnTargetObjectWarped(posOffset);
             warp = false;
         }
     }
