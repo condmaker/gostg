@@ -9,7 +9,7 @@ public class Teleporter : MonoBehaviour
     CinemachineVirtualCamera cine;
     public int               teleportPosition;
 
-    private bool             warp = false;
+    public bool              warp = false;
     public                   Vector3 posOffset;
 
     void Start()
@@ -25,7 +25,7 @@ public class Teleporter : MonoBehaviour
             shiki.transform.position = new Vector2(teleportPosition, shiki.transform.position.y);
             posOffset = shiki.transform.position - oldPos;
 
-            cine.OnTargetObjectWarped(posOffset);
+            cine.OnTargetObjectWarped(shiki.transform, posOffset);
             warp = false;
         }
     }

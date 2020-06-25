@@ -7,15 +7,16 @@ public class HA_Movement : MonoBehaviour
     Rigidbody2D          bossBody;
     EnemyHealth          health;
 
+    private GameObject   puppet;
     private Vector2      moveSpeed;
     private Teleporter[] allTp;
 
-    public int           ballCooldownMax = 10;
-    public int           enemyCooldownMax = 20;
+    public float         ballCooldownMax = 10;
+    public float         enemyCooldownMax = 20;
 
-    private int          ballCooldown = 10;
-    private int          enemyCooldown = 20;
-    private int          fullHp;
+    private float        ballCooldown = 10;
+    private float        enemyCooldown = 20;
+    private float        fullHp;
     private bool         cutscene;
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class HA_Movement : MonoBehaviour
         health = GetComponent<EnemyHealth>();
         allTp = GameObject.FindObjectsOfType<Teleporter>();
 
-        moveSpeed = new Vector2(20, 0, 0);
+        moveSpeed = new Vector2(20, 0);
         fullHp = health.enemyHealth;
     }
 
@@ -37,7 +38,7 @@ public class HA_Movement : MonoBehaviour
         foreach (Teleporter i in allTp)
         {
             if (i.warp)
-                transform.position = new Vector3(i.posOffset);
+                transform.position += i.posOffset;
         }
 
         if (health.enemyHealth <= (fullHp / 2))
@@ -49,7 +50,7 @@ public class HA_Movement : MonoBehaviour
 
         if (ballCooldown <= 0)
         {
-            StartCoroutine(ThrowBall);
+            StartCoroutine("ThrowBall");
         }
         else
         {
@@ -58,7 +59,7 @@ public class HA_Movement : MonoBehaviour
 
         if (enemyCooldown <= 0)
         {
-            StartCoroutine(SpawnEnemy);
+            StartCoroutine("SpawnEnemy");
         }
         else
         {
@@ -72,12 +73,14 @@ public class HA_Movement : MonoBehaviour
     {
         ballCooldown = ballCooldownMax;
         //resto
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator SpawnEnemy()
     {
         enemyCooldown = enemyCooldownMax;
-        Instatiate(Puppet1, transform.position - new Vector2(50, 0));
+        Instantiate(puppet, transform.position - new Vector3(50, 0, 0), transform.rotation);
         //resto
+        yield return new WaitForSeconds(0.1f);
     }
 }
