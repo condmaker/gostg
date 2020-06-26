@@ -46,7 +46,7 @@ public class HA_Movement : MonoBehaviour
 
         if (ballCooldown <= 0)
         {
-            ThrowBall();
+            StartCoroutine("ThrowBall");
         }
         else
         {
@@ -65,10 +65,13 @@ public class HA_Movement : MonoBehaviour
         bossBody.velocity = moveSpeed;
     }
 
-    public void ThrowBall()
+    IEnumerator ThrowBall()
     {
         ballCooldown = ballCooldownMax;
         //resto
+        // SetAnimTrigger(throw);
+        // yield return new WaitForSeconds(tamanho da animação)
+        
         Instantiate(ball, transform.position - new Vector3(0, Random.Range(-50, 50), 0), transform.rotation);
         return;
     }
