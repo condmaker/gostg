@@ -7,9 +7,12 @@ public class HA_Movement : MonoBehaviour
     Rigidbody2D          bossBody;
     EnemyHealth          health;
 
-    private GameObject   puppet;
+    public GameObject    puppet;
+    public GameObject    ball;
     private Vector2      moveSpeed;
-    private Teleporter[] allTp;
+    public float         moveSpeedIncrement;
+    public float         ballIncrement;
+    public float         enemyIncrement;
 
     public float         ballCooldownMax = 10;
     public float         enemyCooldownMax = 20;
@@ -24,9 +27,8 @@ public class HA_Movement : MonoBehaviour
     {
         bossBody = GetComponent<Rigidbody2D>();
         health = GetComponent<EnemyHealth>();
-        allTp = GameObject.FindObjectsOfType<Teleporter>();
 
-        moveSpeed = new Vector2(20, 0);
+        moveSpeed = new Vector2(-50f, 0);
         fullHp = health.enemyHealth;
     }
 
@@ -35,22 +37,16 @@ public class HA_Movement : MonoBehaviour
     {
         if (cutscene) return;
 
-        foreach (Teleporter i in allTp)
-        {
-            if (i.warp)
-                transform.position += i.posOffset;
-        }
-
         if (health.enemyHealth <= (fullHp / 2))
         {
-            moveSpeed += moveSpeed;
-            //ballCooldownMax -= num
-            //enemyCooldownMax -= num
+            moveSpeed = new Vector2(-moveSpeedIncrement, 0);
+            ballCooldownMax = ballIncrement;
+            enemyCooldownMax = enemyIncrement;
         }
 
         if (ballCooldown <= 0)
         {
-            StartCoroutine("ThrowBall");
+            ThrowBall();
         }
         else
         {
@@ -59,7 +55,7 @@ public class HA_Movement : MonoBehaviour
 
         if (enemyCooldown <= 0)
         {
-            StartCoroutine("SpawnEnemy");
+            SpawnEnemy();
         }
         else
         {
@@ -69,18 +65,19 @@ public class HA_Movement : MonoBehaviour
         bossBody.velocity = moveSpeed;
     }
 
-    IEnumerator ThrowBall()
+    public void ThrowBall()
     {
         ballCooldown = ballCooldownMax;
         //resto
-        yield return new WaitForSeconds(0.1f);
+        Instantiate(ball, transform.position - new Vector3(0, Random.Range(-50, 50), 0), transform.rotation);
+        return;
     }
 
-    IEnumerator SpawnEnemy()
+    public void SpawnEnemy()
     {
         enemyCooldown = enemyCooldownMax;
         Instantiate(puppet, transform.position - new Vector3(50, 0, 0), transform.rotation);
         //resto
-        yield return new WaitForSeconds(0.1f);
+        return;
     }
 }

@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public Animator enemyAnim;
 
     public int       enemyHealth;
+    public int       premadeHealth;
 
     public float     deathRestore;
     public Slider    slider;
@@ -20,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     public float     lineTimer = 0.5f;
     public float     deathTimer = 1f;
 
+    private GameObject boss;
     private LinesInEnemy linesInEnemy;
     private bool   onDead;
     private bool   compGet = false;
@@ -49,10 +51,32 @@ public class EnemyHealth : MonoBehaviour
         if (onDead)
             return;
 
+        if (gameObject.tag == "bossEnemy")
+        {
+            boss = GameObject.FindObjectOfType<HA_Movement>().gameObject;
+            boss.GetComponent<EnemyHealth>().CommonDamage(GameObject.FindObjectOfType<HealthPoints>());
+        }
+
         healthLine--;
         //SoundMng.instance.PlaySound(lineDestructionSound);
         Destroy(line);
-        //StartCoroutine(LineDestruction(line));
+
+        if (healthLine <= 0)
+        {
+            gameObject.layer = 12;
+            healthLine = 0;
+            playerHealth.RestoreHealth(deathRestore);
+            SoundMng.instance.PlaySound(enemyDeathSound);
+            onDead = true;
+        }
+    }
+
+    public void CommonDamage(HealthPoints playerHealth)
+    {
+        if (onDead)
+            return;
+
+        healthLine--;
 
         if (healthLine <= 0)
         {
@@ -106,7 +130,13 @@ public class EnemyHealth : MonoBehaviour
 
         enemyAnim = GetComponent<Animator>();
         linesInEnemy = GetComponent<LinesInEnemy>();
-        healthLine = linesInEnemy.NumOfLines;
+
+        if (!linesInEnemy.hasNotLine)
+            healthLine = linesInEnemy.NumOfLines;
+        else
+            healthLine = premadeHealth;
+
+        // Boss bugs on that, need a slider
         slider.maxValue = healthLine * 10;
 
         compGet = true;

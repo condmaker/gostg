@@ -15,6 +15,7 @@ TagManager:
   - line_uh
   - line_v
   - lpoint
+  - bossEnemy
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Detector
   - Line
   - Hitbox
-  - 
+  - Boss
   - Door
   - PlatformDoor
   - 

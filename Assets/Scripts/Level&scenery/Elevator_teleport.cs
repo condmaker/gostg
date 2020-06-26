@@ -10,6 +10,7 @@ public class Elevator_teleport : MonoBehaviour
     GameObject shiki;
     Coroutine  cr;
     public Animator panel;
+    public GameObject boss;
 
     bool elevatorOn;
 
@@ -50,8 +51,16 @@ public class Elevator_teleport : MonoBehaviour
 
         if (gameObject.layer == 18)
         {
+            if (sceneMusic != null)
+                SoundMng.instance.PlayMusic(sceneMusic);
+
             shiki.transform.position = shikiTargetPosition.position;
             shiki.transform.localScale = new Vector2(0.8f, 0.8f);
+
+            if (gameObject.name == "Parte6")
+                Instantiate(boss, boss.transform.position, boss.transform.rotation);
+
+            // new Vector3 (5899, -2886, 0)
         }
         else if (gameObject.name == "elevatorbutton" && elevatorOn == true)
         {

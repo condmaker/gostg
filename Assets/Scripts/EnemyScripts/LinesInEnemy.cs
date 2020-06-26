@@ -7,6 +7,7 @@ public class LinesInEnemy : MonoBehaviour
     public List<GameObject> lineArray;
     public int NumOfLines { get; private set; }
     public int maxLines;
+    public bool hasNotLine;
 
     void OnEnable()
     {
