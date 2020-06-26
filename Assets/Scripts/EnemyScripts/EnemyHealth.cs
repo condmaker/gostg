@@ -37,7 +37,8 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         enemyHealth = healthLine * 10;
-        slider.value = enemyHealth;
+        //Bugs
+        //slider.value = enemyHealth;
 
         if (onDead)
         {
@@ -137,7 +138,7 @@ public class EnemyHealth : MonoBehaviour
             healthLine = premadeHealth;
 
         // Boss bugs on that, need a slider
-        slider.maxValue = healthLine * 10;
+        //slider.maxValue = healthLine * 10;
 
         compGet = true;
     }

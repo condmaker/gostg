@@ -13,7 +13,7 @@ public class BatBehaviour : MonoBehaviour
     void Start()
     {
         enemyBody = gameObject.GetComponent<Rigidbody2D>();
-        direction = Vector2.right;
+        direction = Vector2.left;
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class BatBehaviour : MonoBehaviour
                 return;
             }
 
-            enemyBody.velocity = new Vector2(80, 0);
+            enemyBody.velocity = new Vector2(100, 0);
         }
         else
         {
@@ -43,7 +43,7 @@ public class BatBehaviour : MonoBehaviour
                 return;
             }
 
-            enemyBody.velocity = new Vector2(-80, 0);
+            enemyBody.velocity = new Vector2(-100, 0);
         }
     }
 

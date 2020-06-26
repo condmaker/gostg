@@ -8,8 +8,9 @@ public class Teleporter : MonoBehaviour
     GameObject               shiki;
     CinemachineVirtualCamera cine;
     public int               teleportPosition;
-    public GameObject        boss;
+    public bool              isBoss;
 
+    private EnemiesInArena   eia;
     public bool              warp = false;
     public                   Vector3 posOffset;
 
@@ -17,11 +18,10 @@ public class Teleporter : MonoBehaviour
     {
         shiki = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
         cine = GameObject.FindObjectOfType<CinemachineVirtualCamera>();
+        eia = GameObject.FindObjectOfType<EnemiesInArena>();
     }
     void Update()
     {
-        boss = GameObject.FindObjectOfType<HA_Movement>().gameObject;
-
         if (warp)
         {
             Vector3 oldPos = shiki.transform.position;
@@ -29,9 +29,16 @@ public class Teleporter : MonoBehaviour
             posOffset = shiki.transform.position - oldPos;
 
             cine.OnTargetObjectWarped(shiki.transform, posOffset);
-            
-            if (boss != null)
-                boss.transform.position += posOffset;
+
+            if (isBoss)
+            {
+                Debug.Log("List: " + eia.Enemies.Count);
+                foreach (GameObject i in eia.Enemies)
+                {
+                    i.transform.position += posOffset;
+                    Debug.Log("Should work lol");
+                }
+            }
 
             warp = false;
         }

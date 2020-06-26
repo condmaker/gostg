@@ -71,8 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088a945f67a4e414fa6f3648dc853938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puppet: {fileID: 853988459208141756, guid: 87423faff8d8a204eb9426e7f3bcb509, type: 3}
-  ball: {fileID: 0}
+  puppet: {fileID: 490115123665840505, guid: 2f21dee0ccc4dc64da63a72ddea9de21, type: 3}
+  ball: {fileID: 8491763619465302147, guid: 1a99e248b6457554e95821ec44cedb8d, type: 3}
   moveSpeedIncrement: 80
   ballIncrement: 5
   enemyIncrement: 10

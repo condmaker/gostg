@@ -76,7 +76,7 @@ public class HA_Movement : MonoBehaviour
     public void SpawnEnemy()
     {
         enemyCooldown = enemyCooldownMax;
-        Instantiate(puppet, transform.position - new Vector3(50, 0, 0), transform.rotation);
+        Instantiate(puppet, transform.position - new Vector3(50, 0, 0), Quaternion.identity);
         //resto
         return;
     }
