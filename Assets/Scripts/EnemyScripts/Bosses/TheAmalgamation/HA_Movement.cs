@@ -73,7 +73,7 @@ public class HA_Movement : MonoBehaviour
         // yield return new WaitForSeconds(tamanho da animação)
         
         Instantiate(ball, transform.position - new Vector3(0, Random.Range(-50, 50), 0), transform.rotation);
-        return;
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void SpawnEnemy()
