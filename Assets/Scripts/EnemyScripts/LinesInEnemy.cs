@@ -5,12 +5,14 @@ using UnityEngine;
 public class LinesInEnemy : MonoBehaviour
 {
     public List<GameObject> lineArray;
-    public int NumOfLines { get; private set; } 
+    public int NumOfLines { get; private set; }
+    public int maxLines;
+    public bool hasNotLine;
 
     void OnEnable()
     {
         // Gets a random number 1-3
-        NumOfLines = Random.Range(1, 4);
+        NumOfLines = Random.Range(1, maxLines + 1);
 
         for (int i = 1; i <= NumOfLines; i++)
         {

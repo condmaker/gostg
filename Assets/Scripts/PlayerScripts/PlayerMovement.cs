@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     HealthPoints                 hp;
 
     // Flags
+    public bool                  playerTeleport;
     ushort                       jumpFlag = 0;
     public bool                  doubleJumpState = false;
     [SerializeField] bool        jumpState = false;
@@ -67,11 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
-
         if (hp.hp == 0)
         {
             return;

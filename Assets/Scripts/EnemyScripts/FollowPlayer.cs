@@ -51,7 +51,7 @@ public class FollowPlayer : MonoBehaviour
                 if (!IsGrounded())
                     return;
 
-                enemyBody.velocity = new Vector2(50, 0);
+                enemyBody.velocity = new Vector2(30, 0);
                 isRunning = true;
             }
             else
