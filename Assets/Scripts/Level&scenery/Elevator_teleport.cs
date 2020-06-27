@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class Elevator_teleport : MonoBehaviour
@@ -49,6 +50,10 @@ public class Elevator_teleport : MonoBehaviour
         panel.SetTrigger("fadeout");
         yield return new WaitForSeconds(1.3f);
 
+        if (gameObject.tag == "levelSwitch")
+        {
+            SceneManager.LoadScene("Level2");
+        }
         if (gameObject.layer == 18)
         {
             if (sceneMusic != null)

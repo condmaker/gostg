@@ -16,6 +16,8 @@ TagManager:
   - line_v
   - lpoint
   - bossEnemy
+  - nextLevel
+  - levelSwitch
   layers:
   - Default
   - TransparentFX
