@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     private GameObject boss;
     private LinesInEnemy linesInEnemy;
-    private bool   onDead;
+    public bool   onDead;
     private bool   compGet = false;
 
     void Start()
@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
 
         enemyHealth = healthLine * 10;
         //Bugs
-        //slider.value = enemyHealth;
+        slider.value = enemyHealth;
 
         if (onDead)
         {
@@ -138,7 +138,7 @@ public class EnemyHealth : MonoBehaviour
             healthLine = premadeHealth;
 
         // Boss bugs on that, need a slider
-        //slider.maxValue = healthLine * 10;
+        slider.maxValue = healthLine * 10;
 
         compGet = true;
     }

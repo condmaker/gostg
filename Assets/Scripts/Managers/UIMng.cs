@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIMng : MonoBehaviour
 {
     public GameObject[] pauseUI;
+    public GameObject Menu;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +22,13 @@ public class UIMng : MonoBehaviour
             {
                 Time.timeScale = 0;
                 Pause();
+                Menu.SetActive(true);
             }
             else if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
                 Unpause();
+                Menu.SetActive(false);
             }
         }
     }

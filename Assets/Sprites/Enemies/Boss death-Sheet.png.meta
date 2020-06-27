@@ -109,7 +109,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,7 +133,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 300
         width: 175
         height: 150
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 175
-        y: 0
+        y: 300
         width: 175
         height: 150
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 350
-        y: 0
+        y: 300
         width: 175
         height: 150
       alignment: 0
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 525
-        y: 0
+        y: 300
         width: 175
         height: 150
       alignment: 0
@@ -232,7 +232,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 700
-        y: 0
+        y: 300
         width: 175
         height: 150
       alignment: 0
@@ -252,8 +252,8 @@ TextureImporter:
       name: Boss death-Sheet_5
       rect:
         serializedVersion: 2
-        x: 875
-        y: 0
+        x: 0
+        y: 150
         width: 175
         height: 150
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Boss death-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 0
+        x: 175
+        y: 150
         width: 175
         height: 150
       alignment: 0
@@ -294,8 +294,8 @@ TextureImporter:
       name: Boss death-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1225
-        y: 0
+        x: 350
+        y: 150
         width: 175
         height: 150
       alignment: 0
@@ -315,8 +315,8 @@ TextureImporter:
       name: Boss death-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 0
+        x: 525
+        y: 150
         width: 175
         height: 150
       alignment: 0
@@ -336,8 +336,8 @@ TextureImporter:
       name: Boss death-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1575
-        y: 0
+        x: 700
+        y: 150
         width: 175
         height: 150
       alignment: 0
@@ -357,7 +357,7 @@ TextureImporter:
       name: Boss death-Sheet_10
       rect:
         serializedVersion: 2
-        x: 1750
+        x: 0
         y: 0
         width: 175
         height: 150
@@ -378,7 +378,7 @@ TextureImporter:
       name: Boss death-Sheet_11
       rect:
         serializedVersion: 2
-        x: 1925
+        x: 175
         y: 0
         width: 175
         height: 150
@@ -399,7 +399,7 @@ TextureImporter:
       name: Boss death-Sheet_12
       rect:
         serializedVersion: 2
-        x: 2100
+        x: 350
         y: 0
         width: 175
         height: 150
@@ -420,7 +420,7 @@ TextureImporter:
       name: Boss death-Sheet_13
       rect:
         serializedVersion: 2
-        x: 2275
+        x: 525
         y: 0
         width: 175
         height: 150
@@ -441,7 +441,7 @@ TextureImporter:
       name: Boss death-Sheet_14
       rect:
         serializedVersion: 2
-        x: 2450
+        x: 700
         y: 0
         width: 175
         height: 150

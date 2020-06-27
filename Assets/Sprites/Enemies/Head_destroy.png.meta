@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: d66d049d85955a04782e73c57cc48569
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 920354201327929444
+    second: meatball_destroySheet_0
+  - first:
+      213: -1744514307282288391
+    second: meatball_destroySheet_1
+  - first:
+      213: 2472226858731119319
+    second: meatball_destroySheet_2
+  - first:
+      213: 3504186972971920131
+    second: meatball_destroySheet_3
+  - first:
+      213: -2648386621343036864
+    second: meatball_destroySheet_4
+  - first:
+      213: 5435490398844490996
+    second: meatball_destroySheet_5
+  - first:
+      213: -2203329469457893863
+    second: meatball_destroySheet_6
+  - first:
+      213: -375040890403175512
+    second: meatball_destroySheet_7
+  - first:
+      213: -5674179899860349014
+    second: meatball_destroySheet_8
+  - first:
+      213: 5737913740599160994
+    second: meatball_destroySheet_9
+  - first:
+      213: -9035941651159492894
+    second: meatball_destroySheet_10
+  - first:
+      213: -4360341138616612003
+    second: meatball_destroySheet_11
+  - first:
+      213: 4719110619900236764
+    second: meatball_destroySheet_12
+  - first:
+      213: 3288268472734523549
+    second: meatball_destroySheet_13
+  - first:
+      213: -5386681462077632922
+    second: meatball_destroySheet_14
+  - first:
+      213: -7430179046930971382
+    second: meatball_destroySheet_15
+  - first:
+      213: 8467724510588850155
+    second: meatball_destroySheet_16
+  - first:
+      213: -736216007317213525
+    second: meatball_destroySheet_17
+  - first:
+      213: 1571126875406910692
+    second: meatball_destroySheet_18
+  - first:
+      213: -7933059359724993792
+    second: meatball_destroySheet_19
+  - first:
+      213: -2309788045212948664
+    second: meatball_destroySheet_20
+  - first:
+      213: 505065278119295140
+    second: meatball_destroySheet_21
+  - first:
+      213: 1939453379294916387
+    second: meatball_destroySheet_22
+  - first:
+      213: 6043983310071461797
+    second: meatball_destroySheet_23
+  - first:
+      213: -6781631564188306188
+    second: meatball_destroySheet_24
+  - first:
+      213: 1087791569080936745
+    second: meatball_destroySheet_25
+  - first:
+      213: 4130517829298318035
+    second: meatball_destroySheet_26
+  - first:
+      213: 3649743412922098903
+    second: meatball_destroySheet_27
+  - first:
+      213: 2399039508702185039
+    second: meatball_destroySheet_28
+  - first:
+      213: 3730751309150592218
+    second: meatball_destroySheet_29
+  - first:
+      213: -8960924409513022971
+    second: meatball_destroySheet_30
+  - first:
+      213: -7064352145565024131
+    second: meatball_destroySheet_31
+  - first:
+      213: -1469193529897054309
+    second: meatball_destroySheet_32
+  - first:
+      213: -3973674319486606583
+    second: meatball_destroySheet_33
+  - first:
+      213: -8814447786073503295
+    second: meatball_destroySheet_34
+  - first:
+      213: 2762321654169194692
+    second: meatball_destroySheet_35
+  - first:
+      213: 3190071099929412996
+    second: meatball_destroySheet_36
+  - first:
+      213: 456352529089986937
+    second: meatball_destroySheet_37
+  - first:
+      213: -4855038517899187499
+    second: meatball_destroySheet_38
+  - first:
+      213: 3401161000246746116
+    second: meatball_destroySheet_39
+  - first:
+      213: -7078547958192171109
+    second: meatball_destroySheet_40
+  - first:
+      213: -2524983133825914135
+    second: meatball_destroySheet_41
+  - first:
+      213: -4011649476095895243
+    second: meatball_destroySheet_42
+  - first:
+      213: -3478911802664282115
+    second: meatball_destroySheet_43
+  - first:
+      213: -826736624263981469
+    second: meatball_destroySheet_44
+  - first:
+      213: 14501719455576680
+    second: meatball_destroySheet_45
+  - first:
+      213: 8522424969884659518
+    second: meatball_destroySheet_46
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: meatball_destroySheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46880b51541c5cc00800000000000000
+      internalID: 920354201327929444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meatball_destroySheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f04ad8fa7d3ac7e0800000000000000
+      internalID: -1744514307282288391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meatball_destroySheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d229d6ca3d1f4220800000000000000
+      internalID: 2472226858731119319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meatball_destroySheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30bea866c7f51a030800000000000000
+      internalID: 3504186972971920131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meatball_destroySheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a83fe466a0f3bd0800000000000000
+      internalID: -2648386621343036864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: meatball_destroySheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f41c2328bdbe6b40800000000000000
+      internalID: 5435490398844490996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

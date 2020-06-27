@@ -10,6 +10,7 @@ public class HA_Movement : MonoBehaviour
     public GameObject    puppet;
     public GameObject    ball;
     private Vector2      moveSpeed;
+    public Animator      enemyAnim;
     public float         moveSpeedIncrement;
     public float         ballIncrement;
     public float         enemyIncrement;
@@ -69,8 +70,8 @@ public class HA_Movement : MonoBehaviour
     {
         ballCooldown = ballCooldownMax;
         //resto
-        // SetAnimTrigger(throw);
-        // yield return new WaitForSeconds(tamanho da animação)
+        enemyAnim.SetTrigger("attack");
+        yield return new WaitForSeconds(1.5f);
         
         Instantiate(ball, transform.position - new Vector3(0, Random.Range(-50, 50), 0), transform.rotation);
         yield return new WaitForSeconds(0.1f);
