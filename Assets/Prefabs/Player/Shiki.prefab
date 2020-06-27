@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 1231610665631844104}
   m_Layer: 11
   m_Name: Shiki
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   forceMultiplier: 200
   airForceMultiplier: 200
   maxSpeed: 500
-  smallJumpSpeed: 195
+  smallJumpSpeed: 230
   bigJumpSpeed: 290
   coyoteTime: 0.1
   groundDetectorPos: {x: -24, y: -35, z: 0}

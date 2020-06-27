@@ -8,6 +8,8 @@ public class Teleporter : MonoBehaviour
     GameObject               shiki;
     CinemachineVirtualCamera cine;
     public int               teleportPosition;
+    public int               teleportPositionY;
+    public bool              isY;
     public bool              isBoss;
 
     private EnemiesInArena   eia;
@@ -25,9 +27,13 @@ public class Teleporter : MonoBehaviour
         if (warp)
         {
             Vector3 oldPos = shiki.transform.position;
-            shiki.transform.position = new Vector2(teleportPosition, shiki.transform.position.y);
-            posOffset = shiki.transform.position - oldPos;
 
+            if (!isY)
+                shiki.transform.position = new Vector2(teleportPosition, shiki.transform.position.y);
+            else
+                shiki.transform.position = new Vector2(shiki.transform.position.x, teleportPositionY);
+
+            posOffset = shiki.transform.position - oldPos;
             cine.OnTargetObjectWarped(shiki.transform, posOffset);
 
             if (isBoss)
