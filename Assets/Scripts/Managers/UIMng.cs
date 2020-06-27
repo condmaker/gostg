@@ -31,7 +31,7 @@ public class UIMng : MonoBehaviour
                 Menu.SetActive(false);
             }
         }
-        if (Input.GetKeyDown("arrow down") && Time.timeScale == 0)
+        //if (Input.GetKeyDown("arrow down") && Time.timeScale == 0)
 
 
     }
