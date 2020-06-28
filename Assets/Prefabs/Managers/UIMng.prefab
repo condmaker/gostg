@@ -44,4 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: []
-  Menu: {fileID: 0}
+  menu: {fileID: 0}
+  selector: {fileID: 0}
+  shiki_health: {fileID: 0}
+  snd: {fileID: 0}
+  change_option: {fileID: 8300000, guid: eba3f0d0ed56d044d9d36c0930b28a27, type: 3}
+  _quit: {fileID: 8300000, guid: da08418329faeb947b490668c8f4d2c1, type: 3}
+  _continue: {fileID: 8300000, guid: bbf3b63da1ca8e0479afed955eda8cd0, type: 3}

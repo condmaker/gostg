@@ -21,7 +21,6 @@ public class UIMng : MonoBehaviour
     void Start()
     {
         snd = GameObject.FindObjectOfType<SoundMng>();
-        DontDestroyOnLoad(gameObject);
         distanceToMove = 60;
     }
 
@@ -103,7 +102,7 @@ public class UIMng : MonoBehaviour
                 else
                 {
                     SoundMng.instance.PlaySound(_quit, 0.3f);
-                    SceneManager.LoadScene("TitleScreen");
+                    StartCoroutine("SoundWait");
                 }
             }
             else
