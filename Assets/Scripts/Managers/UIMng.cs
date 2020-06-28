@@ -60,7 +60,7 @@ public class UIMng : MonoBehaviour
         }
         if (Input.GetButtonDown("Down") && Time.timeScale == 0)
         { 
-            if (selector.transform.position.y < 250)
+            if (selector.transform.position.y < 450)
             {
                 SoundMng.instance.PlaySound(change_option, 0.3f);
                 selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y + distanceToMove , selector.transform.position.z);
@@ -73,7 +73,7 @@ public class UIMng : MonoBehaviour
         }
         if (Input.GetButtonDown("Up") && Time.timeScale == 0)
         {
-            if (selector.transform.position.y > 250)
+            if (selector.transform.position.y > 450)
             {
                 SoundMng.instance.PlaySound(change_option, 0.3f);
                 selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y - distanceToMove , selector.transform.position.z);
@@ -88,7 +88,7 @@ public class UIMng : MonoBehaviour
         {
             if (shiki_health.hp <= 0)
             {
-                if (selector.transform.position.y > 250)
+                if (selector.transform.position.y > 450)
                 {
                     SoundMng.instance.PlaySound(_continue, 0.3f);
                     menu.SetActive(false);
@@ -108,7 +108,7 @@ public class UIMng : MonoBehaviour
             }
             else
             {
-                if (selector.transform.position.y > 250)
+                if (selector.transform.position.y > 450)
                 {
                     SoundMng.instance.PlaySound(_continue, 0.3f);
                     menu.SetActive(false);
@@ -147,8 +147,8 @@ public class UIMng : MonoBehaviour
 
     IEnumerator SoundWait()
     {
-        yield return new WaitForSeconds(1);
-
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(0.4f);
         Application.Quit();
     }
 
