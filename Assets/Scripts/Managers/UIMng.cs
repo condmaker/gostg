@@ -61,7 +61,7 @@ public class UIMng : MonoBehaviour
         }
         if (Input.GetButtonDown("Down") && Time.timeScale == 0)
         { 
-            if (selector.transform.position.y < 400)
+            if (selector.transform.position.y < 200)
             {
                 SoundMng.instance.PlaySound(change_option, 0.3f);
                 selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y + distanceToMove , selector.transform.position.z);
@@ -74,7 +74,7 @@ public class UIMng : MonoBehaviour
         }
         if (Input.GetButtonDown("Up") && Time.timeScale == 0)
         {
-            if (selector.transform.position.y > 400)
+            if (selector.transform.position.y > 200)
             {
                 SoundMng.instance.PlaySound(change_option, 0.3f);
                 selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y - distanceToMove , selector.transform.position.z);
@@ -89,7 +89,7 @@ public class UIMng : MonoBehaviour
         {
             if (shiki_health.hp <= 0)
             {
-                if (selector.transform.position.y > 467)
+                if (selector.transform.position.y > 200)
                 {
                     SoundMng.instance.PlaySound(_continue, 0.3f);
                     menu.SetActive(false);
