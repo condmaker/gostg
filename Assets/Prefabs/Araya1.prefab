@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de8f384b48250447b69657cb3a4555a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beam: {fileID: 7483866025109500284, guid: 1730508573061484ead501decfef6a3e, type: 3}
   isShock: 0
 --- !u!114 &145685216578926242
 MonoBehaviour:
