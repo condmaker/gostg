@@ -6,8 +6,11 @@ using UnityEngine;
 public class Araya1 : MonoBehaviour
 {
     public AudioClip bossSong;
+    public AudioClip music;
     public GameObject boss;
+    private GameObject next;
 
+    private bool onBoss = false;
     private CinemachineVirtualCamera cam;
     private GameObject box;
     private bool isOn;
@@ -21,6 +24,17 @@ public class Araya1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (onBoss && (boss == null))
+        {
+            SoundMng.instance.PlayMusic(music);
+            onBoss = false;
+            next = GameObject.FindWithTag("nextLevel");
+
+            foreach (Transform child in next.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +58,10 @@ public class Araya1 : MonoBehaviour
 
             Instantiate(boss, new Vector3(-7228.03f, -4281, 0), transform.rotation);
 
+            onBoss = true;
+
         }
+        if (other.gameObject.tag == "Araya")
+            boss = other.gameObject;
     }
 }

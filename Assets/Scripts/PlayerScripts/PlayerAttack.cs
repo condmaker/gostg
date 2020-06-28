@@ -447,7 +447,9 @@ public class PlayerAttack : MonoBehaviour
 
                 if (enemyCollider.transform.gameObject.tag == "Araya")
                 {
-                    enemyCollider.transform.gameObject.GetComponent<EnemyHealth>().CommonDamage(GetComponent<HealthPoints>());
+                    if (!enemyCollider.transform.gameObject.GetComponent<DamageZone>().enabled)
+                        enemyCollider.transform.gameObject.GetComponent<EnemyHealth>().CommonDamage(GetComponent<HealthPoints>());
+
                     Destroy(attackCheck);
                     return;
                 }

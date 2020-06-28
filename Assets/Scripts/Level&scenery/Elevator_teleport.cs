@@ -52,8 +52,11 @@ public class Elevator_teleport : MonoBehaviour
 
         if (gameObject.tag == "levelSwitch")
         {
-            Debug.Log("Switch!");
             SceneManager.LoadScene("Level2");
+        }
+        if (gameObject.tag == "levelSwitch2")
+        {
+            SceneManager.LoadScene("Cutscene1");
         }
         else if (gameObject.layer == 18)
         {
