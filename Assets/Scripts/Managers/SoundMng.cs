@@ -24,10 +24,11 @@ public class SoundMng : MonoBehaviour
         audioSources = new List<AudioSource>();
     }
 
-    public void PlayMusic(AudioClip music, float volume = 1.0f)
+    public void PlayMusic(AudioClip music, bool loop = true, float volume = 1.0f)
     {
         if (currentMusic != null && currentMusic.isPlaying)
         {
+            Debug.Log("Test");
             currentMusic.Stop();
         }
 
@@ -35,7 +36,12 @@ public class SoundMng : MonoBehaviour
         audioSource.clip = music;
         audioSource.volume = volume;
         audioSource.Play();
-        audioSource.loop = true;
+
+        if (loop == true)
+            audioSource.loop = true;
+        else
+            audioSource.loop = false;
+
         currentMusic = audioSource;
 
     }
@@ -48,14 +54,13 @@ public class SoundMng : MonoBehaviour
         audioSource.Play();
     }
 
-    AudioSource NewSoundObject()
+    private AudioSource NewSoundObject()
     {
+
         foreach (AudioSource audio in audioSources)
         {
             if (!audio.isPlaying)
-            {
                 return audio;
-            }
         }
 
         GameObject gObject = new GameObject();

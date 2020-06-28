@@ -10,14 +10,12 @@ public class Araya1 : MonoBehaviour
 
     private CinemachineVirtualCamera cam;
     private GameObject box;
-    private SoundMng snd;
     private bool isOn;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GameObject.FindObjectOfType<CinemachineVirtualCamera>();
-        snd = GameObject.FindObjectOfType<SoundMng>();
     }
 
     // Update is called once per frame
@@ -42,7 +40,7 @@ public class Araya1 : MonoBehaviour
             Debug.Log(box.name);
             box.SetActive(true);
 
-            snd.PlayMusic(bossSong);
+            SoundMng.instance.PlayMusic(bossSong);
 
             Instantiate(boss, new Vector3(-7228.03f, -4281, 0), transform.rotation);
 

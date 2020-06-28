@@ -2688,6 +2688,11 @@ PrefabInstance:
       propertyPath: sceneMusic
       value: 
       objectReference: {fileID: 8300000, guid: 31e3bd4d58bcd694f94a55b270fba26c, type: 3}
+    - target: {fileID: 9124196707430251137, guid: c761fafa74e31d643855449a5b78ce5a,
+        type: 3}
+      propertyPath: isNotLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9124196707430251138, guid: c761fafa74e31d643855449a5b78ce5a,
         type: 3}
       propertyPath: m_Name
@@ -3141,8 +3146,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Credits\n\nArt and animations:\n\nMiguel Martinho\nGon\xE7alo VilaVerde\n\n\nCoding
-    and gamedesign:\n\nMarco Domingos\n\n\n\n\n\n\n\n\n\nThe End\n"
+  m_text: "-Credits-\n\n\nArt and Animations:\n\nMiguel Martinho\nGon\xE7alo VilaVerde\n\n\n\n\n\n\n\n\nCoding
+    and Game, Level Design:\n\nMarco Domingos\n\n\n\n\n\n\n\n\nThe End\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c957e18eaa809c48a43116319213a62, type: 2}
   m_sharedMaterial: {fileID: 6605297867482113118, guid: 6c957e18eaa809c48a43116319213a62,

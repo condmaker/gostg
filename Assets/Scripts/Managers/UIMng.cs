@@ -29,7 +29,6 @@ public class UIMng : MonoBehaviour
     void Update()
     {
         shiki_health = GameObject.FindObjectOfType<HealthPoints>();
-        Debug.Log(shiki_health.hp);
         if (shiki_health.hp <= 0)
         {
             Time.timeScale = 0;

@@ -6,10 +6,14 @@ using UnityEngine;
 public class SceneIdentifier : MonoBehaviour
 {
     public AudioClip sceneMusic;
+    public bool isNotLoop;
 
     void Start()
     {
-        SoundMng.instance.PlayMusic(sceneMusic);
+        if (isNotLoop)
+            SoundMng.instance.PlayMusic(sceneMusic, false);
+        else
+            SoundMng.instance.PlayMusic(sceneMusic);
 
         if (SceneManager.GetActiveScene().name == "TitleScreen")
         {

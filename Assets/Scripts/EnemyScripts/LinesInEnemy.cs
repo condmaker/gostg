@@ -12,6 +12,9 @@ public class LinesInEnemy : MonoBehaviour
     void OnEnable()
     {
         // Gets a random number 1-3
+        if (hasNotLine)
+            return;
+
         NumOfLines = Random.Range(1, maxLines + 1);
 
         for (int i = 1; i <= NumOfLines; i++)
