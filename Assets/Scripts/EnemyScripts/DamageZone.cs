@@ -22,6 +22,7 @@ public class DamageZone : MonoBehaviour
     {
         Collider2D[] results = new Collider2D[18];
 
+
         int nCollisions = Physics2D.OverlapCollider(damageZone, contactFilter, results);
 
         if (nCollisions > 0)
