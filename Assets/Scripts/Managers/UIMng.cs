@@ -22,7 +22,7 @@ public class UIMng : MonoBehaviour
     {
         snd = GameObject.FindObjectOfType<SoundMng>();
         DontDestroyOnLoad(gameObject);
-        distanceToMove = 69;
+        distanceToMove = 60;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class UIMng : MonoBehaviour
         }
         if (Input.GetButtonDown("Up") && Time.timeScale == 0)
         {
-            if (selector.transform.position.y > 200)
+            if (selector.transform.position.y > 400)
             {
                 SoundMng.instance.PlaySound(change_option, 0.3f);
                 selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y - distanceToMove , selector.transform.position.z);
@@ -89,12 +89,16 @@ public class UIMng : MonoBehaviour
         {
             if (shiki_health.hp <= 0)
             {
-                if (selector.transform.position.y > 200)
+                if (selector.transform.position.y > 400)
                 {
                     SoundMng.instance.PlaySound(_continue, 0.3f);
                     menu.SetActive(false);
                     Time.timeScale = 1;
                     Unpause();
+                    foreach (Transform child in snd.gameObject.transform)
+                    {
+                        child.gameObject.GetComponent<AudioSource>().volume += 0.8f;
+                    }
                     SceneManager.LoadScene("Level1");
                 }
                 else
@@ -105,12 +109,16 @@ public class UIMng : MonoBehaviour
             }
             else
             {
-                if (selector.transform.position.y > 467)
+                if (selector.transform.position.y > 400)
                 {
                     SoundMng.instance.PlaySound(_continue, 0.3f);
                     menu.SetActive(false);
                     Time.timeScale = 1;
                     Unpause();
+                    foreach (Transform child in snd.gameObject.transform)
+                    {
+                        child.gameObject.GetComponent<AudioSource>().volume += 0.8f;
+                    }
                 }
                 else
                 {
