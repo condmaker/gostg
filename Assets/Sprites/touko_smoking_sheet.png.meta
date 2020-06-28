@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: 02552a2768e8570458e9cb3c7d24916a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7462608444005043862
+    second: touko_smoking_sheet_0
+  - first:
+      213: -2777658522854938341
+    second: touko_smoking_sheet_1
+  - first:
+      213: -4561475630657659890
+    second: touko_smoking_sheet_2
+  - first:
+      213: 1259041580525556346
+    second: touko_smoking_sheet_3
+  - first:
+      213: 8274942780310463887
+    second: touko_smoking_sheet_4
+  - first:
+      213: -3463599588418400129
+    second: touko_smoking_sheet_5
+  - first:
+      213: 3251774909858430803
+    second: touko_smoking_sheet_6
+  - first:
+      213: 95839088996457731
+    second: touko_smoking_sheet_7
+  - first:
+      213: -7763469102657248466
+    second: touko_smoking_sheet_8
+  - first:
+      213: -5996362711548022895
+    second: touko_smoking_sheet_9
+  - first:
+      213: 7140668831248069255
+    second: touko_smoking_sheet_10
+  - first:
+      213: 327610727243763474
+    second: touko_smoking_sheet_11
+  - first:
+      213: 4483958096226045221
+    second: touko_smoking_sheet_12
+  - first:
+      213: -536193616493936559
+    second: touko_smoking_sheet_13
+  - first:
+      213: -5977283045713236173
+    second: touko_smoking_sheet_14
+  - first:
+      213: -7373661094589096439
+    second: touko_smoking_sheet_15
+  - first:
+      213: -8946081815192136615
+    second: touko_smoking_sheet_16
+  - first:
+      213: -7575560047841305427
+    second: touko_smoking_sheet_17
+  - first:
+      213: -8503276335094238380
+    second: touko_smoking_sheet_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: touko_smoking_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 442
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61bf35a82d7f6890800000000000000
+      internalID: -7462608444005043862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 442
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1925e54a46c379d0800000000000000
+      internalID: -2777658522854938341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 442
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c9c07e41262b0c0800000000000000
+      internalID: -4561475630657659890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 442
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a721ca495a3097110800000000000000
+      internalID: 1259041580525556346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 372
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85a61dbd9086d270800000000000000
+      internalID: 8274942780310463887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 372
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f70d1287682deefc0800000000000000
+      internalID: -3463599588418400129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 372
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fb3a74d00a02d20800000000000000
+      internalID: 3251774909858430803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 372
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d1b37c42d745100800000000000000
+      internalID: 95839088996457731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23e467dbfd924490800000000000000
+      internalID: -7763469102657248466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 302
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f28c942e3a8cca0800000000000000
+      internalID: -5996362711548022895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 302
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782be391870c81360800000000000000
+      internalID: 7140668831248069255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 302
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21fc8fd7838eb8400800000000000000
+      internalID: 327610727243763474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d4a49a1283a3e30800000000000000
+      internalID: 4483958096226045221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 232
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1500c062fbe0f88f0800000000000000
+      internalID: -536193616493936559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touko_smoking_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 232
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f2c4a2dbc6c0da0800000000000000
+      internalID: -5977283045713236173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
