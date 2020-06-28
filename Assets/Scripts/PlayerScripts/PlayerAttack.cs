@@ -445,6 +445,13 @@ public class PlayerAttack : MonoBehaviour
             {
                 BoxCollider2D enemyCollider = results[i];
 
+                if (enemyCollider.transform.gameObject.tag == "Araya")
+                {
+                    enemyCollider.transform.gameObject.GetComponent<EnemyHealth>().CommonDamage(GetComponent<HealthPoints>());
+                    Destroy(attackCheck);
+                    return;
+                }
+
                 foreach (Transform t in enemyCollider.transform)
                 {
                     GameObject line = t.gameObject;

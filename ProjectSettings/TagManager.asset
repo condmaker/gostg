@@ -18,6 +18,7 @@ TagManager:
   - bossEnemy
   - nextLevel
   - levelSwitch
+  - Araya
   layers:
   - Default
   - TransparentFX

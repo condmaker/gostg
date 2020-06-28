@@ -52,9 +52,10 @@ public class Elevator_teleport : MonoBehaviour
 
         if (gameObject.tag == "levelSwitch")
         {
+            Debug.Log("Switch!");
             SceneManager.LoadScene("Level2");
         }
-        if (gameObject.layer == 18)
+        else if (gameObject.layer == 18)
         {
             if (sceneMusic != null)
                 SoundMng.instance.PlayMusic(sceneMusic);

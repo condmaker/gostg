@@ -127,8 +127,6 @@ public class UIMng : MonoBehaviour
                 }
             }
         }
-
-
     }
 
     void Pause()
