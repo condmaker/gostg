@@ -66,7 +66,6 @@ public class HealthPoints : MonoBehaviour
         {
             hp = 0;
             onDead();
-            SceneManager.LoadScene("Level1");
         }
 
     }

@@ -1,35 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIMng : MonoBehaviour
 {
     public GameObject[] pauseUI;
     public GameObject menu;
     public GameObject selector;
+    public HealthPoints shiki_health;
+    public SoundMng snd;
 
-    public int[] selector_positions;
+    public AudioClip change_option;
+    public AudioClip _quit;
+    public AudioClip _continue;
+
     private int distanceToMove;
-    private int posIndex;
-    private float arrowInput;
 
     // Start is called before the first frame update
     void Start()
     {
+        snd = GameObject.FindObjectOfType<SoundMng>();
         DontDestroyOnLoad(gameObject);
-        distanceToMove = 100;
-        selector_positions[0] = 146;
-        posIndex = 0;
-        for (int i = 1; i < 4; i++)
-            {
-            selector_positions[i] = selector_positions[i - 1] - distanceToMove;
-            }
+        distanceToMove = 69;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("in update");
+        shiki_health = GameObject.FindObjectOfType<HealthPoints>();
+        Debug.Log(shiki_health.hp);
+        if (shiki_health.hp <= 0)
+        {
+            Time.timeScale = 0;
+            Pause();
+            menu.SetActive(true);
+        }
         if (Input.GetKeyDown("escape"))
         {
             if (Time.timeScale == 1)
@@ -37,36 +43,81 @@ public class UIMng : MonoBehaviour
                 Time.timeScale = 0;
                 Pause();
                 menu.SetActive(true);
+                foreach (Transform child in snd.gameObject.transform)
+                {
+                    child.gameObject.GetComponent<AudioSource>().volume -= 0.8f;
+                }
             }
             else if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
                 Unpause();
                 menu.SetActive(false);
+                foreach (Transform child in snd.gameObject.transform)
+                {
+                    child.gameObject.GetComponent<AudioSource>().volume += 0.8f;
+                }
             }
         }
-        if (Input.GetButton("Down") && Time.timeScale == 0)
-        {
-            Debug.Log("clicked");
-            if (posIndex >= 4)
+        if (Input.GetButtonDown("Down") && Time.timeScale == 0)
+        { 
+            if (selector.transform.position.y < 400)
             {
-                posIndex = 0;
+                SoundMng.instance.PlaySound(change_option, 0.3f);
+                selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y + distanceToMove , selector.transform.position.z);
             }
             else
             {
-                selector.transform.position = new Vector3(selector.transform.position.x, selector_positions[posIndex] - distanceToMove ,selector.transform.position.z);
+                SoundMng.instance.PlaySound(change_option, 0.3f);
+                selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y - distanceToMove,selector.transform.position.z);
             }
         }
-        if (Input.GetButton("Up") && Time.timeScale == 0)
+        if (Input.GetButtonDown("Up") && Time.timeScale == 0)
         {
-            Debug.Log(selector_positions[0]);
-            if (posIndex >= 4)
+            if (selector.transform.position.y > 400)
             {
-                posIndex = 0;
+                SoundMng.instance.PlaySound(change_option, 0.3f);
+                selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y - distanceToMove , selector.transform.position.z);
             }
             else
             {
-                selector.transform.position = new Vector3(selector.transform.position.x, selector_positions[posIndex] - distanceToMove, selector.transform.position.z);
+                SoundMng.instance.PlaySound(change_option, 0.3f);
+                selector.transform.position = new Vector3(selector.transform.position.x, selector.transform.position.y + distanceToMove, selector.transform.position.z);
+            }
+        }
+        if (Input.GetButtonDown("Enter") && Time.timeScale == 0)
+        {
+            if (shiki_health.hp <= 0)
+            {
+                if (selector.transform.position.y > 467)
+                {
+                    SoundMng.instance.PlaySound(_continue, 0.3f);
+                    menu.SetActive(false);
+                    Time.timeScale = 1;
+                    Unpause();
+                    SceneManager.LoadScene("Level1");
+                }
+                else
+                {
+                    SoundMng.instance.PlaySound(_quit, 0.3f);
+                    SceneManager.LoadScene("TitleScreen");
+                }
+            }
+            else
+            {
+                if (selector.transform.position.y > 467)
+                {
+                    SoundMng.instance.PlaySound(_continue, 0.3f);
+                    menu.SetActive(false);
+                    Time.timeScale = 1;
+                    Unpause();
+                }
+                else
+                {
+                    SoundMng.instance.PlaySound(_quit, 0.3f);
+                    Debug.Log("Quits");
+                    Application.Quit();
+                }
             }
         }
 
