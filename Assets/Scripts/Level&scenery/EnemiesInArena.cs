@@ -7,15 +7,9 @@ public class EnemiesInArena : MonoBehaviour
     public List<GameObject> Enemies { get; private set; } = new List<GameObject>();
     public AudioClip music;
 
-    private SoundMng soundManager;
     private GameObject boss;
     private bool arenaStart = false;
     private GameObject next;
-
-    void Start()
-    {
-        soundManager = GameObject.FindObjectOfType<SoundMng>();
-    }
 
     void Update()
     {
@@ -27,7 +21,7 @@ public class EnemiesInArena : MonoBehaviour
 
         if (boss == null && arenaStart)
         {
-            soundManager.PlayMusic(music);
+            SoundMng.instance.PlayMusic(music);
             arenaStart = false;
             next = GameObject.FindWithTag("nextLevel");
 

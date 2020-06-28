@@ -368,6 +368,8 @@ MonoBehaviour:
   enemyAnim: {fileID: 7391729886563423130}
   enemyHealth: 0
   premadeHealth: 20
+  invulTimer: 3
+  isInvul: 0
   deathRestore: 100
   slider: {fileID: 6947580924804433557}
   healthLine: 0
@@ -501,7 +503,7 @@ GameObject:
   - component: {fileID: 1069348958090945993}
   - component: {fileID: 7391729887721057034}
   - component: {fileID: 7391729887721057035}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: BrainCans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +593,7 @@ MonoBehaviour:
     m_Bits: 2048
   enemyMask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 66560
 --- !u!61 &7391729887721057034
 BoxCollider2D:
   m_ObjectHideFlags: 0

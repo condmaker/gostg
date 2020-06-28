@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // TO-DO:
-    // Merge this into only one hp script shared with player (not really quintessential)
-    // Make player recover health when an enemy dies
     public AudioClip enemyDeathSound;
     public AudioClip lineDestructionSound;
     public Animator enemyAnim;
 
     public int       enemyHealth;
     public int       premadeHealth;
+    public float     invulTimer = 3.0f;
+    public bool      isInvul = false;
 
     public float     deathRestore;
     public Slider    slider;
@@ -33,12 +32,20 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        if (isInvul)
+            invulTimer -= Time.deltaTime;
         if (!compGet)
             return;
 
         enemyHealth = healthLine * 10;
         //Bugs
         slider.value = enemyHealth;
+
+        if (invulTimer <= 0)
+        {
+            invulTimer = 3;
+            isInvul = false;
+        }
 
         if (onDead)
         {
@@ -76,6 +83,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (onDead)
             return;
+
+        isInvul = true;
 
         healthLine--;
 

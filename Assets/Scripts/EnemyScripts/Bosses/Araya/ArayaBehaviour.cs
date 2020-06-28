@@ -13,6 +13,7 @@ public class ArayaBehaviour : MonoBehaviour
 
     private Animator   arayaAnim;
     private Animator   cansAnim;
+    private SpriteRenderer arayaShock;
 
     private float shockTimer = 10;
     private float beamTimer = 1;
@@ -25,6 +26,7 @@ public class ArayaBehaviour : MonoBehaviour
         damageZone = GetComponent<DamageZone>();
         arayaHp = GetComponent<EnemyHealth>();
         arayaAnim = GetComponent<Animator>();
+        arayaShock = GetComponent<SpriteRenderer>();
         cansZone = transform.GetChild(0).GetComponent<DamageZone>();
         cansAnim = transform.GetChild(0).GetComponent<Animator>();
 
@@ -49,6 +51,16 @@ public class ArayaBehaviour : MonoBehaviour
 
         Debug.Log(arayaHp.enemyHealth);
 
+        if (arayaHp.isInvul)
+        {
+            if (arayaShock.color.a == 1)
+                arayaShock.color -= new Color(0, 0, 0, 1);
+            else
+                arayaShock.color += new Color(0, 0, 0, 1);
+        }
+        else
+            if (arayaShock.color.a == 0) arayaShock.color += new Color(0, 0, 0, 1);
+
         if ((arayaHp.enemyHealth <= ((arayaHp.premadeHealth * 10) / 2)) && (arayaHp.enemyHealth != 0))
             AddBeam();
 
@@ -60,7 +72,7 @@ public class ArayaBehaviour : MonoBehaviour
 
     IEnumerator ArayaShock()
     {
-        shockTimer = Random.Range(10, 20);
+        shockTimer = 10;
         isShock = true;
 
         arayaAnim.SetBool("isShock", isShock);
