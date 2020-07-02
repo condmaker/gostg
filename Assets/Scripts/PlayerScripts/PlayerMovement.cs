@@ -73,6 +73,16 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            transform.position = new Vector3(4745, 330, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            transform.position = new Vector3(4745, 330, 0);
+        }
+
         if (hp.isInvul)
         {
             if (playerSprite.color.a == 1)

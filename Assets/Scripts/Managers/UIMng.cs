@@ -101,6 +101,7 @@ public class UIMng : MonoBehaviour
                 }
                 else
                 {
+                    shiki_health.hp = 1;
                     SoundMng.instance.PlaySound(_quit, 0.3f);
                     StartCoroutine("SoundWait");
                 }
@@ -143,6 +144,7 @@ public class UIMng : MonoBehaviour
             g.SetActive(false);
         }
     }
+
 
     IEnumerator SoundWait()
     {
